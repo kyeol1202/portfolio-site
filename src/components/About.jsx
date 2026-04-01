@@ -71,6 +71,28 @@ const CertItem = styled.li`
   span { color: #4a9eff; margin-right: 0.5rem; }
 `;
 
+const ActivityItem = styled.li`
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  span.bullet { color: #4a9eff; margin-right: 0.5rem; }
+  span.year {
+    color: #4a9eff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+    opacity: 0.8;
+  }
+  em {
+    display: block;
+    font-style: normal;
+    color: #667;
+    font-size: 0.82rem;
+    margin-top: 0.15rem;
+    padding-left: 1.2rem;
+  }
+`;
+
 function About() {
   return (
     <Section id="about">
@@ -79,6 +101,7 @@ function About() {
         <Divider />
       </Reveal>
       <Grid>
+        {/* ── 왼쪽 컬럼 ── */}
         <div>
           <Reveal delay={0.1}>
             <Text>
@@ -94,6 +117,7 @@ function About() {
               폭넓게 역량을 확장하고 있습니다.
             </Text>
           </Reveal>
+
           <Reveal delay={0.2}>
             <SubTitle>자격증</SubTitle>
             <CertList>
@@ -104,6 +128,7 @@ function About() {
               <CertItem><span>▹</span> 컴퓨터그래픽기능사 (2017.06)</CertItem>
             </CertList>
           </Reveal>
+
           <Reveal delay={0.3}>
             <SubTitle>수상</SubTitle>
             <CertList>
@@ -111,11 +136,44 @@ function About() {
               <CertItem><span>▹</span> 서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)</CertItem>
             </CertList>
           </Reveal>
+
+          <Reveal delay={0.4}>
+            <SubTitle>대내외 활동</SubTitle>
+            <CertList as="ul">
+              <ActivityItem>
+                <span className="bullet">▹</span>
+                게임잼 참여<span className="year">2016</span>
+                <em>서강대학교 MTEC 주최 고교생 게임 제작 행사 참가</em>
+              </ActivityItem>
+              <ActivityItem>
+                <span className="bullet">▹</span>
+                청소년 게임잼 참가<span className="year">2017</span>
+                <em>청소년 대상 게임 개발 아이디어톤 · 제작 챌린지</em>
+              </ActivityItem>
+              <ActivityItem>
+                <span className="bullet">▹</span>
+                게임개발 기능경기대회 참가<span className="year">2017</span>
+                <em>수원공업고등학교 디지털게임과 대표 — 게임 개발 직종 기능경기 참가</em>
+              </ActivityItem>
+              <ActivityItem>
+                <span className="bullet">▹</span>
+                서강대 미래교육원 아트동아리 <strong>Spectrum</strong><span className="year">2019 – 2020</span>
+                <em>디지털 아트 · 그래픽 디자인 중심 동아리 활동</em>
+              </ActivityItem>
+              <ActivityItem>
+                <span className="bullet">▹</span>
+                서강대 미래교육원 개발동아리 <strong>Adiutor</strong><span className="year">2022 – 2023</span>
+                <em>웹 · 앱 개발 프로젝트 동아리 — 2023년 부회장 역임</em>
+              </ActivityItem>
+            </CertList>
+          </Reveal>
         </div>
+
+        {/* ── 오른쪽 컬럼 ── */}
         <div>
           <Reveal delay={0.15} direction="right">
             <InfoList>
-              <InfoItem><span>▹</span> 이름: 김한결 (Kim Hangyeol)</InfoItem>
+              <InfoItem><span>▹</span> 이름: 김한결 (Kim HanKyeol)</InfoItem>
               <InfoItem><span>▹</span> 생년월일: 2000.12.02</InfoItem>
               <InfoItem><span>▹</span> 이메일: kyeol1202@naver.com</InfoItem>
               <InfoItem><span>▹</span> GitHub: github.com/kyeol1202</InfoItem>
@@ -123,6 +181,7 @@ function About() {
               <InfoItem><span>▹</span> 병역: 육군 병장 만기전역 (2020~2022)</InfoItem>
             </InfoList>
           </Reveal>
+
           <Reveal delay={0.25} direction="right">
             <SubTitle>학력</SubTitle>
             <CertList>
@@ -130,6 +189,7 @@ function About() {
               <CertItem><span>▹</span> 수원공업고등학교 디지털게임과 (2016~2019)</CertItem>
             </CertList>
           </Reveal>
+
           <Reveal delay={0.35} direction="right">
             <SubTitle>교육 / 경력</SubTitle>
             <CertList>
