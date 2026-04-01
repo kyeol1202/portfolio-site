@@ -13692,18 +13692,72 @@ function Navbar() {
     ] })
   ] });
 }
+const makeAssemble = (x2, y, r) => ft`
+  0% {
+    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.3);
+    opacity: 0;
+    color: #4a9eff;
+    text-shadow: 0 0 30px #4a9eff, 0 0 60px #4a9eff;
+    filter: blur(8px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+    color: #a0d4ff;
+  }
+  72% {
+    transform: translate(${-x2 * 0.05}px, ${-y * 0.05}px) rotate(${-r * 0.05}deg) scale(1.08);
+    text-shadow: 0 0 60px #4a9eff, 0 0 120px #4a9eff, 0 0 200px #4a9eff;
+    color: #fff;
+  }
+  88% {
+    transform: translate(${x2 * 0.015}px, ${y * 0.015}px) rotate(${r * 0.015}deg) scale(0.96);
+    color: #e0f0ff;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(74, 158, 255, 0.6);
+    filter: blur(0);
+  }
+`;
+const namePulse = ft`
+  0%   { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
+  50%  { text-shadow: 0 0 40px rgba(74,158,255,1), 0 0 80px rgba(74,158,255,0.5); }
+  100% { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
+`;
+const scanSlide = ft`
+  0%   { top: 0%; opacity: 0.9; }
+  100% { top: 100%; opacity: 0; }
+`;
+const gridFlow = ft`
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+`;
 const fadeUp$1 = ft`
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
 const blink = ft`
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 `;
 const bounceY = ft`
-  0%,100% { opacity: 0.2; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(6px); }
+  0%, 100% { opacity: 0.2; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(6px); }
 `;
+const LETTERS = [
+  { char: "H", x: -700, y: -280, r: -195, delay: 0.05 },
+  { char: "a", x: 550, y: -420, r: 140, delay: 0.18 },
+  { char: "n", x: -480, y: 480, r: -270, delay: 0.3 },
+  { char: "K", x: 820, y: 80, r: 100, delay: 0.45 },
+  { char: "y", x: 360, y: -520, r: -130, delay: 0.57 },
+  { char: "e", x: 560, y: 460, r: 210, delay: 0.68 },
+  { char: "o", x: -820, y: 160, r: -70, delay: 0.79 },
+  { char: "l", x: 60, y: -640, r: 185, delay: 0.9 }
+];
+const ASSEMBLE_DONE = 0.9 + 1;
 const Section$4 = ut.section`
   min-height: 100vh;
   display: flex;
@@ -13711,68 +13765,137 @@ const Section$4 = ut.section`
   justify-content: center;
   align-items: flex-start;
   padding: 0 10%;
-  background: linear-gradient(135deg, #0a0a0a 60%, #0d1b2a 100%);
+  background:
+    linear-gradient(135deg, #060810 55%, #0a1628 100%);
   position: relative;
   overflow: hidden;
 
+  /* 에너지 격자 배경 */
   &::before {
     content: '';
     position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(74,158,255,0.08) 0%, transparent 70%);
-    top: -100px;
-    right: -100px;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,158,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,158,255,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: ${gridFlow} 6s linear infinite;
+    pointer-events: none;
+  }
+
+  /* 코너 글로우 */
+  &::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74,158,255,0.07) 0%, transparent 65%);
+    top: -150px;
+    right: -150px;
     border-radius: 50%;
     pointer-events: none;
   }
 `;
+const ScanLine = ut.div`
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #4a9eff, transparent);
+  animation: ${scanSlide} 0.7s ease-out ${ASSEMBLE_DONE + 0.05}s both;
+  pointer-events: none;
+  z-index: 10;
+`;
+const NameRow = ut.div`
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  /* 조립 완료 후 전체 이름 펄스 */
+  animation: ${namePulse} 2s ease ${ASSEMBLE_DONE + 0.15}s 2;
+`;
+const LetterSpan = ut.span`
+  display: inline-block;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(74,158,255,0.6);
+
+  ${({ $x, $y, $r, $delay }) => it`
+    animation: ${makeAssemble($x, $y, $r)} 1s cubic-bezier(0.22, 1, 0.36, 1) ${$delay}s both;
+  `}
+`;
+const Divider$4 = ut.span`
+  display: inline-block;
+  width: 3px;
+  height: clamp(2rem, 5vw, 4.5rem);
+  background: linear-gradient(180deg, transparent, #4a9eff, transparent);
+  margin: 0 0.15em;
+  border-radius: 2px;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.3s ease ${ASSEMBLE_DONE}s both;
+  box-shadow: 0 0 10px #4a9eff;
+  align-self: center;
+`;
+const Cursor = ut.span`
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 900;
+  color: #4a9eff;
+  animation: ${blink} 1s step-end infinite;
+  margin-left: 2px;
+`;
 const Greeting = ut.p`
   color: #4a9eff;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
-  animation: ${fadeUp$1} 0.6s ease both;
-`;
-const Name = ut.h1`
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-  animation: ${fadeUp$1} 0.6s ease 0.1s both;
-`;
-const Cursor = ut.span`
-  color: #4a9eff;
-  animation: ${blink} 1s step-end infinite;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE - 0.3}s both;
 `;
 const Role = ut.h2`
-  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
-  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 400;
   color: #4a9eff;
-  margin-top: 0.7rem;
-  animation: ${fadeUp$1} 0.6s ease 0.2s both;
+  margin-top: 1rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
+
+  &::before {
+    content: '// ';
+    opacity: 0.5;
+  }
 `;
 const Description$1 = ut.p`
-  max-width: 540px;
-  color: #aaa;
+  max-width: 520px;
+  color: #8899aa;
   line-height: 1.9;
-  margin-top: 1.5rem;
-  font-size: 1rem;
-  animation: ${fadeUp$1} 0.6s ease 0.3s both;
+  margin-top: 1.4rem;
+  font-size: 0.95rem;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
 `;
 const ButtonGroup = ut.div`
   display: flex;
   gap: 1rem;
   margin-top: 2.5rem;
   flex-wrap: wrap;
-  animation: ${fadeUp$1} 0.6s ease 0.4s both;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.6}s both;
 `;
 const PrimaryBtn = ut.a`
   padding: 0.8rem 2rem;
   background: #4a9eff;
   color: #fff;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   transition: background 0.2s, transform 0.2s;
   &:hover { background: #2d7dd2; transform: translateY(-2px); }
 `;
@@ -13780,9 +13903,13 @@ const SecondaryBtn = ut.a`
   padding: 0.8rem 2rem;
   border: 1px solid #4a9eff;
   color: #4a9eff;
-  border-radius: 6px;
+  border-radius: 4px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
   transition: background 0.2s, transform 0.2s;
   &:hover { background: rgba(74,158,255,0.1); transform: translateY(-2px); }
 `;
@@ -13795,7 +13922,8 @@ const ScrollHint = ut.div`
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  animation: ${fadeUp$1} 1s ease 1s both;
+  opacity: 0;
+  animation: ${fadeUp$1} 0.8s ease ${ASSEMBLE_DONE + 1}s both;
 `;
 const ScrollDot = ut.div`
   width: 6px;
@@ -13807,10 +13935,15 @@ const ScrollDot = ut.div`
   &:nth-child(3) { animation-delay: 0.4s; }
 `;
 function Hero() {
+  const han = LETTERS.slice(0, 3);
+  const kyeol = LETTERS.slice(3);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "hero", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "안녕하세요, 저는" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Name, { children: [
-      "김한결",
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
+      han.map((l2) => /* @__PURE__ */ jsxRuntimeExports.jsx(LetterSpan, { $x: l2.x, $y: l2.y, $r: l2.r, $delay: l2.delay, children: l2.char }, l2.char)),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$4, {}),
+      kyeol.map((l2) => /* @__PURE__ */ jsxRuntimeExports.jsx(LetterSpan, { $x: l2.x, $y: l2.y, $r: l2.r, $delay: l2.delay, children: l2.char }, l2.char)),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Cursor, { children: "_" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Role, { children: "Fullstack / Backend Developer" }),
@@ -14391,7 +14524,6 @@ function Contact() {
 }
 function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: " hello " }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}),
