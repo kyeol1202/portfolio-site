@@ -6,7 +6,7 @@ const Section = styled.section`
   background: #0a0a0a;
 `;
 
-const Title = styled.h2`
+const SectionTitle = styled.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -14,88 +14,152 @@ const Title = styled.h2`
   span { color: #4a9eff; }
 `;
 
-const Divider = styled.div`
+const TitleDivider = styled.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
   margin-bottom: 3rem;
 `;
 
-const Category = styled.div`
-  margin-bottom: 2.5rem;
-`;
-
-const CategoryTitle = styled.h3`
-  color: #4a9eff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-`;
-
 const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
 
-const Tag = styled.div`
+const CategoryCard = styled.div`
   background: #111;
   border: 1px solid #1e1e2e;
-  border-radius: 8px;
-  padding: 0.6rem 1.1rem;
-  color: #ccc;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-  &:hover { border-color: #4a9eff; color: #fff; transform: translateY(-3px); }
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  &:hover { border-color: rgba(74,158,255,0.3); }
 `;
 
+const CategoryHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+`;
+
+const CategoryIcon = styled.span`
+  font-size: 1.1rem;
+`;
+
+const CategoryLabel = styled.h3`
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #4a9eff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+`;
+
+const SkillList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+`;
+
+const SkillRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+`;
+
+const SkillLeft = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+`;
+
+const SkillEmoji = styled.span`
+  font-size: 1rem;
+  flex-shrink: 0;
+`;
+
+const SkillName = styled.span`
+  font-size: 0.88rem;
+  color: #ccc;
+  font-weight: 500;
+  white-space: nowrap;
+`;
+
+const Dots = styled.div`
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+`;
+
+const Dot = styled.div`
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: ${({ $filled }) => ($filled ? '#4a9eff' : '#1e1e2e')};
+  box-shadow: ${({ $filled }) => ($filled ? '0 0 6px rgba(74,158,255,0.6)' : 'none')};
+`;
+
+/* ── 데이터 ── */
 const categories = [
   {
+    icon: '⌨️',
     label: '개발 언어',
-    items: [
-      { icon: '☕', name: 'Java' },
-      { icon: '🐍', name: 'Python' },
-      { icon: '🟨', name: 'JavaScript' },
-      { icon: '📊', name: 'R' },
-      { icon: '📱', name: 'React Native' },
+    skills: [
+      { emoji: '☕', name: 'Java',         level: 4 },
+      { emoji: '🐍', name: 'Python',       level: 4 },
+      { emoji: '🟨', name: 'JavaScript',   level: 3 },
+      { emoji: '📊', name: 'R',            level: 2 },
+      { emoji: '📱', name: 'React Native', level: 2 },
     ],
   },
   {
+    icon: '🧩',
     label: '프레임워크 / 라이브러리',
-    items: [
-      { icon: '🍃', name: 'Spring Boot' },
-      { icon: '⚛️', name: 'React.js' },
+    skills: [
+      { emoji: '🍃', name: 'Spring Boot', level: 4 },
+      { emoji: '⚛️', name: 'React.js',   level: 3 },
     ],
   },
   {
+    icon: '🗄️',
     label: '데이터베이스',
-    items: [
-      { icon: '🗄️', name: 'MariaDB' },
-      { icon: '🔥', name: 'Firebase' },
+    skills: [
+      { emoji: '🐬', name: 'MariaDB',  level: 4 },
+      { emoji: '🔥', name: 'Firebase', level: 2 },
     ],
   },
   {
+    icon: '🛠️',
     label: '개발 도구',
-    items: [
-      { icon: '🔵', name: 'VSCode' },
-      { icon: '🌑', name: 'Eclipse / STS' },
-      { icon: '🤖', name: 'Android Studio' },
-      { icon: '📐', name: 'DBeaver' },
-      { icon: '🎨', name: 'Figma' },
-      { icon: '☁️', name: 'ERD Cloud' },
+    skills: [
+      { emoji: '🔵', name: 'VSCode',           level: 5 },
+      { emoji: '🌑', name: 'Eclipse / STS',    level: 4 },
+      { emoji: '🤖', name: 'Android Studio',   level: 2 },
+      { emoji: '📐', name: 'DBeaver',           level: 3 },
+      { emoji: '🎨', name: 'Figma',            level: 3 },
     ],
   },
   {
+    icon: '⚙️',
     label: '기타',
-    items: [
-      { icon: '🐙', name: 'Git / GitHub' },
-      { icon: '🤖', name: 'Brity RPA' },
-      { icon: '📝', name: 'Notion' },
+    skills: [
+      { emoji: '🐙', name: 'Git / GitHub', level: 4 },
+      { emoji: '🤖', name: 'Brity RPA',   level: 3 },
+      { emoji: '📝', name: 'Notion',      level: 4 },
+      { emoji: '☁️', name: 'ERD Cloud',  level: 3 },
+    ],
+  },
+  {
+    icon: '🎨',
+    label: '디자인 / 그래픽',
+    skills: [
+      { emoji: '🖼️', name: 'Photoshop',    level: 4 },
+      { emoji: '✏️', name: 'Illustrator', level: 3 },
+      { emoji: '💡', name: '3D Modeling',  level: 2 },
     ],
   },
 ];
@@ -104,24 +168,38 @@ function Skills() {
   return (
     <Section id="skills">
       <Reveal>
-        <Title><span>#</span> Skills</Title>
-        <Divider />
+        <SectionTitle><span>#</span> Skills</SectionTitle>
+        <TitleDivider />
       </Reveal>
-      {categories.map((cat, i) => (
-        <Reveal key={cat.label} delay={i * 0.1}>
-          <Category>
-            <CategoryTitle>{cat.label}</CategoryTitle>
-            <Grid>
-              {cat.items.map((item) => (
-                <Tag key={item.name}>
-                  <span>{item.icon}</span>
-                  {item.name}
-                </Tag>
-              ))}
-            </Grid>
-          </Category>
-        </Reveal>
-      ))}
+
+      <Grid>
+        {categories.map((cat, i) => (
+          <Reveal key={cat.label} delay={i * 0.08}>
+            <CategoryCard>
+              <CategoryHeader>
+                <CategoryIcon>{cat.icon}</CategoryIcon>
+                <CategoryLabel>{cat.label}</CategoryLabel>
+              </CategoryHeader>
+
+              <SkillList>
+                {cat.skills.map((skill) => (
+                  <SkillRow key={skill.name}>
+                    <SkillLeft>
+                      <SkillEmoji>{skill.emoji}</SkillEmoji>
+                      <SkillName>{skill.name}</SkillName>
+                    </SkillLeft>
+                    <Dots>
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <Dot key={n} $filled={n <= skill.level} />
+                      ))}
+                    </Dots>
+                  </SkillRow>
+                ))}
+              </SkillList>
+            </CategoryCard>
+          </Reveal>
+        ))}
+      </Grid>
     </Section>
   );
 }
