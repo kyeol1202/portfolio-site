@@ -14040,232 +14040,350 @@ const Section$3 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const Title$3 = ut.h2`
+const SectionTitle$2 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const Divider$3 = ut.div`
+const TitleDivider$2 = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
   margin-bottom: 3rem;
 `;
-const Grid$2 = ut.div`
+const ProfileRow = ut.div`
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+
+  @media (max-width: 860px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+const PhotoWrap = ut.div`
+  min-width: 220px;
+  width: 220px;
+  height: 260px;
+  border-radius: 14px;
+  border: 2px solid rgba(74,158,255,0.35);
+  box-shadow: 0 0 40px rgba(74,158,255,0.1);
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(145deg, #111827, #0d1520);
+  flex-shrink: 0;
+
+  /* 코너 액센트 */
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 18px; height: 18px;
+    border-color: #4a9eff;
+    border-style: solid;
+    z-index: 2;
+  }
+  &::before { top: -3px; left: -3px; border-width: 2px 0 0 2px; }
+  &::after  { bottom: -3px; right: -3px; border-width: 0 2px 2px 0; }
+`;
+const ProfilePhoto = ut.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+const ProfileInitials = ut.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(74,158,255,0.25);
+  letter-spacing: 6px;
+  font-family: monospace;
+`;
+const ProfileRight = ut.div`
+  flex: 1;
+`;
+const BioText = ut.p`
+  color: #999;
+  line-height: 1.9;
+  font-size: 0.95rem;
+  margin-bottom: 1.6rem;
+`;
+const InfoGrid = ut.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px)  { grid-template-columns: 1fr; }
+`;
+const InfoCard = ut.div`
+  background: #111;
+  border: 1px solid #1e1e2e;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s;
+  &:hover { border-color: rgba(74,158,255,0.35); }
+`;
+const InfoIcon = ut.div`
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(74,158,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: #4a9eff;
+`;
+const InfoText = ut.div``;
+const InfoLabel = ut.div`
+  font-size: 0.65rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.2rem;
+`;
+const InfoValue = ut.div`
+  font-size: 0.82rem;
+  color: #ddd;
+  font-weight: 500;
+  line-height: 1.4;
+`;
+const DetailGrid = ut.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  @media (max-width: 768px) { grid-template-columns: 1fr; gap: 2rem; }
+  gap: 2.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
-const Text = ut.p`
-  color: #aaa;
-  line-height: 1.9;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-`;
-const InfoList = ut.ul`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-`;
-const InfoItem = ut.li`
-  color: #ccc;
-  font-size: 0.95rem;
-  span { color: #4a9eff; font-weight: 600; margin-right: 0.5rem; }
+const SubSection = ut.div`
+  margin-bottom: 2rem;
 `;
 const SubTitle = ut.h3`
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 2rem 0 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #1e1e2e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #4a9eff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(74,158,255,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    width: 4px; height: 14px;
+    background: #4a9eff;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
 `;
-const CertList = ut.ul`
+const ItemList = ut.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
 `;
-const CertItem = ut.li`
+const Item = ut.li`
+  font-size: 0.85rem;
   color: #aaa;
-  font-size: 0.9rem;
-  span { color: #4a9eff; margin-right: 0.5rem; }
+  line-height: 1.6;
+  display: flex;
+  gap: 0.5rem;
+
+  &::before {
+    content: '▹';
+    color: #4a9eff;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+`;
+const PlanBadge = ut.span`
+  font-size: 0.6rem;
+  color: #4a9eff;
+  border: 1px solid rgba(74,158,255,0.4);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  opacity: 0.8;
 `;
 const ActivityItem = ut.li`
+  font-size: 0.85rem;
   color: #aaa;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  span.bullet { color: #4a9eff; margin-right: 0.5rem; }
-  span.year {
+  line-height: 1.55;
+  display: flex;
+  gap: 0.5rem;
+
+  &::before {
+    content: '▹';
     color: #4a9eff;
-    font-weight: 600;
-    font-size: 0.8rem;
-    margin-left: 0.4rem;
-    opacity: 0.8;
-  }
-  em {
-    display: block;
-    font-style: normal;
-    color: #667;
-    font-size: 0.82rem;
-    margin-top: 0.15rem;
-    padding-left: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
 `;
+const ActivityBody = ut.div``;
+const ActivityMain = ut.div`
+  color: #ccc;
+  em {
+    font-style: normal;
+    color: #4a9eff;
+    margin-right: 0.3rem;
+  }
+`;
+const ActivitySub = ut.div`
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 0.15rem;
+  padding-left: 0.1rem;
+`;
+const infoItems = [
+  { icon: "👤", label: "이름", value: "김한결 (Kim HanKyeol)" },
+  { icon: "📅", label: "생년월일", value: "2000.12.02" },
+  { icon: "✉️", label: "이메일", value: "kyeol1202@naver.com" },
+  { icon: "⌨️", label: "GitHub", value: "github.com/kyeol1202" },
+  { icon: "💼", label: "희망 직무", value: "풀스택 / 백엔드 / 데이터" },
+  { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
+];
 function About() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "about", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Title$3, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$2, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " About Me"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$3, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$2, {})
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Grid$2, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.1, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { children: "안녕하세요! Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { children: "데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 웹 서비스 등 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { children: "백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.2, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "자격증" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 사무자동화 산업기사 (2024.06)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 게임그래픽 전문가 (2023.08)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 자동차운전면허증 1종 (2020.08)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 웹디자인 기능사 (2018.07)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 컴퓨터그래픽기능사 (2017.06)"
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.3, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "수상" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 양성평등 디자인 공모전 동상 (2017, 한국양성평등교육진흥원)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)"
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.4, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "대내외 활동" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { as: "ul", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
-              "게임잼 참여",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2016" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "서강대학교 MTEC 주최 고교생 게임 제작 행사 참가" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
-              "청소년 게임잼 참가",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2017" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "청소년 대상 게임 개발 아이디어톤 · 제작 챌린지" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
-              "게임개발 기능경기대회 참가",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2017" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "수원공업고등학교 디지털게임과 대표 — 게임 개발 직종 기능경기 참가" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
-              "서강대 미래교육원 아트동아리 ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Spectrum" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2019 – 2020" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "디지털 아트 · 그래픽 디자인 중심 동아리 활동" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
-              "서강대 미래교육원 개발동아리 ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Adiutor" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2022 – 2023" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "웹 · 앱 개발 프로젝트 동아리 — 2023년 부회장 역임" })
-            ] })
-          ] })
-        ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRow, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(PhotoWrap, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ProfilePhoto,
+          {
+            src: "/profile.jpg",
+            alt: "HanKyeol",
+            onError: (e) => {
+              e.currentTarget.style.display = "none";
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials, { children: "HK" })
       ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(BioText, { children: "Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다. 데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등 다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다. 백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid, { children: infoItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon, { children: item.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel, { children: item.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue, { children: item.value })
+          ] })
+        ] }, item.label)) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoList, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 이름: 김한결 (Kim HanKyeol)"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 생년월일: 2000.12.02"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 이메일: kyeol1202@naver.com"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " GitHub: github.com/kyeol1202"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 희망 직무: 풀스택 / 백엔드 / 데이터분석"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 병역: 육군 병장 만기전역 (2020~2022)"
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "학력" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대학교 미래교육원 멀티미디어공학 — 학점 3.88/4.5 (2019~2025)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "수원공업고등학교 디지털게임과 (2016~2019)" })
           ] })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.25, direction: "right", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "학력" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 서강대학교 미래교육원 멀티미디어공학 — 학점 3.88/4.5 (2019~2025)"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 수원공업고등학교 디지털게임과 (2016~2019)"
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.35, direction: "right", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "교육 / 경력" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 글로벌아카데미 — 차세대 AI 예측 Solution 개발 (2025.11~2026.04)"
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "글로벌아카데미 — 차세대 AI 예측 Solution 개발 (2025.11~2026.04)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 NIA AI 학습 데이터 구축 사업 — 3D 스캔데이터 보정 (2023.07~09)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "넷마블게임아카데미 2기 (2017.06~2018.01)" })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "수상" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "양성평등 디자인 공모전 동상 (2017, 한국양성평등교육진흥원)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)" })
+          ] })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "자격증" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "사무자동화 산업기사 (2024.06)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "게임그래픽 전문가 (2023.08)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "자동차운전면허증 1종 (2020.08)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "웹디자인 기능사 (2018.07)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "컴퓨터그래픽기능사 (2017.06)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
+              "정보처리기사",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 서강대 NIA AI 학습 데이터 구축 사업 — 3D 스캔데이터 보정 (2023.07~09)"
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
+              "토익스피킹 140점",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(CertItem, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-              " 넷마블게임아카데미 2기 (2017.06~2018.01)"
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
+              "JLPT N3",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
+              "ADsP (데이터분석 준전문가)",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
             ] })
           ] })
-        ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "대내외 활동" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { as: "ul", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2016" }),
+                "게임잼 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "한국콘텐츠진흥원 주최 게임 제작 행사" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
+                "청소년 게임잼 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "청소년 대상 게임 개발 챌린지" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
+                "게임개발 기능경기대회 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "수원공업고등학교 디지털게임과 대표" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2019–2020" }),
+                "아트동아리 ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Spectrum" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 디지털 아트 · 그래픽 디자인" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2022–2023" }),
+                "개발동아리 ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Adiutor" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임" })
+            ] }) })
+          ] })
+        ] }) })
       ] })
     ] })
   ] });
@@ -14274,123 +14392,184 @@ const Section$2 = ut.section`
   padding: 6rem 10%;
   background: #0a0a0a;
 `;
-const Title$2 = ut.h2`
+const SectionTitle$1 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const Divider$2 = ut.div`
+const TitleDivider$1 = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
   margin-bottom: 3rem;
 `;
-const Category = ut.div`
-  margin-bottom: 2.5rem;
-`;
-const CategoryTitle = ut.h3`
-  color: #4a9eff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-`;
 const Grid$1 = ut.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
-const Tag$1 = ut.div`
+const CategoryCard = ut.div`
   background: #111;
   border: 1px solid #1e1e2e;
-  border-radius: 8px;
-  padding: 0.6rem 1.1rem;
-  color: #ccc;
-  font-size: 0.9rem;
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  &:hover { border-color: rgba(74,158,255,0.3); }
+`;
+const CategoryHeader = ut.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-  &:hover { border-color: #4a9eff; color: #fff; transform: translateY(-3px); }
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+`;
+const CategoryIcon = ut.span`
+  font-size: 1.1rem;
+`;
+const CategoryLabel = ut.h3`
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #4a9eff;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+`;
+const SkillList = ut.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+`;
+const SkillRow = ut.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+`;
+const SkillLeft = ut.div`
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+`;
+const SkillEmoji = ut.span`
+  font-size: 1rem;
+  flex-shrink: 0;
+`;
+const SkillName = ut.span`
+  font-size: 0.88rem;
+  color: #ccc;
+  font-weight: 500;
+  white-space: nowrap;
+`;
+const Dots = ut.div`
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+`;
+const Dot$1 = ut.div`
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: ${({ $filled }) => $filled ? "#4a9eff" : "#1e1e2e"};
+  box-shadow: ${({ $filled }) => $filled ? "0 0 6px rgba(74,158,255,0.6)" : "none"};
 `;
 const categories = [
   {
+    icon: "⌨️",
     label: "개발 언어",
-    items: [
-      { icon: "☕", name: "Java" },
-      { icon: "🐍", name: "Python" },
-      { icon: "🟨", name: "JavaScript" },
-      { icon: "📊", name: "R" },
-      { icon: "📱", name: "React Native" }
+    skills: [
+      { emoji: "☕", name: "Java", level: 4 },
+      { emoji: "🐍", name: "Python", level: 4 },
+      { emoji: "🟨", name: "JavaScript", level: 3 },
+      { emoji: "📊", name: "R", level: 2 },
+      { emoji: "📱", name: "React Native", level: 2 }
     ]
   },
   {
+    icon: "🧩",
     label: "프레임워크 / 라이브러리",
-    items: [
-      { icon: "🍃", name: "Spring Boot" },
-      { icon: "⚛️", name: "React.js" }
+    skills: [
+      { emoji: "🍃", name: "Spring Boot", level: 4 },
+      { emoji: "⚛️", name: "React.js", level: 3 }
     ]
   },
   {
+    icon: "🗄️",
     label: "데이터베이스",
-    items: [
-      { icon: "🗄️", name: "MariaDB" },
-      { icon: "🔥", name: "Firebase" }
+    skills: [
+      { emoji: "🐬", name: "MariaDB", level: 4 },
+      { emoji: "🔥", name: "Firebase", level: 2 }
     ]
   },
   {
+    icon: "🛠️",
     label: "개발 도구",
-    items: [
-      { icon: "🔵", name: "VSCode" },
-      { icon: "🌑", name: "Eclipse / STS" },
-      { icon: "🤖", name: "Android Studio" },
-      { icon: "📐", name: "DBeaver" },
-      { icon: "🎨", name: "Figma" },
-      { icon: "☁️", name: "ERD Cloud" }
+    skills: [
+      { emoji: "🔵", name: "VSCode", level: 5 },
+      { emoji: "🌑", name: "Eclipse / STS", level: 4 },
+      { emoji: "🤖", name: "Android Studio", level: 2 },
+      { emoji: "📐", name: "DBeaver", level: 3 },
+      { emoji: "🎨", name: "Figma", level: 3 }
     ]
   },
   {
+    icon: "⚙️",
     label: "기타",
-    items: [
-      { icon: "🐙", name: "Git / GitHub" },
-      { icon: "🤖", name: "Brity RPA" },
-      { icon: "📝", name: "Notion" }
+    skills: [
+      { emoji: "🐙", name: "Git / GitHub", level: 4 },
+      { emoji: "🤖", name: "Brity RPA", level: 3 },
+      { emoji: "📝", name: "Notion", level: 4 },
+      { emoji: "☁️", name: "ERD Cloud", level: 3 }
+    ]
+  },
+  {
+    icon: "🎨",
+    label: "디자인 / 그래픽",
+    skills: [
+      { emoji: "🖼️", name: "Photoshop", level: 4 },
+      { emoji: "✏️", name: "Illustrator", level: 3 },
+      { emoji: "💡", name: "3D Modeling", level: 2 }
     ]
   }
 ];
 function Skills() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { id: "skills", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Title$2, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Skills"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$2, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$1, {})
     ] }),
-    categories.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Category, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryTitle, { children: cat.label }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Grid$1, { children: cat.items.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Tag$1, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.icon }),
-        item.name
-      ] }, item.name)) })
-    ] }) }, cat.label))
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Grid$1, { children: categories.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.08, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryCard, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryHeader, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryIcon, { children: cat.icon }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryLabel, { children: cat.label })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji, { children: skill.emoji }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Dots, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$1, { $filled: n <= skill.level }, n)) })
+      ] }, skill.name)) })
+    ] }) }, cat.label)) })
   ] });
 }
 const Section$1 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const Title$1 = ut.h2`
+const SectionTitle = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const Divider$1 = ut.div`
+const TitleDivider = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
@@ -14398,108 +14577,180 @@ const Divider$1 = ut.div`
 `;
 const Grid = ut.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
+
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
 `;
+const ACCENT_COLORS = ["#4a9eff", "#7b61ff", "#00c9a7"];
 const Card = ut.div`
   background: #111;
   border: 1px solid #1e1e2e;
-  border-radius: 12px;
-  padding: 1.8rem;
-  transition: border-color 0.2s, transform 0.2s;
+  border-radius: 14px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  &:hover { border-color: #4a9eff; transform: translateY(-5px); }
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    border-color: ${({ $color }) => $color};
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px ${({ $color }) => $color}18;
+  }
+`;
+const AccentBar = ut.div`
+  height: 3px;
+  background: linear-gradient(90deg, ${({ $color }) => $color}, transparent);
+`;
+const CardBody = ut.div`
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 const CardTop = ut.div`
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
 `;
 const ProjectName = ut.h3`
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 1.4;
 `;
-const Period = ut.span`
-  color: #555;
-  font-size: 0.78rem;
+const StatusBadge = ut.span`
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
   white-space: nowrap;
-  margin-left: 0.5rem;
+  flex-shrink: 0;
+  border: 1px solid ${({ $done }) => $done ? "rgba(0,201,167,0.4)" : "rgba(74,158,255,0.4)"};
+  color: ${({ $done }) => $done ? "#00c9a7" : "#4a9eff"};
+  background: ${({ $done }) => $done ? "rgba(0,201,167,0.06)" : "rgba(74,158,255,0.06)"};
 `;
-const Links = ut.div`
+const Period = ut.div`
+  font-size: 0.75rem;
+  color: #444;
+  margin-bottom: 0.8rem;
   display: flex;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 0.4rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 1px;
+    background: #333;
+  }
 `;
-const IconLink = ut.a`
-  color: #4a9eff;
-  font-size: 0.82rem;
-  text-decoration: none;
-  border: 1px solid rgba(74,158,255,0.3);
-  padding: 0.2rem 0.6rem;
+const RoleBadge = ut.span`
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: ${({ $color }) => $color};
+  background: ${({ $color }) => $color}12;
+  border: 1px solid ${({ $color }) => $color}30;
   border-radius: 4px;
-  transition: background 0.2s;
-  &:hover { background: rgba(74,158,255,0.1); }
+  padding: 2px 7px;
+  margin-bottom: 0.85rem;
 `;
 const Description = ut.p`
-  color: #999;
-  font-size: 0.88rem;
-  line-height: 1.7;
+  color: #888;
+  font-size: 0.84rem;
+  line-height: 1.75;
   margin-bottom: 1rem;
   flex: 1;
 `;
 const BulletList = ut.ul`
   list-style: none;
-  margin-bottom: 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
+  margin-bottom: 1.2rem;
 `;
 const Bullet = ut.li`
   color: #aaa;
-  font-size: 0.83rem;
-  line-height: 1.5;
-  &::before { content: '▹ '; color: #4a9eff; }
+  font-size: 0.8rem;
+  line-height: 1.55;
+  display: flex;
+  gap: 0.45rem;
+
+  &::before {
+    content: '▹';
+    color: ${({ $color }) => $color};
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+`;
+const CardFooter = ut.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
 `;
 const Tags = ut.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: auto;
+  gap: 0.35rem;
 `;
 const Tag = ut.span`
-  background: rgba(74,158,255,0.08);
+  background: rgba(74,158,255,0.06);
   color: #4a9eff;
-  font-size: 0.73rem;
-  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  padding: 2px 8px;
   border-radius: 20px;
-  border: 1px solid rgba(74,158,255,0.2);
+  border: 1px solid rgba(74,158,255,0.18);
+`;
+const Links = ut.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+const IconLink = ut.a`
+  color: #4a9eff;
+  font-size: 0.75rem;
+  text-decoration: none;
+  border: 1px solid rgba(74,158,255,0.25);
+  padding: 3px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  &:hover { background: rgba(74,158,255,0.1); }
 `;
 const projects = [
   {
-    name: "AuRA — 향수 웹사이트",
-    period: "2025.11 ~ 2025.12",
-    description: "국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰 웹 서비스. 팀 리더로 참여.",
+    name: "AuRA — 향수 쇼핑몰 웹 서비스",
+    period: "2025.11 – 2025.12",
+    role: "팀장",
+    done: true,
+    description: "국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. React.js 기반 SPA로 설계.",
     bullets: [
-      "GitHub 브랜치 전략 수립으로 코드 충돌 최소화",
+      "GitHub 브랜치 전략으로 코드 충돌 최소화",
       "ERD Cloud로 향수 카테고리/리뷰 중심 DB 스키마 설계",
-      "Figma 와이어프레임 및 프로토타입 설계",
+      "Figma 와이어프레임 및 프로토타입 제작",
       "React.js 컴포넌트 재사용성/유지보수성 향상 구조 설계"
     ],
-    tags: ["JavaScript", "React.js", "MariaDB", "Figma", "GitHub"],
+    tags: ["JavaScript", "React.js", "MariaDB", "Figma"],
     github: "https://github.com/kyeol1202/Team4-Project",
     demo: null
   },
   {
     name: "기업별 수익성 자동분석 시스템",
-    period: "2026.02 ~ 2026.03",
+    period: "2026.02 – 2026.03",
+    role: "개발",
+    done: true,
     description: "기업명 입력 → DART 접속 → 데이터 추출 → Python 가공 → 엑셀 생성까지 전 과정을 자동화한 RPA 파이프라인.",
     bullets: [
-      "전 과정 자동화 파이프라인 구축 (BrityRPA + Python)",
+      "BrityRPA + Python 전 과정 자동화 파이프라인 구축",
       "Python 데이터 정제(Data Cleaning) 담당",
-      "수작업 대비 데이터 가공 시간 약 90% 단축",
+      "수작업 대비 가공 시간 약 90% 단축",
       "환경 의존성 최소화한 범용적 자동화 설계"
     ],
     tags: ["Python", "JavaScript", "BrityRPA", "Excel"],
@@ -14507,16 +14758,18 @@ const projects = [
     demo: null
   },
   {
-    name: "수익관리 & 예측 차세대 AI Solution (ERP)",
-    period: "2026.03 ~ 2026.04",
-    description: "Spring 기반 인사·급여·매출·재무를 통합하는 ERP 웹 시스템. 팀장으로 참여.",
+    name: "수익관리 & AI 예측 ERP 시스템",
+    period: "2026.03 – 2026.04",
+    role: "팀장",
+    done: true,
+    description: "Spring 기반 인사·급여·매출·재무를 통합하는 ERP 웹 시스템. 단방향 연쇄 데이터 구조 설계.",
     bullets: [
       "23개 테이블 관계 설계, 17개 트리거 + 5개 공통 프로시저 구축",
       "인사·급여·매출·재무 단방향 연쇄 구조 설계",
       "데이터 정합성 100% 확보 / 병합 충돌 0건",
-      "Python + Google Analytics 데이터 분석 및 Excel 시각화"
+      "Python + Google Analytics 기반 데이터 분석 및 시각화"
     ],
-    tags: ["Java", "Spring", "MariaDB", "Python", "GitHub"],
+    tags: ["Java", "Spring", "MariaDB", "Python"],
     github: "https://github.com/ArLyehee/MainProjectERP",
     demo: null
   }
@@ -14524,25 +14777,35 @@ const projects = [
 function Projects() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "projects", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Title$1, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Projects"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$1, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider, {})
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Grid, { children: projects.map((project, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTop, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectName, { children: project.name }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Period, { children: project.period })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Links, { children: [
-        project.github && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: project.github, target: "_blank", children: "GitHub" }),
-        project.demo && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: project.demo, target: "_blank", children: "Demo" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Description, { children: project.description }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(BulletList, { children: project.bullets.map((b2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Bullet, { children: b2 }, b2)) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Tags, { children: project.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { children: tag }, tag)) })
-    ] }) }, project.name)) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Grid, { children: projects.map((p2, i) => {
+      const color = ACCENT_COLORS[i % ACCENT_COLORS.length];
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { $color: color, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AccentBar, { $color: color }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTop, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectName, { children: p2.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(StatusBadge, { $done: p2.done, children: p2.done ? "완료" : "진행중" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Period, { children: p2.period }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(RoleBadge, { $color: color, children: p2.role }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Description, { children: p2.description }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(BulletList, { children: p2.bullets.map((b2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Bullet, { $color: color, children: b2 }, b2)) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardFooter, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Tags, { children: p2.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { children: tag }, tag)) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Links, { children: [
+              p2.github && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: p2.github, target: "_blank", rel: "noreferrer", children: "GitHub" }),
+              p2.demo && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: p2.demo, target: "_blank", rel: "noreferrer", children: "Demo" })
+            ] })
+          ] })
+        ] })
+      ] }) }, p2.name);
+    }) })
   ] });
 }
 const Section = ut.section`
