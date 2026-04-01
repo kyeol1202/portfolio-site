@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Reveal from './Reveal.jsx';
 
 const Section = styled.section`
   padding: 6rem 10%;
@@ -11,10 +12,7 @@ const Title = styled.h2`
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
-
-  span {
-    color: #4a9eff;
-  }
+  span { color: #4a9eff; }
 `;
 
 const Divider = styled.div`
@@ -34,7 +32,7 @@ const SubText = styled.p`
 const LinkGroup = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 `;
 
@@ -49,12 +47,7 @@ const ContactLink = styled.a`
   text-decoration: none;
   font-size: 0.95rem;
   transition: border-color 0.2s, color 0.2s, transform 0.2s;
-
-  &:hover {
-    border-color: #4a9eff;
-    color: #4a9eff;
-    transform: translateY(-2px);
-  }
+  &:hover { border-color: #4a9eff; color: #4a9eff; transform: translateY(-2px); }
 `;
 
 const Footer = styled.footer`
@@ -68,21 +61,25 @@ const Footer = styled.footer`
 function Contact() {
   return (
     <Section id="contact">
-      <Title><span>#</span> Contact</Title>
-      <Divider />
-      <SubText>
-        새로운 기회나 협업에 관심이 있으시면 편하게 연락해 주세요!
-      </SubText>
-      <LinkGroup>
-        <ContactLink href="mailto:kyeol9927@gmail.com">
-          📧 kyeol9927@gmail.com
-        </ContactLink>
-        <ContactLink href="https://github.com/kyeol1202" target="_blank">
-          🐙 github.com/kyeol1202
-        </ContactLink>
-      </LinkGroup>
+      <Reveal>
+        <Title><span>#</span> Contact</Title>
+        <Divider />
+        <SubText>
+          새로운 기회나 협업에 관심이 있으시면 편하게 연락해 주세요!
+        </SubText>
+      </Reveal>
+      <Reveal delay={0.1}>
+        <LinkGroup>
+          <ContactLink href="mailto:kyeol1202@naver.com">
+            📧 kyeol1202@naver.com
+          </ContactLink>
+          <ContactLink href="https://github.com/kyeol1202" target="_blank">
+            🐙 github.com/kyeol1202
+          </ContactLink>
+        </LinkGroup>
+      </Reveal>
       <Footer>
-        © 2025 kyeol1202. Built with React & styled-components.
+        © 2026 김한결. Built with React & styled-components.
       </Footer>
     </Section>
   );

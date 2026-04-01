@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Reveal from './Reveal.jsx';
 
 const Section = styled.section`
   padding: 6rem 10%;
@@ -10,10 +11,7 @@ const Title = styled.h2`
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
-
-  span {
-    color: #4a9eff;
-  }
+  span { color: #4a9eff; }
 `;
 
 const Divider = styled.div`
@@ -23,61 +21,107 @@ const Divider = styled.div`
   margin-bottom: 3rem;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
+const Category = styled.div`
+  margin-bottom: 2.5rem;
 `;
 
-const SkillCard = styled.div`
+const CategoryTitle = styled.h3`
+  color: #4a9eff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+`;
+
+const Grid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+`;
+
+const Tag = styled.div`
   background: #111;
   border: 1px solid #1e1e2e;
-  border-radius: 10px;
-  padding: 1.2rem 1rem;
-  text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-
-  &:hover {
-    border-color: #4a9eff;
-    transform: translateY(-4px);
-  }
-`;
-
-const SkillIcon = styled.div`
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-`;
-
-const SkillName = styled.p`
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
   color: #ccc;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  &:hover { border-color: #4a9eff; color: #fff; transform: translateY(-3px); }
 `;
 
-const skills = [
-  { icon: '☕', name: 'Java' },
-  { icon: '🍃', name: 'Spring Boot' },
-  { icon: '🗄️', name: 'MySQL' },
-  { icon: '🐳', name: 'Docker' },
-  { icon: '🐙', name: 'Git' },
-  { icon: '⚛️', name: 'React' },
-  { icon: '🟨', name: 'JavaScript' },
-  { icon: '🐍', name: 'Python' },
+const categories = [
+  {
+    label: '개발 언어',
+    items: [
+      { icon: '☕', name: 'Java' },
+      { icon: '🐍', name: 'Python' },
+      { icon: '🟨', name: 'JavaScript' },
+      { icon: '📊', name: 'R' },
+      { icon: '📱', name: 'React Native' },
+    ],
+  },
+  {
+    label: '프레임워크 / 라이브러리',
+    items: [
+      { icon: '🍃', name: 'Spring Boot' },
+      { icon: '⚛️', name: 'React.js' },
+    ],
+  },
+  {
+    label: '데이터베이스',
+    items: [
+      { icon: '🗄️', name: 'MariaDB' },
+      { icon: '🔥', name: 'Firebase' },
+    ],
+  },
+  {
+    label: '개발 도구',
+    items: [
+      { icon: '🔵', name: 'VSCode' },
+      { icon: '🌑', name: 'Eclipse / STS' },
+      { icon: '🤖', name: 'Android Studio' },
+      { icon: '📐', name: 'DBeaver' },
+      { icon: '🎨', name: 'Figma' },
+      { icon: '☁️', name: 'ERD Cloud' },
+    ],
+  },
+  {
+    label: '기타',
+    items: [
+      { icon: '🐙', name: 'Git / GitHub' },
+      { icon: '🤖', name: 'Brity RPA' },
+      { icon: '📝', name: 'Notion' },
+    ],
+  },
 ];
 
 function Skills() {
   return (
     <Section id="skills">
-      <Title><span>#</span> Skills</Title>
-      <Divider />
-      <Grid>
-        {skills.map((skill) => (
-          <SkillCard key={skill.name}>
-            <SkillIcon>{skill.icon}</SkillIcon>
-            <SkillName>{skill.name}</SkillName>
-          </SkillCard>
-        ))}
-      </Grid>
+      <Reveal>
+        <Title><span>#</span> Skills</Title>
+        <Divider />
+      </Reveal>
+      {categories.map((cat, i) => (
+        <Reveal key={cat.label} delay={i * 0.1}>
+          <Category>
+            <CategoryTitle>{cat.label}</CategoryTitle>
+            <Grid>
+              {cat.items.map((item) => (
+                <Tag key={item.name}>
+                  <span>{item.icon}</span>
+                  {item.name}
+                </Tag>
+              ))}
+            </Grid>
+          </Category>
+        </Reveal>
+      ))}
     </Section>
   );
 }
