@@ -8,8 +8,7 @@ import Contact from './components/Contact.jsx';
 function App() {
   return (
     <>
-      <h1> hello </h1>
-      <Navbar />
+<Navbar />
       <Hero />
       <About />
       <Skills />
