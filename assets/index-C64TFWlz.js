@@ -13700,31 +13700,45 @@ const makeAssemble = (x2, y, r) => ft`
     text-shadow: 0 0 30px #4a9eff, 0 0 60px #4a9eff;
     filter: blur(8px);
   }
-  55% {
-    opacity: 1;
-    filter: blur(0);
-    color: #a0d4ff;
-  }
+  55% { opacity: 1; filter: blur(0); color: #a0d4ff; }
   72% {
     transform: translate(${-x2 * 0.05}px, ${-y * 0.05}px) rotate(${-r * 0.05}deg) scale(1.08);
-    text-shadow: 0 0 60px #4a9eff, 0 0 120px #4a9eff, 0 0 200px #4a9eff;
+    text-shadow: 0 0 60px #4a9eff, 0 0 120px #4a9eff;
     color: #fff;
   }
   88% {
     transform: translate(${x2 * 0.015}px, ${y * 0.015}px) rotate(${r * 0.015}deg) scale(0.96);
-    color: #e0f0ff;
   }
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
     opacity: 1;
     color: #ffffff;
-    text-shadow: 0 0 12px rgba(74, 158, 255, 0.6);
+    text-shadow: 0 0 12px rgba(74,158,255,0.6);
     filter: blur(0);
+  }
+`;
+const makeScatter = (x2, y, r) => ft`
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  15% {
+    transform: translate(${x2 * 0.06}px, ${y * 0.06}px) rotate(${r * 0.05}deg) scale(1.06);
+    opacity: 1;
+    color: #4a9eff;
+    filter: blur(0);
+  }
+  100% {
+    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.05);
+    opacity: 0;
+    filter: blur(8px);
+    color: #4a9eff;
   }
 `;
 const namePulse = ft`
   0%   { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
-  50%  { text-shadow: 0 0 40px rgba(74,158,255,1), 0 0 80px rgba(74,158,255,0.5); }
+  50%  { text-shadow: 0 0 50px rgba(74,158,255,1), 0 0 100px rgba(74,158,255,0.4); }
   100% { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
 `;
 const scanSlide = ft`
@@ -13738,6 +13752,11 @@ const gridFlow = ft`
 const fadeUp$1 = ft`
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
+`;
+const sweepOut = ft`
+  0%   { opacity: 1; transform: translateX(0) skewX(0deg); }
+  40%  { opacity: 0.6; transform: translateX(-30px) skewX(-4deg); }
+  100% { opacity: 0; transform: translateX(-120px) skewX(-8deg); }
 `;
 const blink = ft`
   0%, 100% { opacity: 1; }
@@ -13757,6 +13776,24 @@ const LETTERS = [
   { char: "o", x: -820, y: 160, r: -70, delay: 0.79 },
   { char: "l", x: 60, y: -640, r: 185, delay: 0.9 }
 ];
+const SCATTER = [
+  { x: -950, y: -80, r: -1080, delay: 0 },
+  // H  ← 3 spins
+  { x: 880, y: 70, r: 900, delay: 0.04 },
+  // a  → 2.5
+  { x: -780, y: 130, r: -720, delay: 0.02 },
+  // n  ← 2
+  { x: 980, y: -100, r: 1080, delay: 0.06 },
+  // K  → 3
+  { x: -870, y: 60, r: -900, delay: 0.08 },
+  // y  ← 2.5
+  { x: 730, y: -70, r: 720, delay: 0.05 },
+  // e  → 2
+  { x: -940, y: 100, r: -1080, delay: 0.07 },
+  // o  ← 3
+  { x: 820, y: 90, r: 900, delay: 0.03 }
+  // l  → 2.5
+];
 const ASSEMBLE_DONE = 0.9 + 1;
 const Section$4 = ut.section`
   min-height: 100vh;
@@ -13765,12 +13802,10 @@ const Section$4 = ut.section`
   justify-content: center;
   align-items: flex-start;
   padding: 0 10%;
-  background:
-    linear-gradient(135deg, #060810 55%, #0a1628 100%);
+  background: linear-gradient(135deg, #060810 55%, #0a1628 100%);
   position: relative;
   overflow: hidden;
 
-  /* 에너지 격자 배경 */
   &::before {
     content: '';
     position: absolute;
@@ -13783,15 +13818,13 @@ const Section$4 = ut.section`
     pointer-events: none;
   }
 
-  /* 코너 글로우 */
   &::after {
     content: '';
     position: absolute;
     width: 600px;
     height: 600px;
     background: radial-gradient(circle, rgba(74,158,255,0.07) 0%, transparent 65%);
-    top: -150px;
-    right: -150px;
+    top: -150px; right: -150px;
     border-radius: 50%;
     pointer-events: none;
   }
@@ -13810,40 +13843,46 @@ const NameRow = ut.div`
   display: flex;
   align-items: baseline;
   line-height: 1;
-  /* 조립 완료 후 전체 이름 펄스 */
-  animation: ${namePulse} 2s ease ${ASSEMBLE_DONE + 0.15}s 2;
+  animation: ${namePulse} 2s ease ${ASSEMBLE_DONE + 0.2}s 2;
 `;
 const LetterSpan = ut.span`
   display: inline-block;
   font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 900;
-  font-family: 'Segoe UI', 'Roboto', sans-serif;
   letter-spacing: -0.02em;
   color: #ffffff;
   text-shadow: 0 0 12px rgba(74,158,255,0.6);
+  opacity: 1;
 
-  ${({ $x, $y, $r, $delay }) => it`
-    animation: ${makeAssemble($x, $y, $r)} 1s cubic-bezier(0.22, 1, 0.36, 1) ${$delay}s both;
-  `}
+  ${({ $phase, $x, $y, $r, $delay, $sx, $sy, $sr, $sdelay }) => {
+  if ($phase === "assembling")
+    return it`animation: ${makeAssemble($x, $y, $r)} 1s cubic-bezier(0.22,1,0.36,1) ${$delay}s both;`;
+  if ($phase === "scattered")
+    return it`animation: ${makeScatter($sx, $sy, $sr)} 0.6s ease-in ${$sdelay}s forwards;`;
+  return "";
+}}
 `;
-const Divider$4 = ut.span`
+const NameDivider = ut.span`
   display: inline-block;
   width: 3px;
   height: clamp(2rem, 5vw, 4.5rem);
   background: linear-gradient(180deg, transparent, #4a9eff, transparent);
   margin: 0 0.15em;
   border-radius: 2px;
+  align-self: center;
+  box-shadow: 0 0 10px #4a9eff;
   opacity: 0;
   animation: ${fadeUp$1} 0.3s ease ${ASSEMBLE_DONE}s both;
-  box-shadow: 0 0 10px #4a9eff;
-  align-self: center;
 `;
 const Cursor = ut.span`
   font-size: clamp(2.5rem, 6vw, 5.5rem);
   font-weight: 900;
   color: #4a9eff;
-  animation: ${blink} 1s step-end infinite;
   margin-left: 2px;
+  animation: ${blink} 1s step-end infinite;
+`;
+const TextBlock = ut.div`
+  ${({ $phase }) => $phase === "scattered" && it`animation: ${sweepOut} 0.5s ease-in 0.05s forwards;`}
 `;
 const Greeting = ut.p`
   color: #4a9eff;
@@ -13863,10 +13902,7 @@ const Role = ut.h2`
   opacity: 0;
   animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
 
-  &::before {
-    content: '// ';
-    opacity: 0.5;
-  }
+  &::before { content: '// '; opacity: 0.5; }
 `;
 const Description$1 = ut.p`
   max-width: 520px;
@@ -13935,28 +13971,91 @@ const ScrollDot = ut.div`
   &:nth-child(3) { animation-delay: 0.4s; }
 `;
 function Hero() {
+  const phaseRef = reactExports.useRef("assembling");
+  const [phase, setPhaseState] = reactExports.useState("assembling");
+  const [contentKey, setContentKey] = reactExports.useState(0);
+  const setPhase = (p2) => {
+    phaseRef.current = p2;
+    setPhaseState(p2);
+  };
+  reactExports.useEffect(() => {
+    if (phase !== "assembling") return;
+    const t = setTimeout(
+      () => {
+        if (phaseRef.current === "assembling") setPhase("idle");
+      },
+      (ASSEMBLE_DONE + 0.6) * 1e3
+    );
+    return () => clearTimeout(t);
+  }, [phase, contentKey]);
+  reactExports.useEffect(() => {
+    const onScroll = () => {
+      const sy = window.scrollY;
+      if (sy > 80 && phaseRef.current === "idle") setPhase("scattered");
+      if (sy < 30 && phaseRef.current === "scattered") {
+        setContentKey((k2) => k2 + 1);
+        setPhase("assembling");
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const han = LETTERS.slice(0, 3);
   const kyeol = LETTERS.slice(3);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "hero", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
-      han.map((l2) => /* @__PURE__ */ jsxRuntimeExports.jsx(LetterSpan, { $x: l2.x, $y: l2.y, $r: l2.r, $delay: l2.delay, children: l2.char }, l2.char)),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$4, {}),
-      kyeol.map((l2) => /* @__PURE__ */ jsxRuntimeExports.jsx(LetterSpan, { $x: l2.x, $y: l2.y, $r: l2.r, $delay: l2.delay, children: l2.char }, l2.char)),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Cursor, { children: "_" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Role, { children: "Fullstack / Backend Developer" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Description$1, { children: "Java · Spring Boot · Python을 주력으로 하는 개발자입니다. 데이터 자동화, ERP 시스템, 웹 서비스 개발 경험을 보유하고 있으며 실용적이고 유지보수하기 좋은 코드를 추구합니다." }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(ButtonGroup, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(PrimaryBtn, { href: "#projects", children: "프로젝트 보기" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(SecondaryBtn, { href: "#contact", children: "연락하기" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(ScrollHint, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {})
-    ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}, `scan-${contentKey}`),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "contents" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
+        han.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          LetterSpan,
+          {
+            $phase: phase,
+            $x: l2.x,
+            $y: l2.y,
+            $r: l2.r,
+            $delay: l2.delay,
+            $sx: SCATTER[i].x,
+            $sy: SCATTER[i].y,
+            $sr: SCATTER[i].r,
+            $sdelay: SCATTER[i].delay,
+            children: l2.char
+          },
+          l2.char
+        )),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NameDivider, {}),
+        kyeol.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          LetterSpan,
+          {
+            $phase: phase,
+            $x: l2.x,
+            $y: l2.y,
+            $r: l2.r,
+            $delay: l2.delay,
+            $sx: SCATTER[i + 3].x,
+            $sy: SCATTER[i + 3].y,
+            $sr: SCATTER[i + 3].r,
+            $sdelay: SCATTER[i + 3].delay,
+            children: l2.char
+          },
+          l2.char
+        )),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Cursor, { children: "_" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(TextBlock, { $phase: phase, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Role, { children: "Fullstack / Backend Developer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Description$1, { children: "Java · Spring Boot · Python을 주력으로 하는 개발자입니다. 데이터 자동화, ERP 시스템, 웹 서비스 개발 경험을 보유하고 있으며 실용적이고 유지보수하기 좋은 코드를 추구합니다." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(ButtonGroup, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(PrimaryBtn, { href: "#projects", children: "프로젝트 보기" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SecondaryBtn, { href: "#contact", children: "연락하기" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ScrollHint, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {})
+      ] })
+    ] }, contentKey)
   ] });
 }
 function useScrollReveal(options = {}) {
@@ -14064,6 +14163,27 @@ const CertItem = ut.li`
   font-size: 0.9rem;
   span { color: #4a9eff; margin-right: 0.5rem; }
 `;
+const ActivityItem = ut.li`
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  span.bullet { color: #4a9eff; margin-right: 0.5rem; }
+  span.year {
+    color: #4a9eff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+    opacity: 0.8;
+  }
+  em {
+    display: block;
+    font-style: normal;
+    color: #667;
+    font-size: 0.82rem;
+    margin-top: 0.15rem;
+    padding-left: 1.2rem;
+  }
+`;
 function About() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "about", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
@@ -14117,13 +14237,50 @@ function About() {
               " 서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)"
             ] })
           ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { delay: 0.4, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "대내외 활동" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CertList, { as: "ul", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
+              "게임잼 참여",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2016" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "서강대학교 MTEC 주최 고교생 게임 제작 행사 참가" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
+              "청소년 게임잼 참가",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2017" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "청소년 대상 게임 개발 아이디어톤 · 제작 챌린지" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
+              "게임개발 기능경기대회 참가",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2017" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "수원공업고등학교 디지털게임과 대표 — 게임 개발 직종 기능경기 참가" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
+              "서강대 미래교육원 아트동아리 ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Spectrum" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2019 – 2020" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "디지털 아트 · 그래픽 디자인 중심 동아리 활동" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityItem, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bullet", children: "▹" }),
+              "서강대 미래교육원 개발동아리 ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Adiutor" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "year", children: "2022 – 2023" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "웹 · 앱 개발 프로젝트 동아리 — 2023년 부회장 역임" })
+            ] })
+          ] })
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoList, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
-            " 이름: 김한결 (Kim Hangyeol)"
+            " 이름: 김한결 (Kim HanKyeol)"
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoItem, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "▹" }),
