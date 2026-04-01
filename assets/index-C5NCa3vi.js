@@ -13711,8 +13711,7 @@ const makeAssemble = (x2, y, r) => ft`
   }
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
-    opacity: 1;
-    color: #ffffff;
+    opacity: 1; color: #ffffff;
     text-shadow: 0 0 12px rgba(74,158,255,0.6);
     filter: blur(0);
   }
@@ -13720,26 +13719,24 @@ const makeAssemble = (x2, y, r) => ft`
 const makeScatter = (x2, y, r) => ft`
   0% {
     transform: translate(0, 0) rotate(0deg) scale(1);
-    opacity: 1;
-    filter: blur(0);
+    opacity: 1; filter: blur(0);
   }
-  15% {
-    transform: translate(${x2 * 0.06}px, ${y * 0.06}px) rotate(${r * 0.05}deg) scale(1.06);
-    opacity: 1;
-    color: #4a9eff;
-    filter: blur(0);
+  18% {
+    transform: translate(${x2 * 0.07}px, ${y * 0.07}px) rotate(${r * 0.06}deg) scale(1.06);
+    opacity: 1; color: #4a9eff; filter: blur(0);
   }
   100% {
-    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.05);
-    opacity: 0;
-    filter: blur(8px);
-    color: #4a9eff;
+    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.04);
+    opacity: 0; filter: blur(8px); color: #4a9eff;
   }
 `;
+const heroSlideUp = ft`
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100vh); }
+`;
 const namePulse = ft`
-  0%   { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
-  50%  { text-shadow: 0 0 50px rgba(74,158,255,1), 0 0 100px rgba(74,158,255,0.4); }
-  100% { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
+  0%, 100% { text-shadow: 0 0 12px rgba(74,158,255,0.6); }
+  50%       { text-shadow: 0 0 50px rgba(74,158,255,1), 0 0 100px rgba(74,158,255,0.4); }
 `;
 const scanSlide = ft`
   0%   { top: 0%; opacity: 0.9; }
@@ -13754,17 +13751,17 @@ const fadeUp$1 = ft`
   to   { opacity: 1; transform: translateY(0); }
 `;
 const sweepOut = ft`
-  0%   { opacity: 1; transform: translateX(0) skewX(0deg); }
-  40%  { opacity: 0.6; transform: translateX(-30px) skewX(-4deg); }
-  100% { opacity: 0; transform: translateX(-120px) skewX(-8deg); }
+  0%   { opacity: 1; transform: translateX(0)     skewX(0deg); }
+  40%  { opacity: 0.5; transform: translateX(-40px) skewX(-5deg); }
+  100% { opacity: 0; transform: translateX(-140px) skewX(-10deg); }
 `;
 const blink = ft`
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 `;
-const bounceY = ft`
-  0%, 100% { opacity: 0.2; transform: translateY(0); }
-  50%       { opacity: 1;   transform: translateY(6px); }
+const clickPulse = ft`
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
 `;
 const LETTERS = [
   { char: "H", x: -700, y: -280, r: -195, delay: 0.05 },
@@ -13778,32 +13775,25 @@ const LETTERS = [
 ];
 const SCATTER = [
   { x: -950, y: -80, r: -1080, delay: 0 },
-  // H  ← 3 spins
   { x: 880, y: 70, r: 900, delay: 0.04 },
-  // a  → 2.5
   { x: -780, y: 130, r: -720, delay: 0.02 },
-  // n  ← 2
   { x: 980, y: -100, r: 1080, delay: 0.06 },
-  // K  → 3
   { x: -870, y: 60, r: -900, delay: 0.08 },
-  // y  ← 2.5
   { x: 730, y: -70, r: 720, delay: 0.05 },
-  // e  → 2
   { x: -940, y: 100, r: -1080, delay: 0.07 },
-  // o  ← 3
   { x: 820, y: 90, r: 900, delay: 0.03 }
-  // l  → 2.5
 ];
 const ASSEMBLE_DONE = 0.9 + 1;
 const Section$4 = ut.section`
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 0 10%;
   background: linear-gradient(135deg, #060810 55%, #0a1628 100%);
-  position: relative;
+  z-index: 50;
   overflow: hidden;
 
   &::before {
@@ -13821,19 +13811,20 @@ const Section$4 = ut.section`
   &::after {
     content: '';
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(74,158,255,0.07) 0%, transparent 65%);
     top: -150px; right: -150px;
     border-radius: 50%;
     pointer-events: none;
   }
+
+  ${({ $exiting }) => $exiting && it`
+    animation: ${heroSlideUp} 0.55s cubic-bezier(0.6, 0, 0.9, 0.4) 0.72s both;
+  `}
 `;
 const ScanLine = ut.div`
   position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
+  left: 0; width: 100%; height: 2px;
   background: linear-gradient(90deg, transparent, #4a9eff, transparent);
   animation: ${scanSlide} 0.7s ease-out ${ASSEMBLE_DONE + 0.05}s both;
   pointer-events: none;
@@ -13857,7 +13848,7 @@ const LetterSpan = ut.span`
   ${({ $phase, $x, $y, $r, $delay, $sx, $sy, $sr, $sdelay }) => {
   if ($phase === "assembling")
     return it`animation: ${makeAssemble($x, $y, $r)} 1s cubic-bezier(0.22,1,0.36,1) ${$delay}s both;`;
-  if ($phase === "scattered")
+  if ($phase === "exiting")
     return it`animation: ${makeScatter($sx, $sy, $sr)} 0.6s ease-in ${$sdelay}s forwards;`;
   return "";
 }}
@@ -13882,7 +13873,7 @@ const Cursor = ut.span`
   animation: ${blink} 1s step-end infinite;
 `;
 const TextBlock = ut.div`
-  ${({ $phase }) => $phase === "scattered" && it`animation: ${sweepOut} 0.5s ease-in 0.05s forwards;`}
+  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepOut} 0.5s ease-in 0.04s forwards;`}
 `;
 const Greeting = ut.p`
   color: #4a9eff;
@@ -13901,7 +13892,6 @@ const Role = ut.h2`
   letter-spacing: 0.08em;
   opacity: 0;
   animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
-
   &::before { content: '// '; opacity: 0.5; }
 `;
 const Description$1 = ut.p`
@@ -13913,67 +13903,27 @@ const Description$1 = ut.p`
   opacity: 0;
   animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
 `;
-const ButtonGroup = ut.div`
-  display: flex;
-  gap: 1rem;
-  margin-top: 2.5rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.6}s both;
-`;
-const PrimaryBtn = ut.a`
-  padding: 0.8rem 2rem;
-  background: #4a9eff;
-  color: #fff;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s, transform 0.2s;
-  &:hover { background: #2d7dd2; transform: translateY(-2px); }
-`;
-const SecondaryBtn = ut.a`
-  padding: 0.8rem 2rem;
-  border: 1px solid #4a9eff;
-  color: #4a9eff;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-  transition: background 0.2s, transform 0.2s;
-  &:hover { background: rgba(74,158,255,0.1); transform: translateY(-2px); }
-`;
-const ScrollHint = ut.div`
+const ClickHint = ut.div`
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
+  color: #4a9eff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(74,158,255,0.7);
   opacity: 0;
-  animation: ${fadeUp$1} 0.8s ease ${ASSEMBLE_DONE + 1}s both;
+  animation:
+    ${fadeUp$1}    0.5s ease       ${ASSEMBLE_DONE + 1}s    forwards,
+    ${clickPulse} 2s  ease       ${ASSEMBLE_DONE + 1.5}s  infinite;
+  pointer-events: none;
 `;
-const ScrollDot = ut.div`
-  width: 6px;
-  height: 6px;
-  background: #4a9eff;
-  border-radius: 50%;
-  animation: ${bounceY} 1.4s ease infinite;
-  &:nth-child(2) { animation-delay: 0.2s; }
-  &:nth-child(3) { animation-delay: 0.4s; }
-`;
-function Hero() {
+function Hero({ onExitComplete }) {
   const phaseRef = reactExports.useRef("assembling");
   const [phase, setPhaseState] = reactExports.useState("assembling");
-  const [contentKey, setContentKey] = reactExports.useState(0);
   const setPhase = (p2) => {
     phaseRef.current = p2;
     setPhaseState(p2);
@@ -13984,78 +13934,61 @@ function Hero() {
       () => {
         if (phaseRef.current === "assembling") setPhase("idle");
       },
-      (ASSEMBLE_DONE + 0.6) * 1e3
+      (ASSEMBLE_DONE + 0.7) * 1e3
     );
     return () => clearTimeout(t);
-  }, [phase, contentKey]);
-  reactExports.useEffect(() => {
-    const onScroll = () => {
-      const sy = window.scrollY;
-      if (sy > 80 && phaseRef.current === "idle") setPhase("scattered");
-      if (sy < 30 && phaseRef.current === "scattered") {
-        setContentKey((k2) => k2 + 1);
-        setPhase("assembling");
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [phase]);
+  const handleClick = () => {
+    if (phaseRef.current !== "idle") return;
+    setPhase("exiting");
+    setTimeout(() => onExitComplete == null ? void 0 : onExitComplete(), 1350);
+  };
   const han = LETTERS.slice(0, 3);
   const kyeol = LETTERS.slice(3);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "hero", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}, `scan-${contentKey}`),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: "contents" }, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
-        han.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          LetterSpan,
-          {
-            $phase: phase,
-            $x: l2.x,
-            $y: l2.y,
-            $r: l2.r,
-            $delay: l2.delay,
-            $sx: SCATTER[i].x,
-            $sy: SCATTER[i].y,
-            $sr: SCATTER[i].r,
-            $sdelay: SCATTER[i].delay,
-            children: l2.char
-          },
-          l2.char
-        )),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(NameDivider, {}),
-        kyeol.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          LetterSpan,
-          {
-            $phase: phase,
-            $x: l2.x,
-            $y: l2.y,
-            $r: l2.r,
-            $delay: l2.delay,
-            $sx: SCATTER[i + 3].x,
-            $sy: SCATTER[i + 3].y,
-            $sr: SCATTER[i + 3].r,
-            $sdelay: SCATTER[i + 3].delay,
-            children: l2.char
-          },
-          l2.char
-        )),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Cursor, { children: "_" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(TextBlock, { $phase: phase, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Role, { children: "Fullstack / Backend Developer" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Description$1, { children: "Java · Spring Boot · Python을 주력으로 하는 개발자입니다. 데이터 자동화, ERP 시스템, 웹 서비스 개발 경험을 보유하고 있으며 실용적이고 유지보수하기 좋은 코드를 추구합니다." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(ButtonGroup, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(PrimaryBtn, { href: "#projects", children: "프로젝트 보기" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SecondaryBtn, { href: "#contact", children: "연락하기" })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(ScrollHint, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollDot, {})
-      ] })
-    ] }, contentKey)
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
+      han.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        LetterSpan,
+        {
+          $phase: phase,
+          $x: l2.x,
+          $y: l2.y,
+          $r: l2.r,
+          $delay: l2.delay,
+          $sx: SCATTER[i].x,
+          $sy: SCATTER[i].y,
+          $sr: SCATTER[i].r,
+          $sdelay: SCATTER[i].delay,
+          children: l2.char
+        },
+        l2.char
+      )),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(NameDivider, {}),
+      kyeol.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        LetterSpan,
+        {
+          $phase: phase,
+          $x: l2.x,
+          $y: l2.y,
+          $r: l2.r,
+          $delay: l2.delay,
+          $sx: SCATTER[i + 3].x,
+          $sy: SCATTER[i + 3].y,
+          $sr: SCATTER[i + 3].r,
+          $sdelay: SCATTER[i + 3].delay,
+          children: l2.char
+        },
+        l2.char
+      )),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Cursor, { children: "_" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(TextBlock, { $phase: phase, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Role, { children: "Fullstack / Backend Developer" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Description$1, { children: "Java · Spring Boot · Python을 주력으로 하는 개발자입니다. 데이터 자동화, ERP 시스템, 웹 서비스 개발 경험을 보유하고 있으며 실용적이고 유지보수하기 좋은 코드를 추구합니다." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ClickHint, { children: "— CLICK ANYWHERE —" })
   ] });
 }
 function useScrollReveal(options = {}) {
@@ -14679,10 +14612,123 @@ function Contact() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { children: "© 2026 김한결. Built with React & styled-components." })
   ] });
 }
-function App() {
+const spinAnim = ft`
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+`;
+const pulseRing = ft`
+  0%, 100% { box-shadow: 0 0 10px rgba(74,158,255,0.2), inset 0 0 10px rgba(74,158,255,0.04); }
+  50%       { box-shadow: 0 0 30px rgba(74,158,255,0.5), inset 0 0 20px rgba(74,158,255,0.08); }
+`;
+const Dot = ut.div`
+  position: fixed;
+  top: 0; left: 0;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #4a9eff;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: ${({ $visible }) => $visible ? 1 : 0};
+  transition: opacity 0.3s, transform 0.05s;
+  box-shadow: 0 0 6px rgba(74,158,255,0.8);
+`;
+const Ring = ut.div`
+  position: fixed;
+  top: 0; left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: ${({ $visible }) => $visible ? 1 : 0};
+  transition: opacity 0.3s, width 0.3s, height 0.3s;
+
+  ${({ $isLanding }) => $isLanding ? it`
+          width: 90px;
+          height: 90px;
+          border: 1px solid rgba(74,158,255,0.45);
+          animation: ${pulseRing} 2.2s ease infinite;
+        ` : it`
+          width: 36px;
+          height: 36px;
+          border: 1px solid rgba(74,158,255,0.4);
+        `}
+`;
+const SpinBorder = ut.div`
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: #4a9eff;
+  border-right-color: rgba(74,158,255,0.3);
+  animation: ${spinAnim} 2.8s linear infinite;
+`;
+const Label = ut.div`
+  position: absolute;
+  bottom: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4a9eff;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(74,158,255,1);
+  font-family: 'Segoe UI', monospace, sans-serif;
+`;
+function CustomCursor({ isLanding }) {
+  const dotRef = reactExports.useRef(null);
+  const ringRef = reactExports.useRef(null);
+  const [visible, setVisible] = reactExports.useState(false);
+  const mouse = reactExports.useRef({ x: -300, y: -300 });
+  const lag = reactExports.useRef({ x: -300, y: -300 });
+  const raf = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    const onMove = (e) => {
+      mouse.current = { x: e.clientX, y: e.clientY };
+      if (dotRef.current) {
+        dotRef.current.style.left = `${e.clientX}px`;
+        dotRef.current.style.top = `${e.clientY}px`;
+      }
+      if (!visible) setVisible(true);
+    };
+    const tick = () => {
+      const lerp = isLanding ? 0.1 : 0.14;
+      lag.current.x += (mouse.current.x - lag.current.x) * lerp;
+      lag.current.y += (mouse.current.y - lag.current.y) * lerp;
+      if (ringRef.current) {
+        ringRef.current.style.left = `${lag.current.x}px`;
+        ringRef.current.style.top = `${lag.current.y}px`;
+      }
+      raf.current = requestAnimationFrame(tick);
+    };
+    raf.current = requestAnimationFrame(tick);
+    window.addEventListener("mousemove", onMove);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (raf.current) cancelAnimationFrame(raf.current);
+    };
+  }, [isLanding]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Dot, { ref: dotRef, $visible: visible }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Ring, { ref: ringRef, $visible: visible, $isLanding: isLanding, children: [
+      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(SpinBorder, {}),
+      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { children: "NEXT" })
+    ] })
+  ] });
+}
+function App() {
+  const [landingDone, setLandingDone] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    document.body.style.overflow = landingDone ? "" : "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [landingDone]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CustomCursor, { isLanding: !landingDone }),
+    !landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Hero, { onExitComplete: () => setLandingDone(true) }),
+    landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Skills, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
