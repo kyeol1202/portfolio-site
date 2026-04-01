@@ -5,13 +5,94 @@
   cursor: none !important;
 }
 
-body {
-  font-family: 'Segoe UI', 'Roboto', sans-serif;
-  background-color: #0a0a0a;
-  color: #e0e0e0;
-  -webkit-font-smoothing: antialiased;
+/* ── 테마 CSS 변수 ── */
+:root {
+  --accent:       #4a9eff;
+  --accent-hover: #2d7dd2;
+  --accent-04:  rgba(74,158,255,0.04);
+  --accent-06:  rgba(74,158,255,0.06);
+  --accent-07:  rgba(74,158,255,0.07);
+  --accent-08:  rgba(74,158,255,0.08);
+  --accent-10:  rgba(74,158,255,0.10);
+  --accent-12:  rgba(74,158,255,0.12);
+  --accent-15:  rgba(74,158,255,0.15);
+  --accent-18:  rgba(74,158,255,0.18);
+  --accent-20:  rgba(74,158,255,0.20);
+  --accent-25:  rgba(74,158,255,0.25);
+  --accent-30:  rgba(74,158,255,0.30);
+  --accent-35:  rgba(74,158,255,0.35);
+  --accent-40:  rgba(74,158,255,0.40);
+  --accent-45:  rgba(74,158,255,0.45);
+  --accent-50:  rgba(74,158,255,0.50);
+  --accent-60:  rgba(74,158,255,0.60);
+  --accent-70:  rgba(74,158,255,0.70);
+  --accent-80:  rgba(74,158,255,0.80);
+  --accent-90:  rgba(74,158,255,0.90);
+  --accent-2:   #4a9eff;      /* secondary accent (gold in artist mode) */
+
+  --bg:          #0a0a0a;
+  --bg-alt:      #0d0d0d;
+  --bg-card:     #111;
+  --bg-hero:     #060810;
+  --bg-hero-end: #0a1628;
+
+  --border:      #1e1e2e;
+  --text-muted:  #aaa;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ── 아티스트 모드 오버라이드 ── */
+.artist-mode {
+  --accent:       #a855f7;
+  --accent-hover: #9333ea;
+  --accent-04:  rgba(168,85,247,0.04);
+  --accent-06:  rgba(168,85,247,0.06);
+  --accent-07:  rgba(168,85,247,0.07);
+  --accent-08:  rgba(168,85,247,0.08);
+  --accent-10:  rgba(168,85,247,0.10);
+  --accent-12:  rgba(168,85,247,0.12);
+  --accent-15:  rgba(168,85,247,0.15);
+  --accent-18:  rgba(168,85,247,0.18);
+  --accent-20:  rgba(168,85,247,0.20);
+  --accent-25:  rgba(168,85,247,0.25);
+  --accent-30:  rgba(168,85,247,0.30);
+  --accent-35:  rgba(168,85,247,0.35);
+  --accent-40:  rgba(168,85,247,0.40);
+  --accent-45:  rgba(168,85,247,0.45);
+  --accent-50:  rgba(168,85,247,0.50);
+  --accent-60:  rgba(168,85,247,0.60);
+  --accent-70:  rgba(168,85,247,0.70);
+  --accent-80:  rgba(168,85,247,0.80);
+  --accent-90:  rgba(168,85,247,0.90);
+  --accent-2:   #f59e0b;
+
+  --bg:          #0a0714;
+  --bg-alt:      #0d0a18;
+  --bg-card:     #110d18;
+  --bg-hero:     #070512;
+  --bg-hero-end: #100825;
+
+  --border:      #1e1428;
+  --text-muted:  #bbb;
 }
+
+/* ── 웨이브 트랜지션 중 화면 에너지 펄스 ── */
+@keyframes screenPulse {
+  0%   { filter: saturate(1)   brightness(1); }
+  30%  { filter: saturate(1.4) brightness(1.05); }
+  50%  { filter: saturate(1.9) brightness(1.12); }
+  70%  { filter: saturate(1.4) brightness(1.05); }
+  100% { filter: saturate(1)   brightness(1); }
+}
+body.wave-transitioning {
+  animation: screenPulse 0.85s ease forwards;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: #e0e0e0;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.5s ease;
+}
+
+html { scroll-behavior: smooth; }
