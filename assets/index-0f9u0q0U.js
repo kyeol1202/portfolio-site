@@ -13099,7 +13099,7 @@ var S = /* @__PURE__ */ new Map(), w = /* @__PURE__ */ new Map(), b = 1, N = fun
   return S.set(e2, t2), w.set(t2, e2), t2;
 }, E = function(e2, t2) {
   b = t2 + 1, S.set(e2, t2), w.set(t2, e2);
-}, P = Object.freeze([]), I = Object.freeze({});
+}, P$1 = Object.freeze([]), I = Object.freeze({});
 function O(e2, t2, n2) {
   return void 0 === n2 && (n2 = I), e2.theme !== n2.theme && e2.theme || t2 || n2.theme;
 }
@@ -13118,11 +13118,11 @@ function M(e2) {
 var V, F = function(e2, t2) {
   for (var n2 = t2.length; n2; ) e2 = 33 * e2 ^ t2.charCodeAt(--n2);
   return e2;
-}, G = function(e2) {
+}, G$1 = function(e2) {
   return F(5381, e2);
 };
 function L(e2) {
-  return M(G(e2) >>> 0);
+  return M(G$1(e2) >>> 0);
 }
 function B(e2) {
   return e2.displayName || e2.name || "Component";
@@ -13413,7 +13413,7 @@ function ke(e2) {
   }
   return true;
 }
-var Me = G(l), Ve = function() {
+var Me = G$1(l), Ve = function() {
   function e2(e3, t2, n2) {
     this.rules = e3, this.staticRulesId = "", this.isStatic = (void 0 === n2 || n2.isStatic) && ke(e3), this.componentId = t2, this.baseHash = F(Me, t2), this.baseStyle = n2, Ae.registerId(t2);
   }
@@ -13472,7 +13472,7 @@ function ze(e2, t2) {
   });
 }
 function $e(e2) {
-  var t2, n2, o2, r2 = I, s2 = r2.options, a2 = void 0 === s2 ? I : s2, c2 = r2.plugins, u2 = void 0 === c2 ? P : c2, l2 = function(e3, o3, r3) {
+  var t2, n2, o2, r2 = I, s2 = r2.options, a2 = void 0 === s2 ? I : s2, c2 = r2.plugins, u2 = void 0 === c2 ? P$1 : c2, l2 = function(e3, o3, r3) {
     return r3.startsWith(n2) && r3.endsWith(n2) && r3.replaceAll(n2, "").length > 0 ? ".".concat(t2) : e3;
   }, p2 = u2.slice();
   p2.push(function(e3) {
@@ -13544,7 +13544,7 @@ var Ze = React$2.createContext(void 0);
 Ze.Consumer;
 var tt = {};
 function ot(e2, s2, i2) {
-  var a2 = se(e2), c2 = e2, u2 = !z(e2), p2 = s2.attrs, h2 = void 0 === p2 ? P : p2, d2 = s2.componentId, f2 = void 0 === d2 ? function(e3, t2) {
+  var a2 = se(e2), c2 = e2, u2 = !z(e2), p2 = s2.attrs, h2 = void 0 === p2 ? P$1 : p2, d2 = s2.componentId, f2 = void 0 === d2 ? function(e3, t2) {
     var n2 = "string" != typeof e3 ? "sc" : x(e3);
     tt[n2] = (tt[n2] || 0) + 1;
     var o2 = "".concat(n2, "-").concat(L(l + n2 + tt[n2]));
@@ -13604,7 +13604,7 @@ var st = function(e2) {
 };
 function it(t2) {
   for (var n2 = [], o2 = 1; o2 < arguments.length; o2++) n2[o2 - 1] = arguments[o2];
-  if (re(t2) || ce(t2)) return st(je(rt(P, __spreadArray([t2], n2, true))));
+  if (re(t2) || ce(t2)) return st(je(rt(P$1, __spreadArray([t2], n2, true))));
   var r2 = t2;
   return 0 === n2.length && 1 === r2.length && "string" == typeof r2[0] ? je(r2) : st(je(rt(r2, n2)));
 }
@@ -13746,7 +13746,7 @@ const gridFlow = ft`
   0%   { background-position: 0 0; }
   100% { background-position: 80px 80px; }
 `;
-const fadeUp$2 = ft`
+const fadeUp$1 = ft`
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
@@ -13784,7 +13784,7 @@ const SCATTER = [
   { x: 820, y: 90, r: 900, delay: 0.03 }
 ];
 const ASSEMBLE_DONE = 0.9 + 1;
-const Section$5 = ut.section`
+const Section$4 = ut.section`
   position: fixed;
   inset: 0;
   display: flex;
@@ -13863,7 +13863,7 @@ const NameDivider = ut.span`
   align-self: center;
   box-shadow: 0 0 10px #4a9eff;
   opacity: 0;
-  animation: ${fadeUp$2} 0.3s ease ${ASSEMBLE_DONE}s both;
+  animation: ${fadeUp$1} 0.3s ease ${ASSEMBLE_DONE}s both;
 `;
 const Cursor = ut.span`
   font-size: clamp(2.5rem, 6vw, 5.5rem);
@@ -13882,7 +13882,7 @@ const Greeting = ut.p`
   text-transform: uppercase;
   margin-bottom: 1.2rem;
   opacity: 0;
-  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE - 0.3}s both;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE - 0.3}s both;
 `;
 const Role = ut.h2`
   font-size: clamp(1rem, 2vw, 1.6rem);
@@ -13891,7 +13891,7 @@ const Role = ut.h2`
   margin-top: 1rem;
   letter-spacing: 0.08em;
   opacity: 0;
-  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
   &::before { content: '// '; opacity: 0.5; }
 `;
 const Description$1 = ut.p`
@@ -13901,7 +13901,7 @@ const Description$1 = ut.p`
   margin-top: 1.4rem;
   font-size: 0.95rem;
   opacity: 0;
-  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
+  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
 `;
 const ClickHint = ut.div`
   position: absolute;
@@ -13917,7 +13917,7 @@ const ClickHint = ut.div`
   text-shadow: 0 0 10px rgba(74,158,255,0.7);
   opacity: 0;
   animation:
-    ${fadeUp$2}    0.5s ease       ${ASSEMBLE_DONE + 1}s    forwards,
+    ${fadeUp$1}    0.5s ease       ${ASSEMBLE_DONE + 1}s    forwards,
     ${clickPulse} 2s  ease       ${ASSEMBLE_DONE + 1.5}s  infinite;
   pointer-events: none;
 `;
@@ -14001,7 +14001,7 @@ function Hero({ onExitComplete, onArtistClick }) {
   };
   const han = LETTERS.slice(0, 3);
   const kyeol = LETTERS.slice(3);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$5, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
@@ -14073,7 +14073,7 @@ function useScrollReveal(options = {}) {
   }, []);
   return [ref, isVisible];
 }
-const fadeUp$1 = ft`
+const fadeUp = ft`
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
@@ -14085,11 +14085,11 @@ const fadeRight = ft`
   from { opacity: 0; transform: translateX(40px); }
   to   { opacity: 1; transform: translateX(0); }
 `;
-const animations = { up: fadeUp$1, left: fadeLeft, right: fadeRight };
+const animations = { up: fadeUp, left: fadeLeft, right: fadeRight };
 const Wrapper = ut.div`
   opacity: 0;
   ${({ $visible, $direction, $delay }) => $visible && it`
-      animation: ${animations[$direction] || fadeUp$1} 0.7s ease ${$delay}s both;
+      animation: ${animations[$direction] || fadeUp} 0.7s ease ${$delay}s both;
       opacity: 1;
     `}
 `;
@@ -14097,11 +14097,11 @@ function Reveal({ children, direction = "up", delay = 0 }) {
   const [ref, isVisible] = useScrollReveal();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Wrapper, { ref, $visible: isVisible, $direction: direction, $delay: delay, children });
 }
-const Section$4 = ut.section`
+const Section$3 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const SectionTitle$3 = ut.h2`
+const SectionTitle$2 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -14318,9 +14318,9 @@ const infoItems = [
   { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
 ];
 function About() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "about", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "about", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$3, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$2, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " About Me"
       ] }),
@@ -14449,11 +14449,11 @@ function About() {
     ] })
   ] });
 }
-const Section$3 = ut.section`
+const Section$2 = ut.section`
   padding: 6rem 10%;
   background: #0a0a0a;
 `;
-const SectionTitle$2 = ut.h2`
+const SectionTitle$1 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -14518,7 +14518,7 @@ const SkillEmoji = ut.span`
   font-size: 1rem;
   flex-shrink: 0;
 `;
-const SkillName$1 = ut.span`
+const SkillName = ut.span`
   font-size: 0.88rem;
   color: #ccc;
   font-weight: 500;
@@ -14596,9 +14596,9 @@ const categories = [
   }
 ];
 function Skills() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "skills", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { id: "skills", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$2, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Skills"
       ] }),
@@ -14612,18 +14612,18 @@ function Skills() {
       /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji, { children: skill.emoji }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName$1, { children: skill.name })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Dots, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$1, { $filled: n <= skill.level }, n)) })
       ] }, skill.name)) })
     ] }) }, cat.label)) })
   ] });
 }
-const Section$2 = ut.section`
+const Section$1 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const SectionTitle$1 = ut.h2`
+const SectionTitle = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -14644,7 +14644,7 @@ const Grid = ut.div`
   @media (max-width: 600px) { grid-template-columns: 1fr; }
 `;
 const ACCENT_COLORS = ["#4a9eff", "#7b61ff", "#00c9a7"];
-const Card = ut.div`
+const Card$1 = ut.div`
   background: #111;
   border: 1px solid #1e1e2e;
   border-radius: 14px;
@@ -14663,7 +14663,7 @@ const AccentBar = ut.div`
   height: 3px;
   background: linear-gradient(90deg, ${({ $color }) => $color}, transparent);
 `;
-const CardBody = ut.div`
+const CardBody$1 = ut.div`
   padding: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -14763,7 +14763,7 @@ const Tags = ut.div`
   flex-wrap: wrap;
   gap: 0.35rem;
 `;
-const Tag$1 = ut.span`
+const Tag = ut.span`
   background: rgba(74,158,255,0.06);
   color: #4a9eff;
   font-size: 0.7rem;
@@ -14775,7 +14775,7 @@ const Links = ut.div`
   display: flex;
   gap: 0.5rem;
 `;
-const IconLink = ut.a`
+const IconLink$1 = ut.a`
   color: #4a9eff;
   font-size: 0.75rem;
   text-decoration: none;
@@ -14836,9 +14836,9 @@ const projects = [
   }
 ];
 function Projects() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { id: "projects", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "projects", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$1, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Projects"
       ] }),
@@ -14846,9 +14846,9 @@ function Projects() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Grid, { children: projects.map((p2, i) => {
       const color = ACCENT_COLORS[i % ACCENT_COLORS.length];
-      return /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { $color: color, children: [
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card$1, { $color: color, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(AccentBar, { $color: color }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody$1, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(CardTop, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectName, { children: p2.name }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(StatusBadge, { $done: p2.done, children: p2.done ? "완료" : "진행중" })
@@ -14858,10 +14858,10 @@ function Projects() {
           /* @__PURE__ */ jsxRuntimeExports.jsx(Description, { children: p2.description }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(BulletList, { children: p2.bullets.map((b2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Bullet, { $color: color, children: b2 }, b2)) }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(CardFooter, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Tags, { children: p2.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(Tag$1, { children: tag }, tag)) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Tags, { children: p2.tags.map((tag) => /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { children: tag }, tag)) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(Links, { children: [
-              p2.github && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: p2.github, target: "_blank", rel: "noreferrer", children: "GitHub" }),
-              p2.demo && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: p2.demo, target: "_blank", rel: "noreferrer", children: "Demo" })
+              p2.github && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink$1, { href: p2.github, target: "_blank", rel: "noreferrer", children: "GitHub" }),
+              p2.demo && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink$1, { href: p2.demo, target: "_blank", rel: "noreferrer", children: "Demo" })
             ] })
           ] })
         ] })
@@ -14869,7 +14869,7 @@ function Projects() {
     }) })
   ] });
 }
-const Section$1 = ut.section`
+const Section = ut.section`
   padding: 6rem 10%;
   background: #0a0a0a;
   text-align: center;
@@ -14881,7 +14881,7 @@ const Title = ut.h2`
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const Divider$1 = ut.div`
+const Divider = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
@@ -14899,7 +14899,7 @@ const LinkGroup$1 = ut.div`
   gap: 1.2rem;
   flex-wrap: wrap;
 `;
-const ContactLink$1 = ut.a`
+const ContactLink = ut.a`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -14920,18 +14920,18 @@ const Footer = ut.footer`
   font-size: 0.85rem;
 `;
 function Contact() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "contact", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { id: "contact", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Title, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Contact"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider$1, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Divider, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SubText, { children: "새로운 기회나 협업에 관심이 있으시면 편하게 연락해 주세요!" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LinkGroup$1, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink$1, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink$1, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { children: "© 2026 김한결. Built with React & styled-components." })
   ] });
@@ -15108,344 +15108,429 @@ function WaveTransition({ active, toArtist, originX = 0.85, originY = 0.5, onCom
     `${c2}-${r}`
   )) });
 }
-const C = {
-  bg: "#08060e",
-  surface: "#100c1c",
-  card: "#140f22",
-  border: "#1e1630",
-  primary: "#e8a045",
-  // 금/앰버
-  purple: "#9b5de5",
-  // 퍼플
-  text: "#f0e8d8",
-  muted: "#9988aa"
-};
-const flicker = ft`
-  0%,100%{ opacity:1; text-shadow:0 0 20px ${C.primary},0 0 40px ${C.primary}; }
-  50%    { opacity:.85; text-shadow:0 0 6px ${C.primary}; }
-`;
-const scanV = ft`
-  0%  { top:0;   opacity:.8; }
-  100%{ top:100%; opacity:0; }
+const G = "#e8a045";
+const P = "#9b5de5";
+const BG = "#08060e";
+const SURF = "#100c1c";
+const CARD = "#140f22";
+const BORD = "#1e1630";
+const MUTED = "#9988aa";
+const fadeIn = ft`
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 `;
 const gridPan = ft`
-  0%  { background-position:0 0; }
-  100%{ background-position:80px 80px; }
-`;
-const fadeUp = ft`
-  from{ opacity:0; transform:translateY(28px); }
-  to  { opacity:1; transform:translateY(0); }
+  0%  { background-position: 0 0; }
+  100%{ background-position: 80px 80px; }
 `;
 const orbPulse = ft`
-  0%,100%{ transform:scale(1);   opacity:.55; }
-  50%    { transform:scale(1.12); opacity:.8; }
+  0%,100% { transform: scale(1);    opacity: .5; }
+  50%     { transform: scale(1.12); opacity: .8; }
+`;
+const scrollBounce = ft`
+  0%,100% { transform: translateY(0); opacity: .6; }
+  50%     { transform: translateY(8px); opacity: 1; }
 `;
 const backGlow = ft`
-  0%,100%{ box-shadow:0 0 10px ${C.primary}44; }
-  50%    { box-shadow:0 0 28px ${C.primary}99; }
+  0%,100% { box-shadow: 0 0 10px ${G}44; }
+  50%     { box-shadow: 0 0 28px ${G}99; }
 `;
 const PageWrap = ut.div`
-  background: ${C.bg};
+  background: ${BG};
   min-height: 100vh;
-  color: ${C.text};
+  color: #f0e8d8;
 `;
 const HeroSection = ut.section`
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10%;
+  align-items: center;
+  padding: 0 8%;
   overflow: hidden;
 
   &::before {
-    content:'';
-    position:absolute; inset:0;
+    content: '';
+    position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(232,160,69,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(232,160,69,.035) 1px, transparent 1px);
-    background-size:80px 80px;
-    animation:${gridPan} 8s linear infinite;
-    pointer-events:none;
+      linear-gradient(rgba(232,160,69,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,160,69,.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: ${gridPan} 10s linear infinite;
+    pointer-events: none;
   }
 `;
-const Orb = ut.div`
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  animation:${orbPulse} 4s ease infinite;
+const HeroLeft = ut.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+  padding-right: 2rem;
+
+  @media (max-width: 768px) { display: none; }
 `;
-const HeroScan = ut.div`
-  position:absolute;
-  left:0; width:100%; height:2px;
-  background:linear-gradient(90deg,transparent,${C.primary},transparent);
-  animation:${scanV} 1.2s ease-out .3s both;
-  pointer-events:none; z-index:2;
+const VertLabel = ut.div`
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: .6rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: ${G}88;
+  font-weight: 700;
 `;
-const Tag = ut.span`
-  display:inline-block;
-  font-size:.7rem; font-weight:700;
-  letter-spacing:.2em; text-transform:uppercase;
-  color:${C.primary}; border:1px solid ${C.primary}44;
-  padding:.3rem .9rem; border-radius:20px;
-  margin-bottom:1.4rem;
-  opacity:0;
-  animation:${fadeUp} .5s ease .4s both;
+const HeroRight = ut.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3rem;
+  border-left: 1px solid ${BORD};
+  min-height: 60vh;
+  animation: ${fadeIn} .5s ease .05s both;
+
+  @media (max-width: 768px) {
+    border-left: none;
+    padding-left: 0;
+  }
+`;
+const HeroTag = ut.span`
+  display: inline-block;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: ${G};
+  border: 1px solid ${G}44;
+  padding: .3rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.6rem;
+  width: fit-content;
 `;
 const HeroName = ut.h1`
-  font-size:clamp(2.8rem,7vw,6rem);
-  font-weight:900;
-  letter-spacing:-.02em;
-  color:#fff;
-  line-height:1.05;
-  animation:${flicker} 3s ease 2s 2, ${fadeUp} .6s ease .5s both;
-  opacity:0;
-  animation-fill-mode:both;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 40px ${G}33;
+  margin-bottom: .3rem;
+`;
+const NameSep = ut.span`
+  color: ${G};
+  margin: 0 .1em;
+  font-weight: 300;
 `;
 const HeroSub = ut.p`
-  font-size:clamp(1rem,2vw,1.5rem);
-  color:${C.purple};
-  font-weight:400;
-  margin-top:.8rem;
-  letter-spacing:.06em;
-  opacity:0;
-  animation:${fadeUp} .5s ease .7s both;
-  &::before{ content:'// '; opacity:.5; }
+  font-size: clamp(.95rem, 2vw, 1.4rem);
+  color: ${P};
+  font-weight: 400;
+  letter-spacing: .07em;
+  margin-top: .9rem;
+  &::before { content: '// '; opacity: .5; }
 `;
 const HeroDesc = ut.p`
-  max-width:520px;
-  color:${C.muted};
-  line-height:1.9;
-  margin-top:1.6rem;
-  font-size:.95rem;
-  opacity:0;
-  animation:${fadeUp} .5s ease .9s both;
+  max-width: 480px;
+  color: ${MUTED};
+  line-height: 1.9;
+  margin-top: 1.6rem;
+  font-size: .93rem;
 `;
-const Section = ut.section`
-  padding:6rem 10%;
-  background:${({ $alt }) => $alt ? C.surface : C.bg};
+const Orb = ut.div`
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ${orbPulse} 5s ease infinite;
 `;
-const SectionTitle = ut.h2`
-  font-size:2rem; font-weight:700;
-  color:#fff; margin-bottom:.5rem;
-  span{ color:${C.primary}; }
+const ScrollHint = ut.a`
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  color: ${G}88;
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+
+  svg {
+    animation: ${scrollBounce} 1.5s ease infinite;
+  }
+
+  &:hover { color: ${G}; }
 `;
-const Divider = ut.div`
-  width:50px; height:3px;
-  background:linear-gradient(90deg,${C.primary},${C.purple});
-  margin-bottom:3rem; border-radius:2px;
+const SecWrap = ut.section`
+  padding: 6rem 10%;
+  background: ${({ $alt }) => $alt ? SURF : BG};
 `;
-const WorksGrid = ut.div`
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
-  gap:1.5rem;
+const SecTitle = ut.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .5rem;
+  span { color: ${G}; }
 `;
-const WorkCard = ut.div`
-  background:${C.card};
-  border:1px solid ${C.border};
-  border-radius:14px;
-  overflow:hidden;
-  transition:border-color .2s, transform .2s;
-  &:hover{ border-color:${C.primary}; transform:translateY(-5px); }
+const SecDivider = ut.div`
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, ${G}, ${P});
+  margin-bottom: 3rem;
+  border-radius: 2px;
 `;
-const WorkThumb = ut.div`
-  width:100%; aspect-ratio:16/9;
-  background:${({ $bg }) => $bg || `linear-gradient(135deg,#1a0f30,#2a1a00)`};
-  display:flex; align-items:center; justify-content:center;
-  font-size:3rem;
+const CardGrid = ut.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.4rem;
 `;
-const WorkInfo = ut.div`
-  padding:1.3rem 1.5rem;
+const Card = ut.div`
+  background: ${CARD};
+  border: 1px solid ${BORD};
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .2s, transform .2s;
+  &:hover { border-color: ${G}; transform: translateY(-5px); }
 `;
-const WorkName = ut.h3`
-  color:#fff; font-size:1rem; font-weight:700;
-  margin-bottom:.4rem;
+const Thumb = ut.div`
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: ${({ $bg }) => $bg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
 `;
-const WorkDesc = ut.p`
-  color:${C.muted}; font-size:.83rem; line-height:1.6;
-  margin-bottom:1rem;
+const CardBody = ut.div`padding: 1.2rem 1.4rem;`;
+const CardName = ut.h3`
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: .4rem;
 `;
-const TagRow = ut.div`
-  display:flex; flex-wrap:wrap; gap:.4rem;
+const CardDesc = ut.p`
+  color: ${MUTED};
+  font-size: .83rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 `;
-const WorkTag = ut.span`
-  background:rgba(232,160,69,.1);
-  color:${C.primary};
-  font-size:.72rem;
-  padding:.2rem .6rem;
-  border-radius:20px;
-  border:1px solid rgba(232,160,69,.2);
+const TagRow = ut.div`display: flex; flex-wrap: wrap; gap: .4rem;`;
+const CTag = ut.span`
+  background: rgba(232,160,69,.08);
+  color: ${G};
+  font-size: .72rem;
+  padding: .2rem .6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(232,160,69,.2);
 `;
-const SkillGrid = ut.div`
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
-  gap:.9rem;
+const IconLink = ut.a`
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .78rem;
+  color: ${G};
+  text-decoration: none;
+  border: 1px solid ${G}33;
+  padding: .2rem .6rem;
+  border-radius: 4px;
+  margin-bottom: .8rem;
+  transition: background .2s;
+  &:hover { background: rgba(232,160,69,.1); }
 `;
-const SkillCard = ut.div`
-  background:${C.card};
-  border:1px solid ${C.border};
-  border-radius:10px;
-  padding:1.2rem 1rem;
-  text-align:center;
-  transition:border-color .2s, transform .2s;
-  &:hover{ border-color:${C.primary}; transform:translateY(-4px); }
-`;
-const SkillIcon = ut.div`font-size:2rem; margin-bottom:.5rem;`;
-const SkillName = ut.p`color:${C.muted}; font-size:.83rem; font-weight:500;`;
-const ContactWrap = ut.div`text-align:center;`;
-const ContactSub = ut.p`
-  color:${C.muted}; font-size:1rem;
-  line-height:1.7; margin-bottom:2.5rem;
-`;
+const ContactWrap = ut.div`text-align: center;`;
+const ContactSub = ut.p`color: ${MUTED}; margin-bottom: 2.5rem; line-height: 1.7;`;
 const LinkGroup = ut.div`
-  display:flex; justify-content:center;
-  gap:1.2rem; flex-wrap:wrap;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
 `;
-const ContactLink = ut.a`
-  display:flex; align-items:center; gap:.5rem;
-  padding:.8rem 1.8rem;
-  border:1px solid ${C.border};
-  border-radius:8px;
-  color:${C.muted};
-  text-decoration:none;
-  font-size:.95rem;
-  transition:border-color .2s, color .2s, transform .2s;
-  &:hover{ border-color:${C.primary}; color:${C.primary}; transform:translateY(-2px); }
+const CLink = ut.a`
+  display: flex; align-items: center; gap: .5rem;
+  padding: .8rem 1.8rem;
+  border: 1px solid ${BORD};
+  border-radius: 8px;
+  color: ${MUTED};
+  text-decoration: none;
+  font-size: .95rem;
+  transition: border-color .2s, color .2s, transform .2s;
+  &:hover { border-color: ${G}; color: ${G}; transform: translateY(-2px); }
 `;
-const BackSection = ut.div`
-  padding:3rem 10% 5rem;
-  background:${C.bg};
-  display:flex;
-  justify-content:center;
-  border-top:1px solid ${C.border};
+const BackSec = ut.div`
+  padding: 3rem 10% 5rem;
+  background: ${BG};
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid ${BORD};
 `;
 const BackBtn = ut.button`
-  display:flex; align-items:center; gap:.7rem;
-  padding:.9rem 2.4rem;
-  background:transparent;
-  border:1px solid ${C.primary}66;
-  border-radius:8px;
-  color:${C.primary};
-  font-size:.95rem;
-  font-weight:600;
-  letter-spacing:.06em;
-  cursor:pointer;
-  transition:background .2s, border-color .2s, transform .2s;
-  animation:${backGlow} 2.5s ease infinite;
-  &:hover{
-    background:rgba(232,160,69,.1);
-    border-color:${C.primary};
-    transform:translateY(-2px);
-  }
-  svg{ transition:transform .2s; }
-  &:hover svg{ transform:translateX(-4px); }
+  display: flex; align-items: center; gap: .7rem;
+  padding: .9rem 2.4rem;
+  background: transparent;
+  border: 1px solid ${G}55;
+  border-radius: 8px;
+  color: ${G};
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  cursor: pointer;
+  animation: ${backGlow} 2.5s ease infinite;
+  transition: background .2s, transform .2s;
+  &:hover { background: rgba(232,160,69,.1); transform: translateY(-2px); }
+  svg { transition: transform .2s; }
+  &:hover svg { transform: translateX(-4px); }
 `;
-const works = [
+const personalWorks = [
   {
-    name: "프로젝트 A",
-    desc: "3D 모델링 및 텍스처링 작업물. 업데이트 예정.",
+    name: "개인 작업 1",
+    desc: "개인 3D 포트폴리오 작업물. 업데이트 예정.",
     icon: "🗿",
     bg: "linear-gradient(135deg,#1a0a30,#2d1200)",
-    tags: ["Blender", "Substance Painter"]
+    tags: ["Blender", "Substance Painter"],
+    link: null
   },
   {
-    name: "프로젝트 B",
+    name: "개인 작업 2",
     desc: "캐릭터 디자인 및 리깅. 업데이트 예정.",
     icon: "🧊",
     bg: "linear-gradient(135deg,#001a2a,#0a1a00)",
-    tags: ["ZBrush", "Maya"]
+    tags: ["ZBrush", "Maya"],
+    link: null
   },
   {
-    name: "프로젝트 C",
+    name: "개인 작업 3",
     desc: "환경 아트 & 조명 연출. 업데이트 예정.",
     icon: "🌌",
     bg: "linear-gradient(135deg,#0a001a,#1a0a00)",
-    tags: ["Unreal Engine", "Blender"]
+    tags: ["Unreal Engine", "Blender"],
+    link: null
   }
 ];
-const skills3D = [
-  { icon: "🟧", name: "Blender" },
-  { icon: "🦴", name: "Maya" },
-  { icon: "🧊", name: "ZBrush" },
-  { icon: "🎨", name: "Substance" },
-  { icon: "🔵", name: "Photoshop" },
-  { icon: "🎮", name: "Unreal 5" },
-  { icon: "🌿", name: "Unity" },
-  { icon: "🖼️", name: "Figma" }
+const projectWorks = [
+  {
+    name: "AuRA — 향수 웹사이트",
+    desc: "국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. 팀 리더 참여.",
+    icon: "🌸",
+    bg: "linear-gradient(135deg,#1a0a20,#200a10)",
+    tags: ["Figma", "React.js", "MariaDB"],
+    link: "https://github.com/kyeol1202/Team4-Project"
+  },
+  {
+    name: "기업 수익성 자동분석 시스템",
+    desc: "DART → Python 정제 → 엑셀 출력 전 과정 자동화 파이프라인.",
+    icon: "📊",
+    bg: "linear-gradient(135deg,#0a1a10,#1a1000)",
+    tags: ["Python", "BrityRPA", "Excel"],
+    link: null
+  },
+  {
+    name: "차세대 AI Solution ERP",
+    desc: "Spring 기반 인사·급여·매출·재무 통합 ERP. 팀장 참여.",
+    icon: "🏗️",
+    bg: "linear-gradient(135deg,#0a0a20,#201000)",
+    tags: ["Java", "Spring", "MariaDB"],
+    link: "https://github.com/ArLyehee/MainProjectERP"
+  }
 ];
 function ArtistPage({ onBackToDev }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(PageWrap, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroSection, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroSection, { id: "a-top", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Orb, { style: {
         width: "500px",
         height: "500px",
-        background: `radial-gradient(circle,${C.primary}12 0%,transparent 65%)`,
+        background: `radial-gradient(circle,${G}10 0%,transparent 65%)`,
         top: "-150px",
         right: "-100px"
       } }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Orb, { style: {
         width: "300px",
         height: "300px",
-        background: `radial-gradient(circle,${C.purple}18 0%,transparent 65%)`,
+        background: `radial-gradient(circle,${P}18 0%,transparent 65%)`,
         bottom: "50px",
         left: "-80px",
-        animationDelay: "2s"
+        animationDelay: "2.5s"
       } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(HeroScan, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Tag, { children: "✦ 3D Artist Portfolio" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroName, { children: [
-        "Kim",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "Hangyeol"
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSub, { children: "3D Artist / Game Graphic Designer" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(HeroDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 창의적이고 몰입감 있는 비주얼을 만드는 것을 즐깁니다." })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { id: "a-works", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
-          " Works"
+      /* @__PURE__ */ jsxRuntimeExports.jsx(HeroLeft, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(VertLabel, { children: "3D Artist · Game Graphic" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroRight, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroTag, { children: "✦ 3D Artist Portfolio" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroName, { children: [
+          "Han",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(NameSep, { children: "·" }),
+          "Kyeol"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Divider, {})
+        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSub, { children: "3D Artist / Game Graphic Designer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(WorksGrid, { children: works.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(WorkCard, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(WorkThumb, { $bg: w2.bg, children: w2.icon }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(WorkInfo, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(WorkName, { children: w2.name }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(WorkDesc, { children: w2.desc }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(WorkTag, { children: t }, t)) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ScrollHint, { href: "#a-about", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "svg",
+          {
+            width: "20",
+            height: "20",
+            viewBox: "0 0 24 24",
+            fill: "none",
+            stroke: "currentColor",
+            strokeWidth: "2.5",
+            strokeLinecap: "round",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "6 9 12 15 18 9" })
+          }
+        ),
+        "Scroll"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "a-about", children: /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-personal", $alt: true, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+          " Personal Works"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: personalWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+          w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
         ] })
       ] }) }, w2.name)) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { $alt: true, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-projects", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
-          " Tools & Skills"
+          " Projects"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Divider, {})
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(SkillGrid, { children: skills3D.map((s, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.07, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillCard, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SkillIcon, { children: s.icon }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: s.name })
-      ] }) }, s.name)) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: projectWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+          w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
+        ] })
+      ] }) }, w2.name)) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { $alt: true, id: "a-contact", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ContactWrap, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
           " Contact"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Divider, { style: { margin: "0 auto 2rem" } }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, { style: { margin: "0 auto 1.5rem" } }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(ContactSub, { children: "작업 의뢰나 협업 문의는 편하게 연락해 주세요!" })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LinkGroup, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(BackSection, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BackBtn, { onClick: onBackToDev, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(BackSec, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BackBtn, { onClick: onBackToDev, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "svg",
         {
@@ -15486,6 +15571,8 @@ function App() {
     setPage(toArtist ? "artist" : "developer");
     setTransition(false);
   };
+  const showDev = page === "developer" || transitioning && !toArtist;
+  const showArtist = page === "artist" || transitioning && toArtist;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(CustomCursor, { isLanding: !landingDone }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -15498,7 +15585,7 @@ function App() {
         onComplete: handleWaveDone
       }
     ),
-    page === "developer" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    showDev && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { display: page === "developer" ? "block" : "none" }, children: [
       !landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(
         Hero,
         {
@@ -15512,7 +15599,7 @@ function App() {
       /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})
     ] }),
-    page === "artist" && /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistPage, { onBackToDev: handleBackToDev })
+    showArtist && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: page === "artist" ? "block" : "none" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistPage, { onBackToDev: handleBackToDev }) })
   ] });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
