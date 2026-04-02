@@ -13124,7 +13124,7 @@ var V, F = function(e2, t2) {
 function L(e2) {
   return M(G$1(e2) >>> 0);
 }
-function B(e2) {
+function B$1(e2) {
   return e2.displayName || e2.name || "Component";
 }
 function z(e2) {
@@ -13550,7 +13550,7 @@ function ot(e2, s2, i2) {
     var o2 = "".concat(n2, "-").concat(L(l + n2 + tt[n2]));
     return t2 ? "".concat(t2, "-").concat(o2) : o2;
   }(s2.displayName, s2.parentComponentId) : d2, m2 = s2.displayName, y2 = void 0 === m2 ? function(e3) {
-    return z(e3) ? "styled.".concat(e3) : "Styled(".concat(B(e3), ")");
+    return z(e3) ? "styled.".concat(e3) : "Styled(".concat(B$1(e3), ")");
   }(e2) : m2, v2 = s2.displayName && s2.componentId ? "".concat(x(s2.displayName), "-").concat(s2.componentId) : s2.componentId || f2, g2 = a2 && c2.attrs ? c2.attrs.concat(h2).filter(Boolean) : h2, S2 = s2.shouldForwardProp;
   if (a2 && c2.shouldForwardProp) {
     var w2 = c2.shouldForwardProp;
@@ -13666,12 +13666,12 @@ const Logo = ut.span`
   font-weight: 700;
   color: #4a9eff;
 `;
-const NavLinks = ut.ul`
+const NavLinks$1 = ut.ul`
   list-style: none;
   display: flex;
   gap: 2rem;
 `;
-const NavLink = ut.a`
+const NavLink$1 = ut.a`
   color: #e0e0e0;
   text-decoration: none;
   font-size: 0.95rem;
@@ -13684,11 +13684,11 @@ const NavLink = ut.a`
 function Navbar() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Nav, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Logo, { children: "kyeol.dev" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(NavLinks, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#about", children: "About" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#skills", children: "Skills" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#projects", children: "Projects" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#contact", children: "Contact" }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(NavLinks$1, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink$1, { href: "#about", children: "About" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink$1, { href: "#skills", children: "Skills" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink$1, { href: "#projects", children: "Projects" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink$1, { href: "#contact", children: "Contact" }) })
     ] })
   ] });
 }
@@ -13746,11 +13746,11 @@ const gridFlow = ft`
   0%   { background-position: 0 0; }
   100% { background-position: 80px 80px; }
 `;
-const fadeUp$1 = ft`
+const fadeUp$2 = ft`
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
-const sweepOut = ft`
+const sweepOut$1 = ft`
   0%   { opacity: 1; transform: translateX(0)     skewX(0deg); }
   40%  { opacity: 0.5; transform: translateX(-40px) skewX(-5deg); }
   100% { opacity: 0; transform: translateX(-140px) skewX(-10deg); }
@@ -13759,7 +13759,7 @@ const blink = ft`
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 `;
-const clickPulse = ft`
+const clickPulse$1 = ft`
   0%, 100% { opacity: 0.4; }
   50%       { opacity: 0.9; }
 `;
@@ -13863,7 +13863,7 @@ const NameDivider = ut.span`
   align-self: center;
   box-shadow: 0 0 10px #4a9eff;
   opacity: 0;
-  animation: ${fadeUp$1} 0.3s ease ${ASSEMBLE_DONE}s both;
+  animation: ${fadeUp$2} 0.3s ease ${ASSEMBLE_DONE}s both;
 `;
 const Cursor = ut.span`
   font-size: clamp(2.5rem, 6vw, 5.5rem);
@@ -13873,7 +13873,7 @@ const Cursor = ut.span`
   animation: ${blink} 1s step-end infinite;
 `;
 const TextBlock = ut.div`
-  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepOut} 0.5s ease-in 0.04s forwards;`}
+  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepOut$1} 0.5s ease-in 0.04s forwards;`}
 `;
 const Greeting = ut.p`
   color: #4a9eff;
@@ -13882,7 +13882,7 @@ const Greeting = ut.p`
   text-transform: uppercase;
   margin-bottom: 1.2rem;
   opacity: 0;
-  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE - 0.3}s both;
+  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE - 0.3}s both;
 `;
 const Role = ut.h2`
   font-size: clamp(1rem, 2vw, 1.6rem);
@@ -13891,7 +13891,7 @@ const Role = ut.h2`
   margin-top: 1rem;
   letter-spacing: 0.08em;
   opacity: 0;
-  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
+  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE + 0.2}s both;
   &::before { content: '// '; opacity: 0.5; }
 `;
 const Description$1 = ut.p`
@@ -13901,9 +13901,9 @@ const Description$1 = ut.p`
   margin-top: 1.4rem;
   font-size: 0.95rem;
   opacity: 0;
-  animation: ${fadeUp$1} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
+  animation: ${fadeUp$2} 0.5s ease ${ASSEMBLE_DONE + 0.4}s both;
 `;
-const ClickHint = ut.div`
+const ClickHint$1 = ut.div`
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
@@ -13917,8 +13917,8 @@ const ClickHint = ut.div`
   text-shadow: 0 0 10px rgba(74,158,255,0.7);
   opacity: 0;
   animation:
-    ${fadeUp$1}    0.5s ease       ${ASSEMBLE_DONE + 1}s    forwards,
-    ${clickPulse} 2s  ease       ${ASSEMBLE_DONE + 1.5}s  infinite;
+    ${fadeUp$2}    0.5s ease       ${ASSEMBLE_DONE + 1}s    forwards,
+    ${clickPulse$1} 2s  ease       ${ASSEMBLE_DONE + 1.5}s  infinite;
   pointer-events: none;
 `;
 const artistAppear = ft`
@@ -14049,7 +14049,7 @@ function Hero({ onExitComplete, onArtistClick }) {
       /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistBtnLabel, { children: "Artist" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistBtnArrow, { children: "›" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ClickHint, { children: "— CLICK ANYWHERE TO ENTER —" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ClickHint$1, { children: "— CLICK ANYWHERE TO ENTER —" })
   ] });
 }
 function useScrollReveal(options = {}) {
@@ -14073,7 +14073,7 @@ function useScrollReveal(options = {}) {
   }, []);
   return [ref, isVisible];
 }
-const fadeUp = ft`
+const fadeUp$1 = ft`
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
@@ -14085,11 +14085,11 @@ const fadeRight = ft`
   from { opacity: 0; transform: translateX(40px); }
   to   { opacity: 1; transform: translateX(0); }
 `;
-const animations = { up: fadeUp, left: fadeLeft, right: fadeRight };
+const animations = { up: fadeUp$1, left: fadeLeft, right: fadeRight };
 const Wrapper = ut.div`
   opacity: 0;
   ${({ $visible, $direction, $delay }) => $visible && it`
-      animation: ${animations[$direction] || fadeUp} 0.7s ease ${$delay}s both;
+      animation: ${animations[$direction] || fadeUp$1} 0.7s ease ${$delay}s both;
       opacity: 1;
     `}
 `;
@@ -14497,39 +14497,39 @@ const CategoryLabel = ut.h3`
   letter-spacing: 0.14em;
   text-transform: uppercase;
 `;
-const SkillList = ut.div`
+const SkillList$1 = ut.div`
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
 `;
-const SkillRow = ut.div`
+const SkillRow$1 = ut.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 `;
-const SkillLeft = ut.div`
+const SkillLeft$1 = ut.div`
   display: flex;
   align-items: center;
   gap: 0.55rem;
   min-width: 0;
 `;
-const SkillEmoji = ut.span`
+const SkillEmoji$1 = ut.span`
   font-size: 1rem;
   flex-shrink: 0;
 `;
-const SkillName = ut.span`
+const SkillName$1 = ut.span`
   font-size: 0.88rem;
   color: #ccc;
   font-weight: 500;
   white-space: nowrap;
 `;
-const Dots = ut.div`
+const Dots$1 = ut.div`
   display: flex;
   gap: 4px;
   flex-shrink: 0;
 `;
-const Dot$1 = ut.div`
+const Dot$2 = ut.div`
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -14571,8 +14571,7 @@ const categories = [
       { emoji: "🔵", name: "VSCode", level: 5 },
       { emoji: "🌑", name: "Eclipse / STS", level: 4 },
       { emoji: "🤖", name: "Android Studio", level: 2 },
-      { emoji: "📐", name: "DBeaver", level: 3 },
-      { emoji: "🎨", name: "Figma", level: 3 }
+      { emoji: "📐", name: "DBeaver", level: 3 }
     ]
   },
   {
@@ -14583,15 +14582,6 @@ const categories = [
       { emoji: "🤖", name: "Brity RPA", level: 3 },
       { emoji: "📝", name: "Notion", level: 4 },
       { emoji: "☁️", name: "ERD Cloud", level: 3 }
-    ]
-  },
-  {
-    icon: "🎨",
-    label: "디자인 / 그래픽",
-    skills: [
-      { emoji: "🖼️", name: "Photoshop", level: 4 },
-      { emoji: "✏️", name: "Illustrator", level: 3 },
-      { emoji: "💡", name: "3D Modeling", level: 2 }
     ]
   }
 ];
@@ -14609,12 +14599,12 @@ function Skills() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryIcon, { children: cat.icon }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryLabel, { children: cat.label })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji, { children: skill.emoji }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList$1, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow$1, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji$1, { children: skill.emoji }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName$1, { children: skill.name })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Dots, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$1, { $filled: n <= skill.level }, n)) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Dots$1, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$2, { $filled: n <= skill.level }, n)) })
       ] }, skill.name)) })
     ] }) }, cat.label)) })
   ] });
@@ -14940,22 +14930,33 @@ const spinAnim = ft`
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 `;
-const pulseRing = ft`
-  0%, 100% { box-shadow: 0 0 10px rgba(74,158,255,0.2), inset 0 0 10px rgba(74,158,255,0.04); }
-  50%       { box-shadow: 0 0 30px rgba(74,158,255,0.5), inset 0 0 20px rgba(74,158,255,0.08); }
-`;
-const Dot = ut.div`
+const makePulseRing = (hex) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b2 = parseInt(hex.slice(5, 7), 16);
+  return ft`
+    0%, 100% { box-shadow: 0 0 10px rgba(${r},${g},${b2},0.2), inset 0 0 10px rgba(${r},${g},${b2},0.04); }
+    50%       { box-shadow: 0 0 30px rgba(${r},${g},${b2},0.5), inset 0 0 20px rgba(${r},${g},${b2},0.08); }
+  `;
+};
+const hexToRgba = (hex, a2) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b2 = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b2},${a2})`;
+};
+const Dot$1 = ut.div`
   position: fixed;
   top: 0; left: 0;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: #4a9eff;
+  background: ${({ $color }) => $color};
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
   opacity: ${({ $visible }) => $visible ? 1 : 0};
   transition: opacity 0.3s, transform 0.05s;
-  box-shadow: 0 0 6px rgba(74,158,255,0.8);
+  box-shadow: ${({ $color }) => `0 0 6px ${hexToRgba($color, 0.8)}`};
 `;
 const Ring = ut.div`
   position: fixed;
@@ -14967,24 +14968,29 @@ const Ring = ut.div`
   opacity: ${({ $visible }) => $visible ? 1 : 0};
   transition: opacity 0.3s, width 0.3s, height 0.3s;
 
-  ${({ $isLanding }) => $isLanding ? it`
-          width: 90px;
-          height: 90px;
-          border: 1px solid rgba(74,158,255,0.45);
-          animation: ${pulseRing} 2.2s ease infinite;
-        ` : it`
-          width: 36px;
-          height: 36px;
-          border: 1px solid rgba(74,158,255,0.4);
-        `}
+  ${({ $isLanding, $color }) => {
+  const pulse = makePulseRing($color);
+  if ($isLanding)
+    return it`
+        width: 90px;
+        height: 90px;
+        border: 1px solid ${hexToRgba($color, 0.45)};
+        animation: ${pulse} 2.2s ease infinite;
+      `;
+  return it`
+      width: 36px;
+      height: 36px;
+      border: 1px solid ${hexToRgba($color, 0.4)};
+    `;
+}}
 `;
 const SpinBorder = ut.div`
   position: absolute;
   inset: -5px;
   border-radius: 50%;
   border: 1.5px solid transparent;
-  border-top-color: #4a9eff;
-  border-right-color: rgba(74,158,255,0.3);
+  border-top-color: ${({ $color }) => $color};
+  border-right-color: ${({ $color }) => hexToRgba($color, 0.3)};
   animation: ${spinAnim} 2.8s linear infinite;
 `;
 const Label = ut.div`
@@ -14992,15 +14998,15 @@ const Label = ut.div`
   bottom: -26px;
   left: 50%;
   transform: translateX(-50%);
-  color: #4a9eff;
+  color: ${({ $color }) => $color};
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.28em;
   white-space: nowrap;
-  text-shadow: 0 0 12px rgba(74,158,255,1);
+  text-shadow: ${({ $color }) => `0 0 12px ${$color}`};
   font-family: 'Segoe UI', monospace, sans-serif;
 `;
-function CustomCursor({ isLanding }) {
+function CustomCursor({ isLanding, color = "#4a9eff" }) {
   const dotRef = reactExports.useRef(null);
   const ringRef = reactExports.useRef(null);
   const [visible, setVisible] = reactExports.useState(false);
@@ -15034,10 +15040,10 @@ function CustomCursor({ isLanding }) {
     };
   }, [isLanding]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Dot, { ref: dotRef, $visible: visible }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(Ring, { ref: ringRef, $visible: visible, $isLanding: isLanding, children: [
-      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(SpinBorder, {}),
-      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { children: "NEXT" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$1, { ref: dotRef, $visible: visible, $color: color }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Ring, { ref: ringRef, $visible: visible, $isLanding: isLanding, $color: color, children: [
+      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(SpinBorder, { $color: color }),
+      isLanding && /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { $color: color, children: "NEXT" })
     ] })
   ] });
 }
@@ -15110,90 +15116,98 @@ function WaveTransition({ active, toArtist, originX = 0.85, originY = 0.5, onCom
 }
 const G = "#e8a045";
 const P = "#9b5de5";
+const B = "#4a9eff";
 const BG = "#08060e";
 const SURF = "#100c1c";
 const CARD = "#140f22";
 const BORD = "#1e1630";
 const MUTED = "#9988aa";
-const fadeIn = ft`
-  from { opacity: 0; transform: translateY(16px); }
+const fadeUp = ft`
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
 const gridPan = ft`
-  0%  { background-position: 0 0; }
-  100%{ background-position: 80px 80px; }
+  0%   { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
 `;
 const orbPulse = ft`
   0%,100% { transform: scale(1);    opacity: .5; }
   50%     { transform: scale(1.12); opacity: .8; }
 `;
-const scrollBounce = ft`
-  0%,100% { transform: translateY(0); opacity: .6; }
-  50%     { transform: translateY(8px); opacity: 1; }
+const clickPulse = ft`
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+`;
+const landingSlideUp = ft`
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100vh); }
+`;
+const sweepOut = ft`
+  0%   { opacity: 1; transform: translateX(0) skewX(0deg); }
+  40%  { opacity: 0.5; transform: translateX(40px) skewX(5deg); }
+  100% { opacity: 0; transform: translateX(140px) skewX(10deg); }
+`;
+const devAppear = ft`
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+`;
+const devGlow = ft`
+  0%,100% { box-shadow: 0 0 10px ${B}44, inset 0 0 10px ${B}11; }
+  50%      { box-shadow: 0 0 28px ${B}88, inset 0 0 20px ${B}22; }
 `;
 const backGlow = ft`
   0%,100% { box-shadow: 0 0 10px ${G}44; }
-  50%     { box-shadow: 0 0 28px ${G}99; }
+  50%      { box-shadow: 0 0 28px ${G}99; }
 `;
-const PageWrap = ut.div`
-  background: ${BG};
-  min-height: 100vh;
-  color: #f0e8d8;
-`;
-const HeroSection = ut.section`
-  position: relative;
-  min-height: 100vh;
+const LandingSection = ut.section`
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   padding: 0 8%;
+  background: ${BG};
+  z-index: 50;
   overflow: hidden;
+  cursor: pointer;
 
   &::before {
     content: '';
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(232,160,69,.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(232,160,69,.03) 1px, transparent 1px);
+      linear-gradient(rgba(232,160,69,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,160,69,.04) 1px, transparent 1px);
     background-size: 80px 80px;
-    animation: ${gridPan} 10s linear infinite;
+    animation: ${gridPan} 8s linear infinite;
     pointer-events: none;
   }
-`;
-const HeroLeft = ut.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 3rem;
-  padding-right: 2rem;
 
-  @media (max-width: 768px) { display: none; }
+  ${({ $exiting }) => $exiting && it`
+    animation: ${landingSlideUp} 0.55s cubic-bezier(0.6, 0, 0.9, 0.4) 0.3s both;
+  `}
 `;
-const VertLabel = ut.div`
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-size: .6rem;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: ${G}88;
-  font-weight: 700;
+const LandingOrb = ut.div`
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ${orbPulse} 5s ease infinite;
 `;
-const HeroRight = ut.div`
-  flex: 2;
+const LandingContent = ut.div`
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 3rem;
-  border-left: 1px solid ${BORD};
-  min-height: 60vh;
-  animation: ${fadeIn} .5s ease .05s both;
+  animation: ${fadeUp} 0.6s ease 0.1s both;
+
+  ${({ $exiting }) => $exiting && it`
+    animation: ${sweepOut} 0.45s ease-in 0.04s forwards;
+  `}
 
   @media (max-width: 768px) {
-    border-left: none;
-    padding-left: 0;
+    width: 100%;
   }
 `;
-const HeroTag = ut.span`
+const LandingTag = ut.span`
   display: inline-block;
   font-size: .68rem;
   font-weight: 700;
@@ -15206,7 +15220,7 @@ const HeroTag = ut.span`
   margin-bottom: 1.6rem;
   width: fit-content;
 `;
-const HeroName = ut.h1`
+const LandingName = ut.h1`
   font-size: clamp(3rem, 7vw, 6.5rem);
   font-weight: 900;
   letter-spacing: -.03em;
@@ -15220,7 +15234,7 @@ const NameSep = ut.span`
   margin: 0 .1em;
   font-weight: 300;
 `;
-const HeroSub = ut.p`
+const LandingSub = ut.p`
   font-size: clamp(.95rem, 2vw, 1.4rem);
   color: ${P};
   font-weight: 400;
@@ -15228,39 +15242,107 @@ const HeroSub = ut.p`
   margin-top: .9rem;
   &::before { content: '// '; opacity: .5; }
 `;
-const HeroDesc = ut.p`
+const LandingDesc = ut.p`
   max-width: 480px;
   color: ${MUTED};
   line-height: 1.9;
   margin-top: 1.6rem;
   font-size: .93rem;
 `;
-const Orb = ut.div`
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: ${orbPulse} 5s ease infinite;
-`;
-const ScrollHint = ut.a`
+const ClickHint = ut.div`
   position: absolute;
   bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
+  color: ${G};
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 10px ${G}bb;
+  opacity: 0;
+  animation:
+    ${fadeUp}    0.5s ease 0.6s    forwards,
+    ${clickPulse} 2s  ease 1.1s   infinite;
+  pointer-events: none;
+`;
+const DevBtn = ut.button`
+  position: absolute;
+  left: 4%;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .4rem;
-  color: ${G}88;
-  font-size: .6rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  text-decoration: none;
+  gap: 0.6rem;
+  padding: 1.4rem 1rem;
+  background: rgba(74,158,255,0.06);
+  border: 1px solid rgba(74,158,255,0.35);
+  border-radius: 12px;
   cursor: pointer;
-
-  svg {
-    animation: ${scrollBounce} 1.5s ease infinite;
+  color: ${B};
+  opacity: 0;
+  animation:
+    ${devAppear} 0.6s ease 0.3s forwards,
+    ${devGlow}   2.5s ease 0.9s infinite;
+  transition: background 0.2s, transform 0.2s;
+  &:hover {
+    background: rgba(74,158,255,0.14);
+    transform: translateY(-50%) scale(1.05);
   }
-
+  z-index: 10;
+`;
+const DevBtnIcon = ut.div`
+  font-size: 1.8rem;
+  line-height: 1;
+`;
+const DevBtnLabel = ut.span`
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+`;
+const DevBtnArrow = ut.div`
+  font-size: 0.9rem;
+  opacity: 0.7;
+`;
+const PageWrap = ut.div`
+  background: ${BG};
+  min-height: 100vh;
+  color: #f0e8d8;
+`;
+const ArtistNav = ut.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(8,6,14,0.9);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid ${BORD};
+`;
+const NavLogo = ut.span`
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: ${G};
+`;
+const NavLinks = ut.ul`
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+`;
+const NavLink = ut.a`
+  color: #e0d8cc;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
   &:hover { color: ${G}; }
 `;
 const SecWrap = ut.section`
@@ -15280,6 +15362,95 @@ const SecDivider = ut.div`
   margin-bottom: 3rem;
   border-radius: 2px;
 `;
+const SkillGrid = ut.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+`;
+const SkillCard = ut.div`
+  background: ${CARD};
+  border: 1px solid ${BORD};
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+  &:hover { border-color: ${G}55; }
+`;
+const SkillCardHeader = ut.div`
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+`;
+const SkillCardIcon = ut.span`font-size: 1.1rem;`;
+const SkillCardLabel = ut.h3`
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: ${G};
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+`;
+const SkillList = ut.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+`;
+const SkillRow = ut.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+`;
+const SkillLeft = ut.div`
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+`;
+const SkillEmoji = ut.span`font-size: 1rem; flex-shrink: 0;`;
+const SkillName = ut.span`font-size: 0.88rem; color: #ccc; font-weight: 500; white-space: nowrap;`;
+const Dots = ut.div`display: flex; gap: 4px; flex-shrink: 0;`;
+const Dot = ut.div`
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: ${({ $f }) => $f ? G : BORD};
+  box-shadow: ${({ $f }) => $f ? `0 0 6px ${G}99` : "none"};
+`;
+const artistSkills = [
+  {
+    icon: "🧊",
+    label: "3D 모델링",
+    skills: [
+      { emoji: "🫐", name: "Blender", level: 4 },
+      { emoji: "🪨", name: "ZBrush", level: 3 },
+      { emoji: "🎬", name: "Maya", level: 3 }
+    ]
+  },
+  {
+    icon: "🎨",
+    label: "텍스처 / 렌더링",
+    skills: [
+      { emoji: "🖌️", name: "Substance Painter", level: 4 },
+      { emoji: "🖼️", name: "Photoshop", level: 4 },
+      { emoji: "✏️", name: "Illustrator", level: 3 }
+    ]
+  },
+  {
+    icon: "🕹️",
+    label: "게임 엔진",
+    skills: [
+      { emoji: "🎮", name: "Unity", level: 3 },
+      { emoji: "⚡", name: "Unreal Engine", level: 2 }
+    ]
+  },
+  {
+    icon: "🛠️",
+    label: "디자인 도구",
+    skills: [
+      { emoji: "🎯", name: "Figma", level: 3 }
+    ]
+  }
+];
 const CardGrid = ut.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -15303,18 +15474,8 @@ const Thumb = ut.div`
   font-size: 2.8rem;
 `;
 const CardBody = ut.div`padding: 1.2rem 1.4rem;`;
-const CardName = ut.h3`
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: .4rem;
-`;
-const CardDesc = ut.p`
-  color: ${MUTED};
-  font-size: .83rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-`;
+const CardName = ut.h3`color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: .4rem;`;
+const CardDesc = ut.p`color: ${MUTED}; font-size: .83rem; line-height: 1.6; margin-bottom: 1rem;`;
 const TagRow = ut.div`display: flex; flex-wrap: wrap; gap: .4rem;`;
 const CTag = ut.span`
   background: rgba(232,160,69,.08);
@@ -15357,14 +15518,16 @@ const CLink = ut.a`
   transition: border-color .2s, color .2s, transform .2s;
   &:hover { border-color: ${G}; color: ${G}; transform: translateY(-2px); }
 `;
-const BackSec = ut.div`
+const BottomSec = ut.div`
   padding: 3rem 10% 5rem;
   background: ${BG};
   display: flex;
   justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
   border-top: 1px solid ${BORD};
 `;
-const BackBtn = ut.button`
+const GoldBtn = ut.button`
   display: flex; align-items: center; gap: .7rem;
   padding: .9rem 2.4rem;
   background: transparent;
@@ -15378,8 +15541,20 @@ const BackBtn = ut.button`
   animation: ${backGlow} 2.5s ease infinite;
   transition: background .2s, transform .2s;
   &:hover { background: rgba(232,160,69,.1); transform: translateY(-2px); }
-  svg { transition: transform .2s; }
-  &:hover svg { transform: translateX(-4px); }
+`;
+const BlueBtn = ut.button`
+  display: flex; align-items: center; gap: .7rem;
+  padding: .9rem 2.4rem;
+  background: transparent;
+  border: 1px solid ${B}55;
+  border-radius: 8px;
+  color: ${B};
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+  &:hover { background: rgba(74,158,255,.1); transform: translateY(-2px); }
 `;
 const personalWorks = [
   {
@@ -15434,16 +15609,37 @@ const projectWorks = [
   }
 ];
 function ArtistPage({ onBackToDev }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(PageWrap, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroSection, { id: "a-top", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Orb, { style: {
+  const phaseRef = reactExports.useRef("landing");
+  const [phase, setPhaseState] = reactExports.useState("landing");
+  const setPhase = (p2) => {
+    phaseRef.current = p2;
+    setPhaseState(p2);
+  };
+  const handleLandingClick = () => {
+    if (phaseRef.current !== "landing") return;
+    setPhase("exiting");
+    setTimeout(() => setPhase("portfolio"), 1e3);
+  };
+  const handleDevBtn = (e) => {
+    e.stopPropagation();
+    onBackToDev == null ? void 0 : onBackToDev();
+  };
+  const handleBackToLanding = () => {
+    setPhase("landing");
+    window.scrollTo({ top: 0 });
+  };
+  const isLanding = phase === "landing" || phase === "exiting";
+  const isPortfolio = phase === "portfolio";
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    isLanding && /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingSection, { $exiting: phase === "exiting", onClick: handleLandingClick, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(LandingOrb, { style: {
         width: "500px",
         height: "500px",
         background: `radial-gradient(circle,${G}10 0%,transparent 65%)`,
         top: "-150px",
         right: "-100px"
       } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Orb, { style: {
+      /* @__PURE__ */ jsxRuntimeExports.jsx(LandingOrb, { style: {
         width: "300px",
         height: "300px",
         background: `radial-gradient(circle,${P}18 0%,transparent 65%)`,
@@ -15451,101 +15647,127 @@ function ArtistPage({ onBackToDev }) {
         left: "-80px",
         animationDelay: "2.5s"
       } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(HeroLeft, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(VertLabel, { children: "3D Artist · Game Graphic" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroRight, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroTag, { children: "✦ 3D Artist Portfolio" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(HeroName, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(DevBtn, { onClick: handleDevBtn, title: "Developer Portfolio", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DevBtnIcon, { children: "⟨" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DevBtnLabel, { children: "Developer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DevBtnArrow, { children: "‹" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingContent, { $exiting: phase === "exiting", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingTag, { children: "✦ 3D Artist Portfolio" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingName, { children: [
           "Han",
           /* @__PURE__ */ jsxRuntimeExports.jsx(NameSep, { children: "·" }),
           "Kyeol"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSub, { children: "3D Artist / Game Graphic Designer" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(HeroDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingSub, { children: "3D Artist / Game Graphic Designer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(ScrollHint, { href: "#a-about", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "svg",
-          {
-            width: "20",
-            height: "20",
-            viewBox: "0 0 24 24",
-            fill: "none",
-            stroke: "currentColor",
-            strokeWidth: "2.5",
-            strokeLinecap: "round",
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "6 9 12 15 18 9" })
-          }
-        ),
-        "Scroll"
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ClickHint, { children: "— CLICK ANYWHERE TO ENTER —" })
+    ] }),
+    isPortfolio && /* @__PURE__ */ jsxRuntimeExports.jsxs(PageWrap, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ArtistNav, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(NavLogo, { children: "kyeol.art" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(NavLinks, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-about", children: "About" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-skills", children: "Skills" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-personal", children: "Works" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-projects", children: "Projects" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-contact", children: "Contact" }) })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "a-about", style: { paddingTop: "60px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-skills", $alt: true, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+            " Skills"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SkillGrid, { children: artistSkills.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.08, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillCard, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillCardHeader, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardIcon, { children: cat.icon }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardLabel, { children: cat.label })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji, { children: skill.emoji }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Dots, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot, { $f: n <= skill.level }, n)) })
+          ] }, skill.name)) })
+        ] }) }, cat.label)) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-personal", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+            " Personal Works"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: personalWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+            w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
+          ] })
+        ] }) }, w2.name)) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-projects", $alt: true, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+            " Projects"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: projectWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
+            w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
+          ] })
+        ] }) }, w2.name)) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-contact", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ContactWrap, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+            " Contact"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, { style: { margin: "0 auto 1.5rem" } }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ContactSub, { children: "작업 의뢰나 협업 문의는 편하게 연락해 주세요!" })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LinkGroup, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(BottomSec, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(GoldBtn, { onClick: handleBackToLanding, children: "↑ 첫 화면으로 돌아가기" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(BlueBtn, { onClick: onBackToDev, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "svg",
+            {
+              width: "18",
+              height: "18",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              strokeWidth: "2.5",
+              strokeLinecap: "round",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "15 18 9 12 15 6" })
+            }
+          ),
+          "Developer Portfolio 로 돌아가기"
+        ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "a-about", children: /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-personal", $alt: true, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
-          " Personal Works"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: personalWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
-          w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
-        ] })
-      ] }) }, w2.name)) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-projects", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
-          " Projects"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: projectWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
-          w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDesc, { children: w2.desc }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(TagRow, { children: w2.tags.map((t) => /* @__PURE__ */ jsxRuntimeExports.jsx(CTag, { children: t }, t)) })
-        ] })
-      ] }) }, w2.name)) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { $alt: true, id: "a-contact", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ContactWrap, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
-          " Contact"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, { style: { margin: "0 auto 1.5rem" } }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ContactSub, { children: "작업 의뢰나 협업 문의는 편하게 연락해 주세요!" })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LinkGroup, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(BackSec, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BackBtn, { onClick: onBackToDev, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "svg",
-        {
-          width: "18",
-          height: "18",
-          viewBox: "0 0 24 24",
-          fill: "none",
-          stroke: "currentColor",
-          strokeWidth: "2.5",
-          strokeLinecap: "round",
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "15 18 9 12 15 6" })
-        }
-      ),
-      "Developer Portfolio 로 돌아가기"
-    ] }) })
+    ] })
   ] });
 }
 function App() {
@@ -15574,7 +15796,7 @@ function App() {
   const showDev = page === "developer" || transitioning && !toArtist;
   const showArtist = page === "artist" || transitioning && toArtist;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(CustomCursor, { isLanding: !landingDone }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CustomCursor, { isLanding: !landingDone, color: page === "artist" ? "#e8a045" : "#4a9eff" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       WaveTransition,
       {
