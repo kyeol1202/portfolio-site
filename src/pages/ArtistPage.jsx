@@ -285,7 +285,7 @@ const ArtDesc = styled.p`
 const ClickHint = styled.div`
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   color: ${G};
   font-size: 0.62rem;
@@ -305,7 +305,7 @@ const ClickHint = styled.div`
 const DevBtn = styled.button`
   position: absolute;
   left: 4%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -430,9 +430,8 @@ const artistSkills = [
   {
     label: '3D 모델링',
     skills: [
-      { name: 'Blender',           level: 4 },
+      { name: '3DsMax',           level: 4 },
       { name: 'ZBrush',            level: 3 },
-      { name: 'Maya',              level: 3 },
     ],
   },
   {
@@ -440,20 +439,25 @@ const artistSkills = [
     skills: [
       { name: 'Substance Painter', level: 4 },
       { name: 'Photoshop',         level: 4 },
-      { name: 'Illustrator',       level: 3 },
+      { name: 'Marmoset Toolbag',  level: 3 },
+      { name: 'Illustrator',       level: 2 },
     ],
   },
   {
     label: '게임 엔진',
     skills: [
-      { name: 'Unity',             level: 3 },
-      { name: 'Unreal Engine',     level: 2 },
+      { name: 'Unreal Engine', level: 4 },
+      { name: 'Unity',     level: 2 },
     ],
   },
   {
-    label: '디자인 도구',
+    label: 'OS / 툴',
     skills: [
-      { name: 'Figma',             level: 3 },
+      { name: 'Notion',            level: 4 },
+      { name: 'Excel',             level: 3 },
+      { name: 'PowerPoint',        level: 3 },
+      { name: 'Word',              level: 3 },
+
     ],
   },
 ];

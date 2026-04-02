@@ -92,20 +92,20 @@ const categories = [
   {
     label: '개발 언어',
     skills: [
-      { name: 'Java',         level: 4 },
-      { name: 'Python',       level: 4 },
-      { name: 'JavaScript',   level: 3 },
-      { name: 'R',            level: 2 },
-      { name: 'React Native', level: 2 },
+      { name: 'JavaScript',   level: 4 },
+      { name: 'Java',         level: 3 },
+      { name: 'Python',       level: 3 },
+      { name: 'R',            level: 3 },
+      { name: 'React Native', level: 3 },
     ],
   },
   {
     label: '프레임워크 / 라이브러리',
     skills: [
-      { name: 'Spring Boot', level: 4 },
-      { name: 'MyBatis',     level: 3 },
-      { name: 'Node.js',     level: 2 },
       { name: 'React.js',    level: 3 },
+      { name: 'Spring Boot', level: 3 },
+      { name: 'MyBatis',     level: 3 },
+      { name: 'Node.js',     level: 3 },
     ],
   },
   {
@@ -119,18 +119,28 @@ const categories = [
   {
     label: '개발 도구',
     skills: [
-      { name: 'VSCode',         level: 5 },
-      { name: 'Eclipse / STS',  level: 4 },
-      { name: 'Android Studio', level: 2 },
+      { name: 'VSCode',         level: 4 },
+      { name: 'Eclipse / STS',  level: 3 },
+      { name: 'Android Studio', level: 3 },
       { name: 'DBeaver',        level: 3 },
+    ],
+  },
+
+  {
+    label: 'OS / 툴',
+    skills: [
+      { name: 'Notion',            level: 4 },
+      { name: 'Excel',             level: 3 },
+      { name: 'PowerPoint',        level: 3 },
+      { name: 'Word',              level: 3 },
+
     ],
   },
   {
     label: '기타',
     skills: [
-      { name: 'Git / GitHub', level: 4 },
+      { name: 'Git / GitHub', level: 3 },
       { name: 'Brity RPA',   level: 3 },
-      { name: 'Notion',      level: 4 },
       { name: 'ERD Cloud',   level: 3 },
     ],
   },

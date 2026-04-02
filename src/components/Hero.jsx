@@ -247,7 +247,7 @@ const Description = styled.p`
 const ClickHint = styled.div`
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   color: #4a9eff;
   font-size: 0.62rem;
@@ -275,7 +275,7 @@ const artistGlow = keyframes`
 const ArtistBtn = styled.button`
   position: absolute;
   right: 4%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
