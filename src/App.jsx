@@ -54,10 +54,10 @@ function App() {
             />
           )}
           {landingDone && <Navbar />}
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
+          {landingDone && <About />}
+          {landingDone && <Skills />}
+          {landingDone && <Projects />}
+          {landingDone && <Contact />}
         </div>
       )}
 
