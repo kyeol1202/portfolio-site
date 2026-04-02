@@ -13906,7 +13906,7 @@ const Description = ut.p`
 const ClickHint$1 = ut.div`
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   color: #4a9eff;
   font-size: 0.62rem;
@@ -13932,7 +13932,7 @@ const artistGlow = ft`
 const ArtistBtn = ut.button`
   position: absolute;
   right: 4%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -14498,20 +14498,20 @@ const categories = [
   {
     label: "개발 언어",
     skills: [
-      { name: "Java", level: 4 },
-      { name: "Python", level: 4 },
-      { name: "JavaScript", level: 3 },
-      { name: "R", level: 2 },
-      { name: "React Native", level: 2 }
+      { name: "JavaScript", level: 4 },
+      { name: "Java", level: 3 },
+      { name: "Python", level: 3 },
+      { name: "R", level: 3 },
+      { name: "React Native", level: 3 }
     ]
   },
   {
     label: "프레임워크 / 라이브러리",
     skills: [
-      { name: "Spring Boot", level: 4 },
+      { name: "React.js", level: 3 },
+      { name: "Spring Boot", level: 3 },
       { name: "MyBatis", level: 3 },
-      { name: "Node.js", level: 2 },
-      { name: "React.js", level: 3 }
+      { name: "Node.js", level: 3 }
     ]
   },
   {
@@ -14525,18 +14525,26 @@ const categories = [
   {
     label: "개발 도구",
     skills: [
-      { name: "VSCode", level: 5 },
-      { name: "Eclipse / STS", level: 4 },
-      { name: "Android Studio", level: 2 },
+      { name: "VSCode", level: 4 },
+      { name: "Eclipse / STS", level: 3 },
+      { name: "Android Studio", level: 3 },
       { name: "DBeaver", level: 3 }
+    ]
+  },
+  {
+    label: "OS / 툴",
+    skills: [
+      { name: "Notion", level: 4 },
+      { name: "Excel", level: 3 },
+      { name: "PowerPoint", level: 3 },
+      { name: "Word", level: 3 }
     ]
   },
   {
     label: "기타",
     skills: [
-      { name: "Git / GitHub", level: 4 },
+      { name: "Git / GitHub", level: 3 },
       { name: "Brity RPA", level: 3 },
-      { name: "Notion", level: 4 },
       { name: "ERD Cloud", level: 3 }
     ]
   }
@@ -15493,7 +15501,7 @@ const ArtDesc = ut.p`
 const ClickHint = ut.div`
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
+  left: 45%;
   transform: translateX(-50%);
   color: ${G};
   font-size: 0.62rem;
@@ -15511,7 +15519,7 @@ const ClickHint = ut.div`
 const DevBtn = ut.button`
   position: absolute;
   left: 4%;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -15615,9 +15623,8 @@ const artistSkills = [
   {
     label: "3D 모델링",
     skills: [
-      { name: "Blender", level: 4 },
-      { name: "ZBrush", level: 3 },
-      { name: "Maya", level: 3 }
+      { name: "3DsMax", level: 4 },
+      { name: "ZBrush", level: 3 }
     ]
   },
   {
@@ -15625,20 +15632,24 @@ const artistSkills = [
     skills: [
       { name: "Substance Painter", level: 4 },
       { name: "Photoshop", level: 4 },
-      { name: "Illustrator", level: 3 }
+      { name: "Marmoset Toolbag", level: 3 },
+      { name: "Illustrator", level: 2 }
     ]
   },
   {
     label: "게임 엔진",
     skills: [
-      { name: "Unity", level: 3 },
-      { name: "Unreal Engine", level: 2 }
+      { name: "Unreal Engine", level: 4 },
+      { name: "Unity", level: 2 }
     ]
   },
   {
-    label: "디자인 도구",
+    label: "OS / 툴",
     skills: [
-      { name: "Figma", level: 3 }
+      { name: "Notion", level: 4 },
+      { name: "Excel", level: 3 },
+      { name: "PowerPoint", level: 3 },
+      { name: "Word", level: 3 }
     ]
   }
 ];
