@@ -787,7 +787,7 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
             <Reveal delay={0.1}>
               <LinkGroup>
                 <CLink href="mailto:kyeol1202@naver.com">📧 kyeol1202@naver.com</CLink>
-                <CLink href="https://github.com/kyeol1202" target="_blank">🐙 github.com/kyeol1202</CLink>
+                <CLink href="https://www.artstation.com/hankyeolkim" target="_blank">🎨 artstation.com/hankyeolkim</CLink>
               </LinkGroup>
             </Reveal>
           </SecWrap>
