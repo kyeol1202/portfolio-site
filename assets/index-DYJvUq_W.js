@@ -15173,7 +15173,7 @@ function ArtistAbout() {
             }
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials, { children: "HK" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials, {})
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BioText, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다. 현재는 개발 역량과 아트 감각을 함께 활용해 더 넓은 분야에 도전하고 있습니다." }),
