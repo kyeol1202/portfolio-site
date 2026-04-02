@@ -50,13 +50,6 @@ const ContactLink = styled.a`
   &:hover { border-color: #4a9eff; color: #4a9eff; transform: translateY(-2px); }
 `;
 
-const Footer = styled.footer`
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid #1e1e2e;
-  color: #555;
-  font-size: 0.85rem;
-`;
 
 function Contact() {
   return (

@@ -574,7 +574,7 @@ const projectWorks = [
 /* ────────────────────────────────
    COMPONENT
 ──────────────────────────────── */
-function ArtistPage({ onBackToDev }) {
+function ArtistPage({ onBackToDev, onLandingDone }) {
   const phaseRef = useRef('landing');
   const [phase, setPhaseState] = useState('landing');
 
@@ -584,7 +584,7 @@ function ArtistPage({ onBackToDev }) {
   const handleLandingClick = () => {
     if (phaseRef.current !== 'landing') return;
     setPhase('exiting');
-    setTimeout(() => setPhase('portfolio'), 1000);
+    setTimeout(() => { setPhase('portfolio'); onLandingDone?.(); }, 1000);
   };
 
   /* Dev 버튼 클릭 — 랜딩 클릭 이벤트 차단 */

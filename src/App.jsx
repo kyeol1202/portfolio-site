@@ -10,7 +10,7 @@ import CustomCursor from './components/CustomCursor.jsx';
 import WaveTransition from './components/WaveTransition.jsx';
 import ArtistPage from './pages/ArtistPage.jsx';
 
-/* ── 개발자 페이지 하단 '첫 화면으로' 버튼 ── */function
+/* ── 개발자 페이지 하단 '첫 화면으로' 버튼 ── */
 const backGlow = keyframes`
   0%,100% { box-shadow: 0 0 10px rgba(74,158,255,0.27); }
   50%      { box-shadow: 0 0 28px rgba(74,158,255,0.6); }
@@ -43,10 +43,11 @@ const DevBackBtn = styled.button`
 `;
 
 function App() {
-  const [landingDone, setLandingDone]  = useState(false);
-  const [page, setPage]                = useState('developer');
-  const [transitioning, setTransition] = useState(false);
-  const [toArtist, setToArtist]        = useState(true);
+  const [landingDone, setLandingDone]         = useState(false);
+  const [artistLandingDone, setArtistLanding] = useState(false);
+  const [page, setPage]                        = useState('developer');
+  const [transitioning, setTransition]         = useState(false);
+  const [toArtist, setToArtist]                = useState(true);
 
   /* 개발자 랜딩 중일 때만 스크롤 막기 */
   useEffect(() => {
@@ -55,7 +56,8 @@ function App() {
     return () => { document.body.style.overflow = ''; };
   }, [landingDone, page]);
 
-  const handleGoArtist  = () => { setToArtist(true);  setTransition(true); };
+  /* 아티스트로 이동 시 아티스트 랜딩 리셋 */
+  const handleGoArtist  = () => { setToArtist(true);  setTransition(true); setArtistLanding(false); };
   const handleBackToDev = () => { setToArtist(false); setTransition(true); };
 
   const handleWaveDone = () => {
@@ -63,19 +65,24 @@ function App() {
     setTransition(false);
   };
 
-  /* '첫 화면으로' — 랜딩 리셋 후 스크롤 최상단 */
+  /* 개발자 '첫 화면으로' */
   const handleBackToLanding = () => {
     setLandingDone(false);
     window.scrollTo({ top: 0 });
   };
 
-  /* wave 중에는 양쪽 페이지를 동시 렌더링 — 도착 페이지가 wave 뒤에서 미리 나타남 */
+  /* 커서 isLanding — 현재 페이지의 랜딩 상태에 따라 */
+  const cursorIsLanding = page === 'artist' ? !artistLandingDone : !landingDone;
+
   const showDev    = page === 'developer' || (transitioning && !toArtist);
   const showArtist = page === 'artist'    || (transitioning && toArtist);
 
   return (
     <>
-      <CustomCursor isLanding={!landingDone} color={page === 'artist' ? '#e8a045' : '#4a9eff'} />
+      <CustomCursor
+        isLanding={cursorIsLanding}
+        color={page === 'artist' ? '#e8a045' : '#4a9eff'}
+      />
 
       <WaveTransition
         active={transitioning}
@@ -110,7 +117,10 @@ function App() {
 
       {showArtist && (
         <div style={{ display: page === 'artist' ? 'block' : 'none' }}>
-          <ArtistPage onBackToDev={handleBackToDev} />
+          <ArtistPage
+            onBackToDev={handleBackToDev}
+            onLandingDone={() => setArtistLanding(true)}
+          />
         </div>
       )}
     </>
