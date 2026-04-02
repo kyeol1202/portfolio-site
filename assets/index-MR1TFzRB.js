@@ -15476,7 +15476,7 @@ const devGlow = ft`
   0%,100% { box-shadow: 0 0 10px ${B}44, inset 0 0 10px ${B}11; }
   50%      { box-shadow: 0 0 28px ${B}88, inset 0 0 20px ${B}22; }
 `;
-const backGlow = ft`
+const backGlow$1 = ft`
   0%,100% { box-shadow: 0 0 10px ${G}44; }
   50%      { box-shadow: 0 0 28px ${G}99; }
 `;
@@ -15859,11 +15859,11 @@ const GoldBtn = ut.button`
   font-weight: 600;
   letter-spacing: .06em;
   cursor: pointer;
-  animation: ${backGlow} 2.5s ease infinite;
+  animation: ${backGlow$1} 2.5s ease infinite;
   transition: background .2s, transform .2s;
   &:hover { background: rgba(232,160,69,.1); transform: translateY(-2px); }
 `;
-const BlueBtn = ut.button`
+ut.button`
   display: flex; align-items: center; gap: .7rem;
   padding: .9rem 2.4rem;
   background: transparent;
@@ -16069,43 +16069,53 @@ function ArtistPage({ onBackToDev }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx(CLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
         ] }) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(BottomSec, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(GoldBtn, { onClick: handleBackToLanding, children: "↑ 첫 화면으로 돌아가기" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(BlueBtn, { onClick: onBackToDev, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "svg",
-            {
-              width: "18",
-              height: "18",
-              viewBox: "0 0 24 24",
-              fill: "none",
-              stroke: "currentColor",
-              strokeWidth: "2.5",
-              strokeLinecap: "round",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx("polyline", { points: "15 18 9 12 15 6" })
-            }
-          ),
-          "Developer Portfolio 로 돌아가기"
-        ] })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(BottomSec, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(GoldBtn, { onClick: handleBackToLanding, children: "↑ 첫 화면으로 돌아가기" }) })
     ] })
   ] });
 }
+const backGlow = ft`
+  0%,100% { box-shadow: 0 0 10px rgba(74,158,255,0.27); }
+  50%      { box-shadow: 0 0 28px rgba(74,158,255,0.6); }
+`;
+const DevBottomSec = ut.div`
+  padding: 3rem 10% 5rem;
+  background: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #1a1a2e;
+`;
+const DevBackBtn = ut.button`
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 2.4rem;
+  background: transparent;
+  border: 1px solid rgba(74,158,255,0.35);
+  border-radius: 8px;
+  color: #4a9eff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  animation: ${backGlow} 2.5s ease infinite;
+  transition: background 0.2s, transform 0.2s;
+  &:hover { background: rgba(74,158,255,0.1); transform: translateY(-2px); }
+`;
 function App() {
   const [landingDone, setLandingDone] = reactExports.useState(false);
   const [page, setPage] = reactExports.useState("developer");
   const [transitioning, setTransition] = reactExports.useState(false);
   const [toArtist, setToArtist] = reactExports.useState(true);
   reactExports.useEffect(() => {
-    document.body.style.overflow = landingDone ? "" : "hidden";
+    const shouldHide = !landingDone && page === "developer";
+    document.body.style.overflow = shouldHide ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [landingDone]);
+  }, [landingDone, page]);
   const handleGoArtist = () => {
     setToArtist(true);
     setTransition(true);
-    setLandingDone(true);
   };
   const handleBackToDev = () => {
     setToArtist(false);
@@ -16114,6 +16124,10 @@ function App() {
   const handleWaveDone = () => {
     setPage(toArtist ? "artist" : "developer");
     setTransition(false);
+  };
+  const handleBackToLanding = () => {
+    setLandingDone(false);
+    window.scrollTo({ top: 0 });
   };
   const showDev = page === "developer" || transitioning && !toArtist;
   const showArtist = page === "artist" || transitioning && toArtist;
@@ -16141,7 +16155,8 @@ function App() {
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}),
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Skills, {}),
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
-      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {}),
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(DevBottomSec, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(DevBackBtn, { onClick: handleBackToLanding, children: "↑ 첫 화면으로 돌아가기" }) })
     ] }),
     showArtist && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: page === "artist" ? "block" : "none" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistPage, { onBackToDev: handleBackToDev }) })
   ] });
