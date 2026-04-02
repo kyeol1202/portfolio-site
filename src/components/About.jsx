@@ -257,7 +257,7 @@ function About() {
               alt="HanKyeol"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
-            <ProfileInitials>HK</ProfileInitials>
+            <ProfileInitials></ProfileInitials>
           </PhotoWrap>
 
           <ProfileRight>
