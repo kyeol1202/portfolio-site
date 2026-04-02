@@ -13099,7 +13099,7 @@ var S = /* @__PURE__ */ new Map(), w = /* @__PURE__ */ new Map(), b = 1, N = fun
   return S.set(e2, t2), w.set(t2, e2), t2;
 }, E = function(e2, t2) {
   b = t2 + 1, S.set(e2, t2), w.set(t2, e2);
-}, P$1 = Object.freeze([]), I = Object.freeze({});
+}, P$2 = Object.freeze([]), I = Object.freeze({});
 function O(e2, t2, n2) {
   return void 0 === n2 && (n2 = I), e2.theme !== n2.theme && e2.theme || t2 || n2.theme;
 }
@@ -13118,11 +13118,11 @@ function M(e2) {
 var V, F = function(e2, t2) {
   for (var n2 = t2.length; n2; ) e2 = 33 * e2 ^ t2.charCodeAt(--n2);
   return e2;
-}, G$1 = function(e2) {
+}, G$2 = function(e2) {
   return F(5381, e2);
 };
 function L(e2) {
-  return M(G$1(e2) >>> 0);
+  return M(G$2(e2) >>> 0);
 }
 function B$1(e2) {
   return e2.displayName || e2.name || "Component";
@@ -13413,7 +13413,7 @@ function ke(e2) {
   }
   return true;
 }
-var Me = G$1(l), Ve = function() {
+var Me = G$2(l), Ve = function() {
   function e2(e3, t2, n2) {
     this.rules = e3, this.staticRulesId = "", this.isStatic = (void 0 === n2 || n2.isStatic) && ke(e3), this.componentId = t2, this.baseHash = F(Me, t2), this.baseStyle = n2, Ae.registerId(t2);
   }
@@ -13472,7 +13472,7 @@ function ze(e2, t2) {
   });
 }
 function $e(e2) {
-  var t2, n2, o2, r2 = I, s2 = r2.options, a2 = void 0 === s2 ? I : s2, c2 = r2.plugins, u2 = void 0 === c2 ? P$1 : c2, l2 = function(e3, o3, r3) {
+  var t2, n2, o2, r2 = I, s2 = r2.options, a2 = void 0 === s2 ? I : s2, c2 = r2.plugins, u2 = void 0 === c2 ? P$2 : c2, l2 = function(e3, o3, r3) {
     return r3.startsWith(n2) && r3.endsWith(n2) && r3.replaceAll(n2, "").length > 0 ? ".".concat(t2) : e3;
   }, p2 = u2.slice();
   p2.push(function(e3) {
@@ -13544,7 +13544,7 @@ var Ze = React$2.createContext(void 0);
 Ze.Consumer;
 var tt = {};
 function ot(e2, s2, i2) {
-  var a2 = se(e2), c2 = e2, u2 = !z(e2), p2 = s2.attrs, h2 = void 0 === p2 ? P$1 : p2, d2 = s2.componentId, f2 = void 0 === d2 ? function(e3, t2) {
+  var a2 = se(e2), c2 = e2, u2 = !z(e2), p2 = s2.attrs, h2 = void 0 === p2 ? P$2 : p2, d2 = s2.componentId, f2 = void 0 === d2 ? function(e3, t2) {
     var n2 = "string" != typeof e3 ? "sc" : x(e3);
     tt[n2] = (tt[n2] || 0) + 1;
     var o2 = "".concat(n2, "-").concat(L(l + n2 + tt[n2]));
@@ -13604,7 +13604,7 @@ var st = function(e2) {
 };
 function it(t2) {
   for (var n2 = [], o2 = 1; o2 < arguments.length; o2++) n2[o2 - 1] = arguments[o2];
-  if (re(t2) || ce(t2)) return st(je(rt(P$1, __spreadArray([t2], n2, true))));
+  if (re(t2) || ce(t2)) return st(je(rt(P$2, __spreadArray([t2], n2, true))));
   var r2 = t2;
   return 0 === n2.length && 1 === r2.length && "string" == typeof r2[0] ? je(r2) : st(je(rt(r2, n2)));
 }
@@ -13784,7 +13784,7 @@ const SCATTER = [
   { x: 820, y: 90, r: 900, delay: 0.03 }
 ];
 const ASSEMBLE_DONE = 0.9 + 1;
-const Section$4 = ut.section`
+const Section$5 = ut.section`
   position: fixed;
   inset: 0;
   display: flex;
@@ -14001,7 +14001,7 @@ function Hero({ onExitComplete, onArtistClick }) {
   };
   const han = LETTERS.slice(0, 3);
   const kyeol = LETTERS.slice(3);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$5, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(NameRow, { children: [
@@ -14097,24 +14097,24 @@ function Reveal({ children, direction = "up", delay = 0 }) {
   const [ref, isVisible] = useScrollReveal();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Wrapper, { ref, $visible: isVisible, $direction: direction, $delay: delay, children });
 }
-const Section$3 = ut.section`
+const Section$4 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const SectionTitle$2 = ut.h2`
+const SectionTitle$3 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const TitleDivider$2 = ut.div`
+const TitleDivider$3 = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
   margin-bottom: 3rem;
 `;
-const ProfileRow = ut.div`
+const ProfileRow$1 = ut.div`
   display: flex;
   gap: 3rem;
   align-items: flex-start;
@@ -14125,7 +14125,7 @@ const ProfileRow = ut.div`
     align-items: center;
   }
 `;
-const PhotoWrap = ut.div`
+const PhotoWrap$1 = ut.div`
   min-width: 220px;
   width: 220px;
   height: 260px;
@@ -14149,12 +14149,12 @@ const PhotoWrap = ut.div`
   &::before { top: -3px; left: -3px; border-width: 2px 0 0 2px; }
   &::after  { bottom: -3px; right: -3px; border-width: 0 2px 2px 0; }
 `;
-const ProfilePhoto = ut.img`
+const ProfilePhoto$1 = ut.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
-const ProfileInitials = ut.div`
+const ProfileInitials$1 = ut.div`
   position: absolute;
   inset: 0;
   display: flex;
@@ -14166,16 +14166,16 @@ const ProfileInitials = ut.div`
   letter-spacing: 6px;
   font-family: monospace;
 `;
-const ProfileRight = ut.div`
+const ProfileRight$1 = ut.div`
   flex: 1;
 `;
-const BioText = ut.p`
+const BioText$1 = ut.p`
   color: #999;
   line-height: 1.9;
   font-size: 0.95rem;
   margin-bottom: 1.6rem;
 `;
-const InfoGrid = ut.div`
+const InfoGrid$1 = ut.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
@@ -14183,7 +14183,7 @@ const InfoGrid = ut.div`
   @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
   @media (max-width: 560px)  { grid-template-columns: 1fr; }
 `;
-const InfoCard = ut.div`
+const InfoCard$1 = ut.div`
   background: #111;
   border: 1px solid #1e1e2e;
   border-radius: 10px;
@@ -14194,7 +14194,7 @@ const InfoCard = ut.div`
   transition: border-color 0.2s;
   &:hover { border-color: rgba(74,158,255,0.35); }
 `;
-const InfoIcon = ut.div`
+const InfoIcon$1 = ut.div`
   width: 34px; height: 34px;
   border-radius: 8px;
   background: rgba(74,158,255,0.08);
@@ -14205,31 +14205,31 @@ const InfoIcon = ut.div`
   flex-shrink: 0;
   color: #4a9eff;
 `;
-const InfoText = ut.div``;
-const InfoLabel = ut.div`
+const InfoText$1 = ut.div``;
+const InfoLabel$1 = ut.div`
   font-size: 0.65rem;
   color: #555;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.2rem;
 `;
-const InfoValue = ut.div`
+const InfoValue$1 = ut.div`
   font-size: 0.82rem;
   color: #ddd;
   font-weight: 500;
   line-height: 1.4;
 `;
-const DetailGrid = ut.div`
+const DetailGrid$1 = ut.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
 
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
-const SubSection = ut.div`
+const SubSection$1 = ut.div`
   margin-bottom: 2rem;
 `;
-const SubTitle = ut.h3`
+const SubTitle$1 = ut.h3`
   font-size: 0.78rem;
   font-weight: 700;
   color: #4a9eff;
@@ -14250,13 +14250,13 @@ const SubTitle = ut.h3`
     flex-shrink: 0;
   }
 `;
-const ItemList = ut.ul`
+const ItemList$1 = ut.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
 `;
-const Item = ut.li`
+const Item$1 = ut.li`
   font-size: 0.85rem;
   color: #aaa;
   line-height: 1.6;
@@ -14270,7 +14270,7 @@ const Item = ut.li`
     margin-top: 1px;
   }
 `;
-const PlanBadge = ut.span`
+ut.span`
   font-size: 0.6rem;
   color: #4a9eff;
   border: 1px solid rgba(74,158,255,0.4);
@@ -14280,7 +14280,7 @@ const PlanBadge = ut.span`
   vertical-align: middle;
   opacity: 0.8;
 `;
-const ActivityItem = ut.li`
+const ActivityItem$1 = ut.li`
   font-size: 0.85rem;
   color: #aaa;
   line-height: 1.55;
@@ -14294,8 +14294,8 @@ const ActivityItem = ut.li`
     margin-top: 2px;
   }
 `;
-const ActivityBody = ut.div``;
-const ActivityMain = ut.div`
+const ActivityBody$1 = ut.div``;
+const ActivityMain$1 = ut.div`
   color: #ccc;
   em {
     font-style: normal;
@@ -14303,13 +14303,13 @@ const ActivityMain = ut.div`
     margin-right: 0.3rem;
   }
 `;
-const ActivitySub = ut.div`
+const ActivitySub$1 = ut.div`
   font-size: 0.78rem;
   color: #555;
   margin-top: 0.15rem;
   padding-left: 0.1rem;
 `;
-const infoItems = [
+const infoItems$1 = [
   { icon: "👤", label: "이름", value: "김한결 (Kim HanKyeol)" },
   { icon: "📅", label: "생년월일", value: "2000.12.02" },
   { icon: "✉️", label: "이메일", value: "kyeol1202@naver.com" },
@@ -14318,18 +14318,18 @@ const infoItems = [
   { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
 ];
 function About() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "about", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "about", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$2, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$3, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " About Me"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$2, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$3, {})
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRow, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(PhotoWrap, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRow$1, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(PhotoWrap$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          ProfilePhoto,
+          ProfilePhoto$1,
           {
             src: "/profile.jpg",
             alt: "HanKyeol",
@@ -14338,110 +14338,94 @@ function About() {
             }
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials, { children: "HK" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials$1, { children: "HK" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(BioText, { children: "Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다. 데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등 다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다. 백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid, { children: infoItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon, { children: item.icon }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel, { children: item.label }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue, { children: item.value })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight$1, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(BioText$1, { children: "Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다. 데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등 다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다. 백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid$1, { children: infoItems$1.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon$1, { children: item.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText$1, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel$1, { children: item.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue$1, { children: item.value })
           ] })
         ] }, item.label)) })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid$1, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "학력" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대학교 미래교육원 멀티미디어공학 — 학점 3.88/4.5 (2019~2025)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "수원공업고등학교 디지털게임과 (2016~2019)" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle$1, { children: "학력" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList$1, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "서강대학교 미래교육원 멀티미디어공학 — 학점 3.88/4.5 (2019~2025)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "수원공업고등학교 디지털게임과 (2016~2019)" })
           ] })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "교육 / 경력" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "글로벌아카데미 — 차세대 AI 예측 Solution 개발 (2025.11~2026.04)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 NIA AI 학습 데이터 구축 사업 — 3D 스캔데이터 보정 (2023.07~09)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "넷마블게임아카데미 2기 (2017.06~2018.01)" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle$1, { children: "교육 / 경력" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList$1, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "글로벌아카데미 — 차세대 AI 예측 Solution 개발 (2025.11~2026.04)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "서강대 NIA AI 학습 데이터 구축 사업 — 3D 스캔데이터 보정 (2023.07~09)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "넷마블게임아카데미 2기 (2017.06~2018.01)" })
           ] })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "수상" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "양성평등 디자인 공모전 동상 (2017, 한국양성평등교육진흥원)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle$1, { children: "수상" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList$1, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "양성평등 디자인 공모전 동상 (2017, 한국양성평등교육진흥원)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)" })
           ] })
         ] }) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "자격증" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "사무자동화 산업기사 (2024.06)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "게임그래픽 전문가 (2023.08)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "자동차운전면허증 1종 (2020.08)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "웹디자인 기능사 (2018.07)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "컴퓨터그래픽기능사 (2017.06)" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
-              "정보처리기사",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
-              "토익스피킹 140점",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
-              "JLPT N3",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(Item, { children: [
-              "ADsP (데이터분석 준전문가)",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(PlanBadge, { children: "2026 취득예정" })
-            ] })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle$1, { children: "자격증" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList$1, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "사무자동화 산업기사 (2024.06)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "게임그래픽 전문가 (2023.08)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "자동차운전면허증 1종 (2020.08)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "웹디자인 기능사 (2018.07)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item$1, { children: "컴퓨터그래픽기능사 (2017.06)" })
           ] })
         ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "대내외 활동" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { as: "ul", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle$1, { children: "대내외 활동" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList$1, { as: "ul", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody$1, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain$1, { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2016" }),
                 "게임잼 참가"
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "한국콘텐츠진흥원 주최 게임 제작 행사" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub$1, { children: "한국콘텐츠진흥원 주최 게임 제작 행사" })
             ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody$1, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain$1, { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
                 "청소년 게임잼 참가"
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "청소년 대상 게임 개발 챌린지" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub$1, { children: "청소년 대상 게임 개발 챌린지" })
             ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody$1, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain$1, { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
                 "게임개발 기능경기대회 참가"
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "수원공업고등학교 디지털게임과 대표" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub$1, { children: "수원공업고등학교 디지털게임과 대표" })
             ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody$1, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain$1, { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2019–2020" }),
                 "아트동아리 ",
                 /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Spectrum" })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 디지털 아트 · 그래픽 디자인" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub$1, { children: "서강대 미래교육원 — 디지털 아트 · 그래픽 디자인" })
             ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody$1, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain$1, { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2022–2023" }),
                 "개발동아리 ",
                 /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Adiutor" })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub$1, { children: "서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임" })
             ] }) })
           ] })
         ] }) })
@@ -14449,18 +14433,18 @@ function About() {
     ] })
   ] });
 }
-const Section$2 = ut.section`
+const Section$3 = ut.section`
   padding: 6rem 10%;
   background: #0a0a0a;
 `;
-const SectionTitle$1 = ut.h2`
+const SectionTitle$2 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const TitleDivider$1 = ut.div`
+const TitleDivider$2 = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
@@ -14586,13 +14570,13 @@ const categories = [
   }
 ];
 function Skills() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { id: "skills", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$3, { id: "skills", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$1, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$2, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Skills"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$1, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$2, {})
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Grid$1, { children: categories.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.08, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryCard, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryHeader, { children: [
@@ -14609,18 +14593,18 @@ function Skills() {
     ] }) }, cat.label)) })
   ] });
 }
-const Section$1 = ut.section`
+const Section$2 = ut.section`
   padding: 6rem 10%;
   background: #0d0d0d;
 `;
-const SectionTitle = ut.h2`
+const SectionTitle$1 = ut.h2`
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
   span { color: #4a9eff; }
 `;
-const TitleDivider = ut.div`
+const TitleDivider$1 = ut.div`
   width: 50px;
   height: 3px;
   background: #4a9eff;
@@ -14826,13 +14810,13 @@ const projects = [
   }
 ];
 function Projects() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "projects", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$2, { id: "projects", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
         " Projects"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$1, {})
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Grid, { children: projects.map((p2, i) => {
       const color = ACCENT_COLORS[i % ACCENT_COLORS.length];
@@ -14859,7 +14843,7 @@ function Projects() {
     }) })
   ] });
 }
-const Section = ut.section`
+const Section$1 = ut.section`
   padding: 6rem 10%;
   background: #0a0a0a;
   text-align: center;
@@ -14910,7 +14894,7 @@ const Footer = ut.footer`
   font-size: 0.85rem;
 `;
 function Contact() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { id: "contact", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "contact", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(Title, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
@@ -15113,6 +15097,343 @@ function WaveTransition({ active, toArtist, originX = 0.85, originY = 0.5, onCom
     },
     `${c2}-${r}`
   )) });
+}
+const G$1 = "#e8a045";
+const P$1 = "#9b5de5";
+const BG$1 = "#08060e";
+const CARD$1 = "#140f22";
+const BORD$1 = "#1e1630";
+const Section = ut.section`
+  padding: 6rem 10%;
+  background: ${BG$1};
+`;
+const SectionTitle = ut.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  span { color: ${G$1}; }
+`;
+const TitleDivider = ut.div`
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, ${G$1}, ${P$1});
+  margin-bottom: 3rem;
+  border-radius: 2px;
+`;
+const ProfileRow = ut.div`
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 3.5rem;
+
+  @media (max-width: 860px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+const PhotoWrap = ut.div`
+  min-width: 220px;
+  width: 220px;
+  height: 260px;
+  border-radius: 14px;
+  border: 2px solid rgba(232,160,69,0.35);
+  box-shadow: 0 0 40px rgba(232,160,69,0.1);
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(145deg, #120a1e, #1a0a08);
+  flex-shrink: 0;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 18px; height: 18px;
+    border-color: ${G$1};
+    border-style: solid;
+    z-index: 2;
+  }
+  &::before { top: -3px; left: -3px; border-width: 2px 0 0 2px; }
+  &::after  { bottom: -3px; right: -3px; border-width: 0 2px 2px 0; }
+`;
+const ProfilePhoto = ut.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+const ProfileInitials = ut.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgba(232,160,69,0.25);
+  letter-spacing: 6px;
+  font-family: monospace;
+`;
+const ProfileRight = ut.div`flex: 1;`;
+const BioText = ut.p`
+  color: #9988aa;
+  line-height: 1.9;
+  font-size: 0.95rem;
+  margin-bottom: 1.6rem;
+`;
+const InfoGrid = ut.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px)  { grid-template-columns: 1fr; }
+`;
+const InfoCard = ut.div`
+  background: ${CARD$1};
+  border: 1px solid ${BORD$1};
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.2s;
+  &:hover { border-color: rgba(232,160,69,0.35); }
+`;
+const InfoIcon = ut.div`
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: rgba(232,160,69,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: ${G$1};
+`;
+const InfoText = ut.div``;
+const InfoLabel = ut.div`
+  font-size: 0.65rem;
+  color: #55445e;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.2rem;
+`;
+const InfoValue = ut.div`
+  font-size: 0.82rem;
+  color: #ddd;
+  font-weight: 500;
+  line-height: 1.4;
+`;
+const DetailGrid = ut.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+`;
+const SubSection = ut.div`margin-bottom: 2rem;`;
+const SubTitle = ut.h3`
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: ${G$1};
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(232,160,69,0.15);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: '';
+    width: 4px; height: 14px;
+    background: ${G$1};
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+`;
+const ItemList = ut.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+`;
+const Item = ut.li`
+  font-size: 0.85rem;
+  color: #aa99bb;
+  line-height: 1.6;
+  display: flex;
+  gap: 0.5rem;
+
+  &::before {
+    content: '▹';
+    color: ${G$1};
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+`;
+ut.span`
+  font-size: 0.6rem;
+  color: ${G$1};
+  border: 1px solid rgba(232,160,69,0.4);
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  opacity: 0.8;
+`;
+const ActivityItem = ut.li`
+  font-size: 0.85rem;
+  color: #aa99bb;
+  line-height: 1.55;
+  display: flex;
+  gap: 0.5rem;
+
+  &::before {
+    content: '▹';
+    color: ${G$1};
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+`;
+const ActivityBody = ut.div``;
+const ActivityMain = ut.div`
+  color: #ccc;
+  em {
+    font-style: normal;
+    color: ${G$1};
+    margin-right: 0.3rem;
+  }
+`;
+const ActivitySub = ut.div`
+  font-size: 0.78rem;
+  color: #55445e;
+  margin-top: 0.15rem;
+  padding-left: 0.1rem;
+`;
+const infoItems = [
+  { icon: "👤", label: "이름", value: "김한결 (Kim HanKyeol)" },
+  { icon: "📅", label: "생년월일", value: "2000.12.02" },
+  { icon: "✉️", label: "이메일", value: "kyeol1202@naver.com" },
+  { icon: "⌨️", label: "GitHub", value: "github.com/kyeol1202" },
+  { icon: "🎨", label: "희망 직무", value: "3D 아티스트 / 게임 그래픽" },
+  { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
+];
+function ArtistAbout() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { id: "a-about", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(SectionTitle, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "#" }),
+        " About Me"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider, {})
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.05, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRow, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(PhotoWrap, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ProfilePhoto,
+          {
+            src: "/profile.jpg",
+            alt: "HanKyeol",
+            onError: (e) => {
+              e.currentTarget.style.display = "none";
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials, { children: "HK" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(BioText, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다. 현재는 개발 역량과 아트 감각을 함께 활용해 더 넓은 분야에 도전하고 있습니다." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid, { children: infoItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon, { children: item.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel, { children: item.label }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue, { children: item.value })
+          ] })
+        ] }, item.label)) })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "학력" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대학교 미래교육원 멀티미디어공학 — 학점 3.88/4.5 (2019~2025)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "수원공업고등학교 디지털게임과 (2016~2019)" })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.15, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "교육 / 경력" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "글로벌아카데미 — 차세대 AI 예측 Solution 개발 (2025.11~2026.04)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 NIA AI 학습 데이터 구축 사업 — 3D 스캔데이터 보정 (2023.07~09)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "넷마블게임아카데미 2기 (2017.06~2018.01)" })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "수상" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "양성평등 디자인 공모전 동상 (2017, 한국양성평등교육진흥원)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "서강대 MTEC 전국 고교생 게임 아이디어 공모전 입상 (2016)" })
+          ] })
+        ] }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "자격증" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "게임그래픽 전문가 (2023.08)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "사무자동화 산업기사 (2024.06)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "웹디자인 기능사 (2018.07)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "컴퓨터그래픽기능사 (2017.06)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Item, { children: "자동차운전면허증 1종 (2020.08)" })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.2, direction: "right", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SubSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SubTitle, { children: "대내외 활동" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(ItemList, { as: "ul", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2016" }),
+                "게임잼 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "한국콘텐츠진흥원 주최 게임 제작 행사" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
+                "청소년 게임잼 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "청소년 대상 게임 개발 챌린지" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2017" }),
+                "게임개발 기능경기대회 참가"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "수원공업고등학교 디지털게임과 대표" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2019–2020" }),
+                "아트동아리 ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Spectrum" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 디지털 아트 · 그래픽 디자인" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ActivityItem, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityBody, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(ActivityMain, { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("em", { children: "2022–2023" }),
+                "개발동아리 ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { style: { color: "#ccc" }, children: "Adiutor" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ActivitySub, { children: "서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임" })
+            ] }) })
+          ] })
+        ] }) })
+      ] })
+    ] })
+  ] });
 }
 const G = "#e8a045";
 const P = "#9b5de5";
@@ -15675,7 +15996,7 @@ function ArtistPage({ onBackToDev }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(NavLink, { href: "#a-contact", children: "Contact" }) })
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "a-about", style: { paddingTop: "60px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { paddingTop: "60px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistAbout, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(SecWrap, { id: "a-skills", $alt: true, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(SecTitle, { children: [
