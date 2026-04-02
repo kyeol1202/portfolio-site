@@ -16105,6 +16105,7 @@ function App() {
   const handleGoArtist = () => {
     setToArtist(true);
     setTransition(true);
+    setLandingDone(true);
   };
   const handleBackToDev = () => {
     setToArtist(false);
