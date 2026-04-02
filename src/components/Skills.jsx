@@ -45,10 +45,6 @@ const CategoryHeader = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-const CategoryIcon = styled.span`
-  font-size: 1.1rem;
-`;
-
 const CategoryLabel = styled.h3`
   font-size: 0.72rem;
   font-weight: 700;
@@ -68,18 +64,6 @@ const SkillRow = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-`;
-
-const SkillLeft = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-`;
-
-const SkillEmoji = styled.span`
-  font-size: 1rem;
-  flex-shrink: 0;
 `;
 
 const SkillName = styled.span`
@@ -106,50 +90,48 @@ const Dot = styled.div`
 /* ── 데이터 ── */
 const categories = [
   {
-    icon: '⌨️',
     label: '개발 언어',
     skills: [
-      { emoji: '☕', name: 'Java',         level: 4 },
-      { emoji: '🐍', name: 'Python',       level: 4 },
-      { emoji: '🟨', name: 'JavaScript',   level: 3 },
-      { emoji: '📊', name: 'R',            level: 2 },
-      { emoji: '📱', name: 'React Native', level: 2 },
+      { name: 'Java',         level: 4 },
+      { name: 'Python',       level: 4 },
+      { name: 'JavaScript',   level: 3 },
+      { name: 'R',            level: 2 },
+      { name: 'React Native', level: 2 },
     ],
   },
   {
-    icon: '🧩',
     label: '프레임워크 / 라이브러리',
     skills: [
-      { emoji: '🍃', name: 'Spring Boot', level: 4 },
-      { emoji: '⚛️', name: 'React.js',   level: 3 },
+      { name: 'Spring Boot', level: 4 },
+      { name: 'MyBatis',     level: 3 },
+      { name: 'Node.js',     level: 2 },
+      { name: 'React.js',    level: 3 },
     ],
   },
   {
-    icon: '🗄️',
     label: '데이터베이스',
     skills: [
-      { emoji: '🐬', name: 'MariaDB',  level: 4 },
-      { emoji: '🔥', name: 'Firebase', level: 2 },
+      { name: 'MariaDB',  level: 4 },
+      { name: 'MySQL',    level: 3 },
+      { name: 'Firebase', level: 2 },
     ],
   },
   {
-    icon: '🛠️',
     label: '개발 도구',
     skills: [
-      { emoji: '🔵', name: 'VSCode',           level: 5 },
-      { emoji: '🌑', name: 'Eclipse / STS',    level: 4 },
-      { emoji: '🤖', name: 'Android Studio',   level: 2 },
-      { emoji: '📐', name: 'DBeaver',           level: 3 },
+      { name: 'VSCode',         level: 5 },
+      { name: 'Eclipse / STS',  level: 4 },
+      { name: 'Android Studio', level: 2 },
+      { name: 'DBeaver',        level: 3 },
     ],
   },
   {
-    icon: '⚙️',
     label: '기타',
     skills: [
-      { emoji: '🐙', name: 'Git / GitHub', level: 4 },
-      { emoji: '🤖', name: 'Brity RPA',   level: 3 },
-      { emoji: '📝', name: 'Notion',      level: 4 },
-      { emoji: '☁️', name: 'ERD Cloud',  level: 3 },
+      { name: 'Git / GitHub', level: 4 },
+      { name: 'Brity RPA',   level: 3 },
+      { name: 'Notion',      level: 4 },
+      { name: 'ERD Cloud',   level: 3 },
     ],
   },
 ];
@@ -167,17 +149,13 @@ function Skills() {
           <Reveal key={cat.label} delay={i * 0.08}>
             <CategoryCard>
               <CategoryHeader>
-                <CategoryIcon>{cat.icon}</CategoryIcon>
                 <CategoryLabel>{cat.label}</CategoryLabel>
               </CategoryHeader>
 
               <SkillList>
                 {cat.skills.map((skill) => (
                   <SkillRow key={skill.name}>
-                    <SkillLeft>
-                      <SkillEmoji>{skill.emoji}</SkillEmoji>
-                      <SkillName>{skill.name}</SkillName>
-                    </SkillLeft>
+                    <SkillName>{skill.name}</SkillName>
                     <Dots>
                       {[1, 2, 3, 4, 5].map((n) => (
                         <Dot key={n} $filled={n <= skill.level} />

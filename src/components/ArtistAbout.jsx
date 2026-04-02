@@ -201,16 +201,6 @@ const Item = styled.li`
   }
 `;
 
-const PlanBadge = styled.span`
-  font-size: 0.6rem;
-  color: ${G};
-  border: 1px solid rgba(232,160,69,0.4);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  opacity: 0.8;
-`;
 
 const ActivityItem = styled.li`
   font-size: 0.85rem;
@@ -245,12 +235,12 @@ const ActivitySub = styled.div`
 
 /* ── 데이터 ── */
 const infoItems = [
-  { icon: '👤', label: '이름',     value: '김한결 (Kim HanKyeol)' },
-  { icon: '📅', label: '생년월일', value: '2000.12.02' },
-  { icon: '✉️', label: '이메일',   value: 'kyeol1202@naver.com' },
-  { icon: '⌨️', label: 'GitHub',   value: 'github.com/kyeol1202' },
-  { icon: '🎨', label: '희망 직무', value: '3D 아티스트 / 게임 그래픽' },
-  { icon: '🛡️', label: '병역',     value: '육군 병장 만기전역 (2020~2022)' },
+  { label: '이름',     value: '김한결 (Kim HanKyeol)' },
+  { label: '생년월일', value: '2000.12.02' },
+  { label: '이메일',   value: 'kyeol1202@naver.com' },
+  { label: 'GitHub',   value: 'github.com/kyeol1202' },
+  { label: '희망 직무', value: '3D 아티스트 / 게임 그래픽' },
+  { label: '병역',     value: '육군 병장 만기전역 (2020~2022)' },
 ];
 
 function ArtistAbout() {
@@ -284,7 +274,6 @@ function ArtistAbout() {
             <InfoGrid>
               {infoItems.map((item) => (
                 <InfoCard key={item.label}>
-                  <InfoIcon>{item.icon}</InfoIcon>
                   <InfoText>
                     <InfoLabel>{item.label}</InfoLabel>
                     <InfoValue>{item.value}</InfoValue>

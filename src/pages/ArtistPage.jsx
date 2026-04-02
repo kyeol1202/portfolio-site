@@ -428,32 +428,32 @@ const Dot  = styled.div`
 
 const artistSkills = [
   {
-    icon: '🧊', label: '3D 모델링',
+    label: '3D 모델링',
     skills: [
-      { emoji: '🫐', name: 'Blender',           level: 4 },
-      { emoji: '🪨', name: 'ZBrush',            level: 3 },
-      { emoji: '🎬', name: 'Maya',              level: 3 },
+      { name: 'Blender',           level: 4 },
+      { name: 'ZBrush',            level: 3 },
+      { name: 'Maya',              level: 3 },
     ],
   },
   {
-    icon: '🎨', label: '텍스처 / 렌더링',
+    label: '텍스처 / 렌더링',
     skills: [
-      { emoji: '🖌️', name: 'Substance Painter', level: 4 },
-      { emoji: '🖼️', name: 'Photoshop',         level: 4 },
-      { emoji: '✏️', name: 'Illustrator',       level: 3 },
+      { name: 'Substance Painter', level: 4 },
+      { name: 'Photoshop',         level: 4 },
+      { name: 'Illustrator',       level: 3 },
     ],
   },
   {
-    icon: '🕹️', label: '게임 엔진',
+    label: '게임 엔진',
     skills: [
-      { emoji: '🎮', name: 'Unity',             level: 3 },
-      { emoji: '⚡', name: 'Unreal Engine',     level: 2 },
+      { name: 'Unity',             level: 3 },
+      { name: 'Unreal Engine',     level: 2 },
     ],
   },
   {
-    icon: '🛠️', label: '디자인 도구',
+    label: '디자인 도구',
     skills: [
-      { emoji: '🎯', name: 'Figma',             level: 3 },
+      { name: 'Figma',             level: 3 },
     ],
   },
 ];
@@ -526,17 +526,17 @@ const GoldBtn = styled.button`
 const personalWorks = [
   {
     name: '개인 작업 1', desc: '개인 3D 포트폴리오 작업물. 업데이트 예정.',
-    icon: '🗿', bg: 'linear-gradient(135deg,#1a0a30,#2d1200)',
+    bg: 'linear-gradient(135deg,#1a0a30,#2d1200)',
     tags: ['Blender', 'Substance Painter'], link: null,
   },
   {
     name: '개인 작업 2', desc: '캐릭터 디자인 및 리깅. 업데이트 예정.',
-    icon: '🧊', bg: 'linear-gradient(135deg,#001a2a,#0a1a00)',
+    bg: 'linear-gradient(135deg,#001a2a,#0a1a00)',
     tags: ['ZBrush', 'Maya'], link: null,
   },
   {
     name: '개인 작업 3', desc: '환경 아트 & 조명 연출. 업데이트 예정.',
-    icon: '🌌', bg: 'linear-gradient(135deg,#0a001a,#1a0a00)',
+    bg: 'linear-gradient(135deg,#0a001a,#1a0a00)',
     tags: ['Unreal Engine', 'Blender'], link: null,
   },
 ];
@@ -545,20 +545,20 @@ const projectWorks = [
   {
     name: 'AuRA — 향수 웹사이트',
     desc: '국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. 팀 리더 참여.',
-    icon: '🌸', bg: 'linear-gradient(135deg,#1a0a20,#200a10)',
+    bg: 'linear-gradient(135deg,#1a0a20,#200a10)',
     tags: ['Figma', 'React.js', 'MariaDB'],
     link: 'https://github.com/kyeol1202/Team4-Project',
   },
   {
     name: '기업 수익성 자동분석 시스템',
     desc: 'DART → Python 정제 → 엑셀 출력 전 과정 자동화 파이프라인.',
-    icon: '📊', bg: 'linear-gradient(135deg,#0a1a10,#1a1000)',
+    bg: 'linear-gradient(135deg,#0a1a10,#1a1000)',
     tags: ['Python', 'BrityRPA', 'Excel'], link: null,
   },
   {
     name: '차세대 AI Solution ERP',
     desc: 'Spring 기반 인사·급여·매출·재무 통합 ERP. 팀장 참여.',
-    icon: '🏗️', bg: 'linear-gradient(135deg,#0a0a20,#201000)',
+    bg: 'linear-gradient(135deg,#0a0a20,#201000)',
     tags: ['Java', 'Spring', 'MariaDB'],
     link: 'https://github.com/ArLyehee/MainProjectERP',
   },
@@ -710,14 +710,12 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
                 <Reveal key={cat.label} delay={i * 0.08}>
                   <SkillCard>
                     <SkillCardHeader>
-                      <SkillCardIcon>{cat.icon}</SkillCardIcon>
                       <SkillCardLabel>{cat.label}</SkillCardLabel>
                     </SkillCardHeader>
                     <SkillList>
                       {cat.skills.map((skill) => (
                         <SkillRow key={skill.name}>
                           <SkillLeft>
-                            <SkillEmoji>{skill.emoji}</SkillEmoji>
                             <SkillName>{skill.name}</SkillName>
                           </SkillLeft>
                           <Dots>
@@ -743,7 +741,7 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
               {personalWorks.map((w, i) => (
                 <Reveal key={w.name} delay={i * 0.12}>
                   <Card>
-                    <Thumb $bg={w.bg}>{w.icon}</Thumb>
+                    <Thumb $bg={w.bg} />
                     <CardBody>
                       {w.link && <IconLink href={w.link} target="_blank">GitHub ↗</IconLink>}
                       <CardName>{w.name}</CardName>
@@ -765,7 +763,7 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
               {projectWorks.map((w, i) => (
                 <Reveal key={w.name} delay={i * 0.12}>
                   <Card>
-                    <Thumb $bg={w.bg}>{w.icon}</Thumb>
+                    <Thumb $bg={w.bg} />
                     <CardBody>
                       {w.link && <IconLink href={w.link} target="_blank">GitHub ↗</IconLink>}
                       <CardName>{w.name}</CardName>

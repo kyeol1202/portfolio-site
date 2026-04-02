@@ -198,17 +198,6 @@ const Item = styled.li`
   }
 `;
 
-/* 취득 예정 배지 */
-const PlanBadge = styled.span`
-  font-size: 0.6rem;
-  color: #4a9eff;
-  border: 1px solid rgba(74,158,255,0.4);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  opacity: 0.8;
-`;
 
 const ActivityItem = styled.li`
   font-size: 0.85rem;
@@ -243,12 +232,12 @@ const ActivitySub = styled.div`
 
 /* ── infoItems 데이터 ── */
 const infoItems = [
-  { icon: '👤', label: '이름',     value: '김한결 (Kim HanKyeol)' },
-  { icon: '📅', label: '생년월일', value: '2000.12.02' },
-  { icon: '✉️', label: '이메일',   value: 'kyeol1202@naver.com' },
-  { icon: '⌨️', label: 'GitHub',   value: 'github.com/kyeol1202' },
-  { icon: '💼', label: '희망 직무', value: '풀스택 / 백엔드 / 데이터' },
-  { icon: '🛡️', label: '병역',     value: '육군 병장 만기전역 (2020~2022)' },
+  { label: '이름',     value: '김한결 (Kim HanKyeol)' },
+  { label: '생년월일', value: '2000.12.02' },
+  { label: '이메일',   value: 'kyeol1202@naver.com' },
+  { label: 'GitHub',   value: 'github.com/kyeol1202' },
+  { label: '희망 직무', value: '풀스택 / 백엔드 / 데이터' },
+  { label: '병역',     value: '육군 병장 만기전역 (2020~2022)' },
 ];
 
 function About() {
@@ -283,7 +272,6 @@ function About() {
             <InfoGrid>
               {infoItems.map((item) => (
                 <InfoCard key={item.label}>
-                  <InfoIcon>{item.icon}</InfoIcon>
                   <InfoText>
                     <InfoLabel>{item.label}</InfoLabel>
                     <InfoValue>{item.value}</InfoValue>
