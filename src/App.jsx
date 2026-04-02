@@ -10,7 +10,7 @@ import CustomCursor from './components/CustomCursor.jsx';
 import WaveTransition from './components/WaveTransition.jsx';
 import ArtistPage from './pages/ArtistPage.jsx';
 
-/* ── 개발자 페이지 하단 '첫 화면으로' 버튼 ── */
+/* ── 개발자 페이지 하단 '첫 화면으로' 버튼 ── */function
 const backGlow = keyframes`
   0%,100% { box-shadow: 0 0 10px rgba(74,158,255,0.27); }
   50%      { box-shadow: 0 0 28px rgba(74,158,255,0.6); }

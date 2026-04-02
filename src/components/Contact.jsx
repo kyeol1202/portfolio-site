@@ -78,9 +78,6 @@ function Contact() {
           </ContactLink>
         </LinkGroup>
       </Reveal>
-      <Footer>
-        © 2026 김한결. Built with React & styled-components.
-      </Footer>
     </Section>
   );
 }
