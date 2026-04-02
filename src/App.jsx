@@ -48,6 +48,8 @@ function App() {
   const [page, setPage]                        = useState('developer');
   const [transitioning, setTransition]         = useState(false);
   const [toArtist, setToArtist]                = useState(true);
+  /* 웨이브 발원 좌표: 아티스트 버튼(우측) 또는 개발자 버튼(좌측) */
+  const [waveOriginX, setWaveOriginX]          = useState(0.92);
 
   /* 개발자 랜딩 중일 때만 스크롤 막기 */
   useEffect(() => {
@@ -56,9 +58,20 @@ function App() {
     return () => { document.body.style.overflow = ''; };
   }, [landingDone, page]);
 
-  /* 아티스트로 이동 시 아티스트 랜딩 리셋 */
-  const handleGoArtist  = () => { setToArtist(true);  setTransition(true); setArtistLanding(false); };
-  const handleBackToDev = () => { setToArtist(false); setTransition(true); };
+  /* 아티스트 버튼(우측 0.92) → 아티스트 페이지 */
+  const handleGoArtist = () => {
+    setToArtist(true);
+    setTransition(true);
+    setArtistLanding(false);
+    setWaveOriginX(0.92);
+  };
+
+  /* 개발자 버튼(좌측 0.08) → 개발자 페이지 */
+  const handleBackToDev = () => {
+    setToArtist(false);
+    setTransition(true);
+    setWaveOriginX(0.08);
+  };
 
   const handleWaveDone = () => {
     setPage(toArtist ? 'artist' : 'developer');
@@ -87,7 +100,7 @@ function App() {
       <WaveTransition
         active={transitioning}
         toArtist={toArtist}
-        originX={0.88}
+        originX={waveOriginX}
         originY={0.5}
         onComplete={handleWaveDone}
       />
