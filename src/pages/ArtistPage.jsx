@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import styled, { keyframes, css } from 'styled-components';
-import About from '../components/About.jsx';
+import ArtistAbout from '../components/ArtistAbout.jsx';
 import Reveal from '../components/Reveal.jsx';
 
 /* ── 팔레트 ── */
@@ -660,9 +660,9 @@ function ArtistPage({ onBackToDev }) {
             </NavLinks>
           </ArtistNav>
 
-          {/* About — 개발자 페이지와 동일 */}
-          <div id="a-about" style={{ paddingTop: '60px' }}>
-            <About />
+          {/* About */}
+          <div style={{ paddingTop: '60px' }}>
+            <ArtistAbout />
           </div>
 
           {/* Skills */}

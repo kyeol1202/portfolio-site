@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 import Reveal from './Reveal.jsx';
 
+/* ── 팔레트 ── */
+const G = '#e8a045';
+const P = '#9b5de5';
+const BG   = '#08060e';
+const CARD = '#140f22';
+const BORD = '#1e1630';
+
 /* ── 공통 ── */
 const Section = styled.section`
   padding: 6rem 10%;
-  background: #0d0d0d;
+  background: ${BG};
 `;
 
 const SectionTitle = styled.h2`
@@ -12,14 +19,15 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   color: #fff;
   margin-bottom: 0.5rem;
-  span { color: #4a9eff; }
+  span { color: ${G}; }
 `;
 
 const TitleDivider = styled.div`
   width: 50px;
   height: 3px;
-  background: #4a9eff;
+  background: linear-gradient(90deg, ${G}, ${P});
   margin-bottom: 3rem;
+  border-radius: 2px;
 `;
 
 /* ── 프로필 영역 ── */
@@ -40,19 +48,18 @@ const PhotoWrap = styled.div`
   width: 220px;
   height: 260px;
   border-radius: 14px;
-  border: 2px solid rgba(74,158,255,0.35);
-  box-shadow: 0 0 40px rgba(74,158,255,0.1);
+  border: 2px solid rgba(232,160,69,0.35);
+  box-shadow: 0 0 40px rgba(232,160,69,0.1);
   overflow: hidden;
   position: relative;
-  background: linear-gradient(145deg, #111827, #0d1520);
+  background: linear-gradient(145deg, #120a1e, #1a0a08);
   flex-shrink: 0;
 
-  /* 코너 액센트 */
   &::before, &::after {
     content: '';
     position: absolute;
     width: 18px; height: 18px;
-    border-color: #4a9eff;
+    border-color: ${G};
     border-style: solid;
     z-index: 2;
   }
@@ -74,17 +81,15 @@ const ProfileInitials = styled.div`
   justify-content: center;
   font-size: 3.5rem;
   font-weight: 900;
-  color: rgba(74,158,255,0.25);
+  color: rgba(232,160,69,0.25);
   letter-spacing: 6px;
   font-family: monospace;
 `;
 
-const ProfileRight = styled.div`
-  flex: 1;
-`;
+const ProfileRight = styled.div`flex: 1;`;
 
 const BioText = styled.p`
-  color: #999;
+  color: #9988aa;
   line-height: 1.9;
   font-size: 0.95rem;
   margin-bottom: 1.6rem;
@@ -101,34 +106,34 @@ const InfoGrid = styled.div`
 `;
 
 const InfoCard = styled.div`
-  background: #111;
-  border: 1px solid #1e1e2e;
+  background: ${CARD};
+  border: 1px solid ${BORD};
   border-radius: 10px;
   padding: 0.85rem 1rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   transition: border-color 0.2s;
-  &:hover { border-color: rgba(74,158,255,0.35); }
+  &:hover { border-color: rgba(232,160,69,0.35); }
 `;
 
 const InfoIcon = styled.div`
   width: 34px; height: 34px;
   border-radius: 8px;
-  background: rgba(74,158,255,0.08);
+  background: rgba(232,160,69,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   flex-shrink: 0;
-  color: #4a9eff;
+  color: ${G};
 `;
 
 const InfoText = styled.div``;
 
 const InfoLabel = styled.div`
   font-size: 0.65rem;
-  color: #555;
+  color: #55445e;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.2rem;
@@ -150,19 +155,17 @@ const DetailGrid = styled.div`
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
 
-const SubSection = styled.div`
-  margin-bottom: 2rem;
-`;
+const SubSection = styled.div`margin-bottom: 2rem;`;
 
 const SubTitle = styled.h3`
   font-size: 0.78rem;
   font-weight: 700;
-  color: #4a9eff;
+  color: ${G};
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding-bottom: 0.5rem;
   margin-bottom: 0.9rem;
-  border-bottom: 1px solid rgba(74,158,255,0.15);
+  border-bottom: 1px solid rgba(232,160,69,0.15);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -170,7 +173,7 @@ const SubTitle = styled.h3`
   &::before {
     content: '';
     width: 4px; height: 14px;
-    background: #4a9eff;
+    background: ${G};
     border-radius: 2px;
     flex-shrink: 0;
   }
@@ -185,24 +188,23 @@ const ItemList = styled.ul`
 
 const Item = styled.li`
   font-size: 0.85rem;
-  color: #aaa;
+  color: #aa99bb;
   line-height: 1.6;
   display: flex;
   gap: 0.5rem;
 
   &::before {
     content: '▹';
-    color: #4a9eff;
+    color: ${G};
     flex-shrink: 0;
     margin-top: 1px;
   }
 `;
 
-/* 취득 예정 배지 */
 const PlanBadge = styled.span`
   font-size: 0.6rem;
-  color: #4a9eff;
-  border: 1px solid rgba(74,158,255,0.4);
+  color: ${G};
+  border: 1px solid rgba(232,160,69,0.4);
   border-radius: 3px;
   padding: 1px 5px;
   margin-left: 0.4rem;
@@ -212,48 +214,48 @@ const PlanBadge = styled.span`
 
 const ActivityItem = styled.li`
   font-size: 0.85rem;
-  color: #aaa;
+  color: #aa99bb;
   line-height: 1.55;
   display: flex;
   gap: 0.5rem;
 
   &::before {
     content: '▹';
-    color: #4a9eff;
+    color: ${G};
     flex-shrink: 0;
     margin-top: 2px;
   }
 `;
 
-const ActivityBody = styled.div``;
-const ActivityMain = styled.div`
+const ActivityBody  = styled.div``;
+const ActivityMain  = styled.div`
   color: #ccc;
   em {
     font-style: normal;
-    color: #4a9eff;
+    color: ${G};
     margin-right: 0.3rem;
   }
 `;
 const ActivitySub = styled.div`
   font-size: 0.78rem;
-  color: #555;
+  color: #55445e;
   margin-top: 0.15rem;
   padding-left: 0.1rem;
 `;
 
-/* ── infoItems 데이터 ── */
+/* ── 데이터 ── */
 const infoItems = [
   { icon: '👤', label: '이름',     value: '김한결 (Kim HanKyeol)' },
   { icon: '📅', label: '생년월일', value: '2000.12.02' },
   { icon: '✉️', label: '이메일',   value: 'kyeol1202@naver.com' },
   { icon: '⌨️', label: 'GitHub',   value: 'github.com/kyeol1202' },
-  { icon: '💼', label: '희망 직무', value: '풀스택 / 백엔드 / 데이터' },
+  { icon: '🎨', label: '희망 직무', value: '3D 아티스트 / 게임 그래픽' },
   { icon: '🛡️', label: '병역',     value: '육군 병장 만기전역 (2020~2022)' },
 ];
 
-function About() {
+function ArtistAbout() {
   return (
-    <Section id="about">
+    <Section id="a-about">
       <Reveal>
         <SectionTitle><span>#</span> About Me</SectionTitle>
         <TitleDivider />
@@ -273,11 +275,10 @@ function About() {
 
           <ProfileRight>
             <BioText>
-              Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다.
-              데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등
-              다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다.
-              백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지
-              폭넓게 역량을 확장하고 있습니다.
+              게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지
+              폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전,
+              디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다.
+              현재는 개발 역량과 아트 감각을 함께 활용해 더 넓은 분야에 도전하고 있습니다.
             </BioText>
 
             <InfoGrid>
@@ -337,11 +338,11 @@ function About() {
             <SubSection>
               <SubTitle>자격증</SubTitle>
               <ItemList>
-                <Item>사무자동화 산업기사 (2024.06)</Item>
                 <Item>게임그래픽 전문가 (2023.08)</Item>
-                <Item>자동차운전면허증 1종 (2020.08)</Item>
+                <Item>사무자동화 산업기사 (2024.06)</Item>
                 <Item>웹디자인 기능사 (2018.07)</Item>
                 <Item>컴퓨터그래픽기능사 (2017.06)</Item>
+                <Item>자동차운전면허증 1종 (2020.08)</Item>
               </ItemList>
             </SubSection>
           </Reveal>
@@ -352,32 +353,26 @@ function About() {
               <ItemList as="ul">
                 <ActivityItem>
                   <ActivityBody>
-                    <ActivityMain>
-                      <em>2016</em>게임잼 참가
-                    </ActivityMain>
+                    <ActivityMain><em>2016</em>게임잼 참가</ActivityMain>
                     <ActivitySub>한국콘텐츠진흥원 주최 게임 제작 행사</ActivitySub>
                   </ActivityBody>
                 </ActivityItem>
                 <ActivityItem>
                   <ActivityBody>
-                    <ActivityMain>
-                      <em>2017</em>청소년 게임잼 참가
-                    </ActivityMain>
+                    <ActivityMain><em>2017</em>청소년 게임잼 참가</ActivityMain>
                     <ActivitySub>청소년 대상 게임 개발 챌린지</ActivitySub>
                   </ActivityBody>
                 </ActivityItem>
                 <ActivityItem>
                   <ActivityBody>
-                    <ActivityMain>
-                      <em>2017</em>게임개발 기능경기대회 참가
-                    </ActivityMain>
+                    <ActivityMain><em>2017</em>게임개발 기능경기대회 참가</ActivityMain>
                     <ActivitySub>수원공업고등학교 디지털게임과 대표</ActivitySub>
                   </ActivityBody>
                 </ActivityItem>
                 <ActivityItem>
                   <ActivityBody>
                     <ActivityMain>
-                      <em>2019–2020</em>아트동아리 <strong style={{color:'#ccc'}}>Spectrum</strong>
+                      <em>2019–2020</em>아트동아리 <strong style={{ color: '#ccc' }}>Spectrum</strong>
                     </ActivityMain>
                     <ActivitySub>서강대 미래교육원 — 디지털 아트 · 그래픽 디자인</ActivitySub>
                   </ActivityBody>
@@ -385,7 +380,7 @@ function About() {
                 <ActivityItem>
                   <ActivityBody>
                     <ActivityMain>
-                      <em>2022–2023</em>개발동아리 <strong style={{color:'#ccc'}}>Adiutor</strong>
+                      <em>2022–2023</em>개발동아리 <strong style={{ color: '#ccc' }}>Adiutor</strong>
                     </ActivityMain>
                     <ActivitySub>서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임</ActivitySub>
                   </ActivityBody>
@@ -399,4 +394,4 @@ function About() {
   );
 }
 
-export default About;
+export default ArtistAbout;
