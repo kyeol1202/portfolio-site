@@ -6,31 +6,73 @@ import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
 import CustomCursor from './components/CustomCursor.jsx';
+import WaveTransition from './components/WaveTransition.jsx';
+import ArtistPage from './pages/ArtistPage.jsx';
 
 function App() {
-  const [landingDone, setLandingDone] = useState(false);
+  const [landingDone, setLandingDone]   = useState(false);
+  const [page, setPage]                 = useState('developer'); // 'developer' | 'artist'
+  const [transitioning, setTransition]  = useState(false);
+  const [toArtist, setToArtist]         = useState(true);
 
-  /* 랜딩 중에는 스크롤 잠금 */
+  /* 랜딩 중 스크롤 잠금 */
   useEffect(() => {
     document.body.style.overflow = landingDone ? '' : 'hidden';
     return () => { document.body.style.overflow = ''; };
   }, [landingDone]);
 
+  /* Artist 버튼 클릭 → wave → artist 페이지 */
+  const handleGoArtist = () => {
+    setToArtist(true);
+    setTransition(true);
+  };
+
+  /* Artist → Dev 복귀 */
+  const handleBackToDev = () => {
+    setToArtist(false);
+    setTransition(true);
+  };
+
+  /* Wave 완료 → 페이지 전환 */
+  const handleWaveDone = () => {
+    setPage(toArtist ? 'artist' : 'developer');
+    setTransition(false);
+  };
+
   return (
     <>
       <CustomCursor isLanding={!landingDone} />
 
-      {/* Hero: position fixed, z-index 50 — 랜딩 완료 시 언마운트 */}
-      {!landingDone && (
-        <Hero onExitComplete={() => setLandingDone(true)} />
+      {/* ── Wave Transition Overlay ── */}
+      <WaveTransition
+        active={transitioning}
+        toArtist={toArtist}
+        originX={0.88}
+        originY={0.5}
+        onComplete={handleWaveDone}
+      />
+
+      {/* ── Developer Portfolio ── */}
+      {page === 'developer' && (
+        <>
+          {!landingDone && (
+            <Hero
+              onExitComplete={() => setLandingDone(true)}
+              onArtistClick={handleGoArtist}
+            />
+          )}
+          {landingDone && <Navbar />}
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </>
       )}
 
-      {/* 메인 콘텐츠: Hero 뒤에 항상 렌더링됨. 랜딩 후 노출 */}
-      {landingDone && <Navbar />}
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      {/* ── Artist Portfolio ── */}
+      {page === 'artist' && (
+        <ArtistPage onBackToDev={handleBackToDev} />
+      )}
     </>
   );
 }

@@ -263,8 +263,64 @@ const ClickHint = styled.div`
   pointer-events: none;
 `;
 
+const artistAppear = keyframes`
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+`;
+const artistGlow = keyframes`
+  0%,100% { box-shadow: 0 0 10px #e8a04544, inset 0 0 10px #e8a04511; }
+  50%      { box-shadow: 0 0 28px #e8a04588, inset 0 0 20px #e8a04522; }
+`;
+
+const ArtistBtn = styled.button`
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.4rem 1rem;
+  background: rgba(232,160,69,0.06);
+  border: 1px solid rgba(232,160,69,0.35);
+  border-radius: 12px;
+  cursor: pointer;
+  color: #e8a045;
+  opacity: 0;
+  animation:
+    ${artistAppear} 0.6s ease ${ASSEMBLE_DONE + 0.3}s forwards,
+    ${artistGlow}   2.5s ease ${ASSEMBLE_DONE + 1}s   infinite;
+  transition: background 0.2s, transform 0.2s;
+  &:hover {
+    background: rgba(232,160,69,0.14);
+    transform: translateY(-50%) scale(1.05);
+  }
+  z-index: 10;
+`;
+
+const ArtistBtnIcon = styled.div`
+  font-size: 1.8rem;
+  line-height: 1;
+`;
+
+const ArtistBtnLabel = styled.span`
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+`;
+
+const ArtistBtnArrow = styled.div`
+  font-size: 0.9rem;
+  opacity: 0.7;
+`;
+
 /* ── Component ── */
-function Hero({ onExitComplete }) {
+function Hero({ onExitComplete, onArtistClick }) {
   const phaseRef = useRef('assembling');
   const [phase, setPhaseState] = useState('assembling');
 
@@ -284,8 +340,14 @@ function Hero({ onExitComplete }) {
   const handleClick = () => {
     if (phaseRef.current !== 'idle') return;
     setPhase('exiting');
-    // scatter(0.7s) + slideUp delay(0.72s) + slideUp duration(0.55s) + buffer
     setTimeout(() => onExitComplete?.(), 1350);
+  };
+
+  /* Artist 버튼 클릭 — 화면 전체 클릭 이벤트 차단 후 콜백 */
+  const handleArtist = (e) => {
+    e.stopPropagation();
+    if (phaseRef.current !== 'idle') return;
+    onArtistClick?.();
   };
 
   const han   = LETTERS.slice(0, 3);
@@ -336,7 +398,14 @@ function Hero({ onExitComplete }) {
         </Description>
       </TextBlock>
 
-      <ClickHint>— CLICK ANYWHERE —</ClickHint>
+      {/* Artist 진입 버튼 — 우측 중앙 */}
+      <ArtistBtn onClick={handleArtist} title="3D Artist Portfolio">
+        <ArtistBtnIcon>✦</ArtistBtnIcon>
+        <ArtistBtnLabel>Artist</ArtistBtnLabel>
+        <ArtistBtnArrow>›</ArtistBtnArrow>
+      </ArtistBtn>
+
+      <ClickHint>— CLICK ANYWHERE TO ENTER —</ClickHint>
     </Section>
   );
 }
