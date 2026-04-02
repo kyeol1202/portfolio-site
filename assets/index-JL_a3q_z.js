@@ -14328,7 +14328,7 @@ function About() {
             }
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials$1, { children: "HK" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ProfileInitials$1, {})
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BioText$1, { children: "Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다. 데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등 다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다. 백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." }),
