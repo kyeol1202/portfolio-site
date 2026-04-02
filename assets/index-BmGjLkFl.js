@@ -13750,7 +13750,7 @@ const fadeUp$2 = ft`
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 `;
-const sweepOut$1 = ft`
+const sweepOut = ft`
   0%   { opacity: 1; transform: translateX(0)     skewX(0deg); }
   40%  { opacity: 0.5; transform: translateX(-40px) skewX(-5deg); }
   100% { opacity: 0; transform: translateX(-140px) skewX(-10deg); }
@@ -13763,7 +13763,7 @@ const clickPulse$1 = ft`
   0%, 100% { opacity: 0.4; }
   50%       { opacity: 0.9; }
 `;
-const LETTERS = [
+const LETTERS$1 = [
   { char: "H", x: -700, y: -280, r: -195, delay: 0.05 },
   { char: "a", x: 550, y: -420, r: 140, delay: 0.18 },
   { char: "n", x: -480, y: 480, r: -270, delay: 0.3 },
@@ -13773,7 +13773,7 @@ const LETTERS = [
   { char: "o", x: -820, y: 160, r: -70, delay: 0.79 },
   { char: "l", x: 60, y: -640, r: 185, delay: 0.9 }
 ];
-const SCATTER = [
+const SCATTER$1 = [
   { x: -950, y: -80, r: -1080, delay: 0 },
   { x: 880, y: 70, r: 900, delay: 0.04 },
   { x: -780, y: 130, r: -720, delay: 0.02 },
@@ -13873,7 +13873,7 @@ const Cursor = ut.span`
   animation: ${blink} 1s step-end infinite;
 `;
 const TextBlock = ut.div`
-  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepOut$1} 0.5s ease-in 0.04s forwards;`}
+  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepOut} 0.5s ease-in 0.04s forwards;`}
 `;
 const Greeting = ut.p`
   color: #4a9eff;
@@ -13999,8 +13999,8 @@ function Hero({ onExitComplete, onArtistClick }) {
     if (phaseRef.current !== "idle") return;
     onArtistClick == null ? void 0 : onArtistClick();
   };
-  const han = LETTERS.slice(0, 3);
-  const kyeol = LETTERS.slice(3);
+  const han = LETTERS$1.slice(0, 3);
+  const kyeol = LETTERS$1.slice(3);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$5, { $exiting: phase === "exiting", onClick: handleClick, id: "hero", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(ScanLine, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(TextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Greeting, { children: "Hello, I'm" }) }),
@@ -14013,10 +14013,10 @@ function Hero({ onExitComplete, onArtistClick }) {
           $y: l2.y,
           $r: l2.r,
           $delay: l2.delay,
-          $sx: SCATTER[i].x,
-          $sy: SCATTER[i].y,
-          $sr: SCATTER[i].r,
-          $sdelay: SCATTER[i].delay,
+          $sx: SCATTER$1[i].x,
+          $sy: SCATTER$1[i].y,
+          $sr: SCATTER$1[i].r,
+          $sdelay: SCATTER$1[i].delay,
           children: l2.char
         },
         l2.char
@@ -14030,10 +14030,10 @@ function Hero({ onExitComplete, onArtistClick }) {
           $y: l2.y,
           $r: l2.r,
           $delay: l2.delay,
-          $sx: SCATTER[i + 3].x,
-          $sy: SCATTER[i + 3].y,
-          $sr: SCATTER[i + 3].r,
-          $sdelay: SCATTER[i + 3].delay,
+          $sx: SCATTER$1[i + 3].x,
+          $sy: SCATTER$1[i + 3].y,
+          $sr: SCATTER$1[i + 3].r,
+          $sdelay: SCATTER$1[i + 3].delay,
           children: l2.char
         },
         l2.char
@@ -15435,9 +15435,72 @@ const SURF = "#100c1c";
 const CARD = "#140f22";
 const BORD = "#1e1630";
 const MUTED = "#9988aa";
-const fadeUp = ft`
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
+const AD = 0.87 + 1;
+const LETTERS = [
+  { char: "H", x: -780, y: -340, r: -220, delay: 0.04 },
+  { char: "a", x: 620, y: -460, r: 175, delay: 0.16 },
+  { char: "n", x: -540, y: 510, r: -280, delay: 0.28 },
+  { char: "K", x: 880, y: 70, r: 130, delay: 0.42 },
+  { char: "y", x: 460, y: -570, r: -160, delay: 0.54 },
+  { char: "e", x: 600, y: 470, r: 230, delay: 0.65 },
+  { char: "o", x: -880, y: 190, r: -90, delay: 0.76 },
+  { char: "l", x: 90, y: -700, r: 210, delay: 0.87 }
+];
+const SCATTER = [
+  { x: -1e3, y: -50, r: -1380, delay: 0 },
+  { x: 920, y: 90, r: 1140, delay: 0.03 },
+  { x: -840, y: 150, r: -900, delay: 0.01 },
+  { x: 1060, y: -110, r: 1260, delay: 0.05 },
+  { x: -930, y: 85, r: -1020, delay: 0.07 },
+  { x: 780, y: -90, r: 840, delay: 0.04 },
+  { x: -980, y: 120, r: -1140, delay: 0.06 },
+  { x: 860, y: 80, r: 1020, delay: 0.02 }
+];
+const makeArtAssemble = (x2, y, r) => ft`
+  0% {
+    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.2);
+    opacity: 0;
+    color: ${P};
+    text-shadow: 0 0 40px ${P}, 0 0 80px ${G};
+    filter: blur(14px);
+  }
+  45% { opacity: 1; filter: blur(3px); color: #e8c07a; }
+  72% {
+    transform: translate(${-x2 * 0.05}px, ${-y * 0.05}px) rotate(${-r * 0.05}deg) scale(1.07);
+    text-shadow: 0 0 50px ${G}, 0 0 100px ${P};
+    color: #fff;
+  }
+  88% {
+    transform: translate(${x2 * 0.015}px, ${y * 0.015}px) rotate(${r * 0.015}deg) scale(0.96);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1; color: #ffffff;
+    text-shadow: 0 0 12px rgba(232,160,69,0.55);
+    filter: blur(0);
+  }
+`;
+const makeArtScatter = (x2, y, r) => ft`
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1; filter: blur(0); color: #fff;
+  }
+  15% {
+    transform: translate(${x2 * 0.06}px, ${y * 0.06}px) rotate(${r * 0.05}deg) scale(1.08);
+    opacity: 1; color: ${G}; filter: blur(0);
+  }
+  100% {
+    transform: translate(${x2}px, ${y}px) rotate(${r}deg) scale(0.04);
+    opacity: 0; filter: blur(14px); color: ${P};
+  }
+`;
+const artNamePulse = ft`
+  0%, 100% { text-shadow: 0 0 12px rgba(232,160,69,0.55); }
+  50%       { text-shadow: 0 0 50px rgba(232,160,69,1), 0 0 100px rgba(155,93,229,0.4); }
+`;
+const artScanSlide = ft`
+  0%   { top: 0%; opacity: 0.9; }
+  100% { top: 100%; opacity: 0; }
 `;
 const gridPan = ft`
   0%   { background-position: 0 0; }
@@ -15445,7 +15508,16 @@ const gridPan = ft`
 `;
 const orbPulse = ft`
   0%,100% { transform: scale(1);    opacity: .5; }
-  50%     { transform: scale(1.12); opacity: .8; }
+  50%      { transform: scale(1.12); opacity: .8; }
+`;
+const fadeUp = ft`
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+const sweepRight = ft`
+  0%   { opacity: 1; transform: translateX(0) skewX(0deg); }
+  40%  { opacity: 0.5; transform: translateX(40px) skewX(5deg); }
+  100% { opacity: 0; transform: translateX(140px) skewX(10deg); }
 `;
 const clickPulse = ft`
   0%, 100% { opacity: 0.4; }
@@ -15454,11 +15526,6 @@ const clickPulse = ft`
 const landingSlideUp = ft`
   from { transform: translateY(0); }
   to   { transform: translateY(-100vh); }
-`;
-const sweepOut = ft`
-  0%   { opacity: 1; transform: translateX(0) skewX(0deg); }
-  40%  { opacity: 0.5; transform: translateX(40px) skewX(5deg); }
-  100% { opacity: 0; transform: translateX(140px) skewX(10deg); }
 `;
 const devAppear = ft`
   from { opacity: 0; transform: translateX(-20px); }
@@ -15496,8 +15563,16 @@ const LandingSection = ut.section`
   }
 
   ${({ $exiting }) => $exiting && it`
-    animation: ${landingSlideUp} 0.55s cubic-bezier(0.6, 0, 0.9, 0.4) 0.3s both;
+    animation: ${landingSlideUp} 0.55s cubic-bezier(0.6, 0, 0.9, 0.4) 0.35s both;
   `}
+`;
+const ArtScanLine = ut.div`
+  position: absolute;
+  left: 0; width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, ${G}, ${P}, transparent);
+  animation: ${artScanSlide} 0.75s ease-out ${AD + 0.05}s both;
+  pointer-events: none;
+  z-index: 10;
 `;
 const LandingOrb = ut.div`
   position: absolute;
@@ -15505,62 +15580,85 @@ const LandingOrb = ut.div`
   pointer-events: none;
   animation: ${orbPulse} 5s ease infinite;
 `;
-const LandingContent = ut.div`
+const ArtRightBlock = ut.div`
   width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  animation: ${fadeUp} 0.6s ease 0.1s both;
-
-  ${({ $exiting }) => $exiting && it`
-    animation: ${sweepOut} 0.45s ease-in 0.04s forwards;
-  `}
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  @media (max-width: 768px) { width: 100%; }
 `;
-const LandingTag = ut.span`
-  display: inline-block;
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .2em;
+const ArtTextBlock = ut.div`
+  ${({ $phase }) => $phase === "exiting" && it`animation: ${sweepRight} 0.45s ease-in 0.04s forwards;`}
+`;
+const ArtGreeting = ut.p`
+  color: ${G};
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: ${G};
-  border: 1px solid ${G}44;
-  padding: .3rem 1rem;
-  border-radius: 20px;
-  margin-bottom: 1.6rem;
-  width: fit-content;
+  margin-bottom: 1.2rem;
+  opacity: 0;
+  animation: ${fadeUp} 0.5s ease ${AD - 0.3}s both;
 `;
-const LandingName = ut.h1`
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  font-weight: 900;
-  letter-spacing: -.03em;
+const ArtNameRow = ut.div`
+  display: flex;
+  align-items: baseline;
   line-height: 1;
-  color: #fff;
-  text-shadow: 0 0 40px ${G}33;
-  margin-bottom: .3rem;
+  animation: ${artNamePulse} 2s ease ${AD + 0.2}s 2;
 `;
-const NameSep = ut.span`
+const ArtLetterSpan = ut.span`
+  display: inline-block;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(232,160,69,0.55);
+  opacity: 1;
+
+  ${({ $phase, $x, $y, $r, $delay, $sx, $sy, $sr, $sdelay }) => {
+  if ($phase === "assembling")
+    return it`animation: ${makeArtAssemble($x, $y, $r)} 1s cubic-bezier(0.18,1.1,0.4,1) ${$delay}s both;`;
+  if ($phase === "exiting")
+    return it`animation: ${makeArtScatter($sx, $sy, $sr)} 0.65s ease-in ${$sdelay}s forwards;`;
+  return "";
+}}
+`;
+const ArtNameDivider = ut.span`
+  display: inline-block;
+  width: 3px;
+  height: clamp(2rem, 5vw, 4.5rem);
+  background: linear-gradient(180deg, transparent, ${G}, ${P}, transparent);
+  margin: 0 0.15em;
+  border-radius: 2px;
+  align-self: center;
+  box-shadow: 0 0 10px ${G};
+  opacity: 0;
+  animation: ${fadeUp} 0.3s ease ${AD}s both;
+`;
+const ArtCursor = ut.span`
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 900;
   color: ${G};
-  margin: 0 .1em;
-  font-weight: 300;
+  margin-left: 2px;
+  animation: ${ft`0%,100%{opacity:1}50%{opacity:0}`} 1s step-end infinite;
 `;
-const LandingSub = ut.p`
-  font-size: clamp(.95rem, 2vw, 1.4rem);
-  color: ${P};
+const ArtRole = ut.h2`
+  font-size: clamp(1rem, 2vw, 1.6rem);
   font-weight: 400;
-  letter-spacing: .07em;
-  margin-top: .9rem;
-  &::before { content: '// '; opacity: .5; }
+  color: ${P};
+  margin-top: 1rem;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  animation: ${fadeUp} 0.5s ease ${AD + 0.2}s both;
+  &::before { content: '// '; opacity: 0.5; }
 `;
-const LandingDesc = ut.p`
+const ArtDesc = ut.p`
   max-width: 480px;
   color: ${MUTED};
   line-height: 1.9;
-  margin-top: 1.6rem;
-  font-size: .93rem;
+  margin-top: 1.4rem;
+  font-size: 0.93rem;
+  opacity: 0;
+  animation: ${fadeUp} 0.5s ease ${AD + 0.4}s both;
 `;
 const ClickHint = ut.div`
   position: absolute;
@@ -15576,8 +15674,8 @@ const ClickHint = ut.div`
   text-shadow: 0 0 10px ${G}bb;
   opacity: 0;
   animation:
-    ${fadeUp}    0.5s ease 0.6s    forwards,
-    ${clickPulse} 2s  ease 1.1s   infinite;
+    ${fadeUp}    0.5s ease ${AD + 1}s    forwards,
+    ${clickPulse} 2s  ease ${AD + 1.5}s  infinite;
   pointer-events: none;
 `;
 const DevBtn = ut.button`
@@ -15597,8 +15695,8 @@ const DevBtn = ut.button`
   color: ${B};
   opacity: 0;
   animation:
-    ${devAppear} 0.6s ease 0.3s forwards,
-    ${devGlow}   2.5s ease 0.9s infinite;
+    ${devAppear} 0.6s ease ${AD + 0.3}s forwards,
+    ${devGlow}   2.5s ease ${AD + 1}s   infinite;
   transition: background 0.2s, transform 0.2s;
   &:hover {
     background: rgba(74,158,255,0.14);
@@ -15606,10 +15704,7 @@ const DevBtn = ut.button`
   }
   z-index: 10;
 `;
-const DevBtnIcon = ut.div`
-  font-size: 1.8rem;
-  line-height: 1;
-`;
+const DevBtnIcon = ut.div`font-size: 1.8rem; line-height: 1;`;
 const DevBtnLabel = ut.span`
   font-size: 0.6rem;
   font-weight: 700;
@@ -15619,10 +15714,7 @@ const DevBtnLabel = ut.span`
   writing-mode: vertical-rl;
   text-orientation: mixed;
 `;
-const DevBtnArrow = ut.div`
-  font-size: 0.9rem;
-  opacity: 0.7;
-`;
+const DevBtnArrow = ut.div`font-size: 0.9rem; opacity: 0.7;`;
 const PageWrap = ut.div`
   background: ${BG};
   min-height: 100vh;
@@ -15641,16 +15733,8 @@ const ArtistNav = ut.nav`
   z-index: 100;
   border-bottom: 1px solid ${BORD};
 `;
-const NavLogo = ut.span`
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: ${G};
-`;
-const NavLinks = ut.ul`
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-`;
+const NavLogo = ut.span`font-size: 1.4rem; font-weight: 700; color: ${G};`;
+const NavLinks = ut.ul`list-style: none; display: flex; gap: 2rem;`;
 const NavLink = ut.a`
   color: #e0d8cc;
   text-decoration: none;
@@ -15663,69 +15747,37 @@ const SecWrap = ut.section`
   background: ${({ $alt }) => $alt ? SURF : BG};
 `;
 const SecTitle = ut.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: .5rem;
+  font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: .5rem;
   span { color: ${G}; }
 `;
 const SecDivider = ut.div`
   width: 50px; height: 3px;
   background: linear-gradient(90deg, ${G}, ${P});
-  margin-bottom: 3rem;
-  border-radius: 2px;
+  margin-bottom: 3rem; border-radius: 2px;
 `;
 const SkillGrid = ut.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
   @media (max-width: 768px) { grid-template-columns: 1fr; }
 `;
 const SkillCard = ut.div`
-  background: ${CARD};
-  border: 1px solid ${BORD};
-  border-radius: 14px;
-  padding: 1.5rem;
+  background: ${CARD}; border: 1px solid ${BORD}; border-radius: 14px; padding: 1.5rem;
   transition: border-color 0.2s;
   &:hover { border-color: ${G}55; }
 `;
-const SkillCardHeader = ut.div`
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1.2rem;
-`;
+const SkillCardHeader = ut.div`display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.2rem;`;
 const SkillCardIcon = ut.span`font-size: 1.1rem;`;
 const SkillCardLabel = ut.h3`
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: ${G};
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.72rem; font-weight: 700; color: ${G};
+  letter-spacing: 0.14em; text-transform: uppercase;
 `;
-const SkillList = ut.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-`;
-const SkillRow = ut.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-`;
-const SkillLeft = ut.div`
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-`;
+const SkillList = ut.div`display: flex; flex-direction: column; gap: 0.65rem;`;
+const SkillRow = ut.div`display: flex; align-items: center; justify-content: space-between; gap: 1rem;`;
+const SkillLeft = ut.div`display: flex; align-items: center; gap: 0.55rem; min-width: 0;`;
 const SkillEmoji = ut.span`font-size: 1rem; flex-shrink: 0;`;
 const SkillName = ut.span`font-size: 0.88rem; color: #ccc; font-weight: 500; white-space: nowrap;`;
 const Dots = ut.div`display: flex; gap: 4px; flex-shrink: 0;`;
 const Dot = ut.div`
-  width: 7px; height: 7px;
-  border-radius: 50%;
+  width: 7px; height: 7px; border-radius: 50%;
   background: ${({ $f }) => $f ? G : BORD};
   box-shadow: ${({ $f }) => $f ? `0 0 6px ${G}99` : "none"};
 `;
@@ -15765,109 +15817,55 @@ const artistSkills = [
   }
 ];
 const CardGrid = ut.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.4rem;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.4rem;
 `;
 const Card = ut.div`
-  background: ${CARD};
-  border: 1px solid ${BORD};
-  border-radius: 14px;
-  overflow: hidden;
+  background: ${CARD}; border: 1px solid ${BORD}; border-radius: 14px; overflow: hidden;
   transition: border-color .2s, transform .2s;
   &:hover { border-color: ${G}; transform: translateY(-5px); }
 `;
 const Thumb = ut.div`
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: ${({ $bg }) => $bg};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.8rem;
+  width: 100%; aspect-ratio: 16/9; background: ${({ $bg }) => $bg};
+  display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
 `;
 const CardBody = ut.div`padding: 1.2rem 1.4rem;`;
 const CardName = ut.h3`color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: .4rem;`;
 const CardDesc = ut.p`color: ${MUTED}; font-size: .83rem; line-height: 1.6; margin-bottom: 1rem;`;
 const TagRow = ut.div`display: flex; flex-wrap: wrap; gap: .4rem;`;
 const CTag = ut.span`
-  background: rgba(232,160,69,.08);
-  color: ${G};
-  font-size: .72rem;
-  padding: .2rem .6rem;
-  border-radius: 20px;
-  border: 1px solid rgba(232,160,69,.2);
+  background: rgba(232,160,69,.08); color: ${G}; font-size: .72rem;
+  padding: .2rem .6rem; border-radius: 20px; border: 1px solid rgba(232,160,69,.2);
 `;
 const IconLink = ut.a`
-  display: inline-flex;
-  align-items: center;
-  gap: .3rem;
-  font-size: .78rem;
-  color: ${G};
-  text-decoration: none;
-  border: 1px solid ${G}33;
-  padding: .2rem .6rem;
-  border-radius: 4px;
-  margin-bottom: .8rem;
+  display: inline-flex; align-items: center; gap: .3rem; font-size: .78rem;
+  color: ${G}; text-decoration: none; border: 1px solid ${G}33;
+  padding: .2rem .6rem; border-radius: 4px; margin-bottom: .8rem;
   transition: background .2s;
   &:hover { background: rgba(232,160,69,.1); }
 `;
 const ContactWrap = ut.div`text-align: center;`;
 const ContactSub = ut.p`color: ${MUTED}; margin-bottom: 2.5rem; line-height: 1.7;`;
-const LinkGroup = ut.div`
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-`;
+const LinkGroup = ut.div`display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;`;
 const CLink = ut.a`
   display: flex; align-items: center; gap: .5rem;
-  padding: .8rem 1.8rem;
-  border: 1px solid ${BORD};
-  border-radius: 8px;
-  color: ${MUTED};
-  text-decoration: none;
-  font-size: .95rem;
+  padding: .8rem 1.8rem; border: 1px solid ${BORD}; border-radius: 8px;
+  color: ${MUTED}; text-decoration: none; font-size: .95rem;
   transition: border-color .2s, color .2s, transform .2s;
   &:hover { border-color: ${G}; color: ${G}; transform: translateY(-2px); }
 `;
 const BottomSec = ut.div`
-  padding: 3rem 10% 5rem;
-  background: ${BG};
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
+  padding: 3rem 10% 5rem; background: ${BG};
+  display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;
   border-top: 1px solid ${BORD};
 `;
 const GoldBtn = ut.button`
   display: flex; align-items: center; gap: .7rem;
-  padding: .9rem 2.4rem;
-  background: transparent;
-  border: 1px solid ${G}55;
-  border-radius: 8px;
-  color: ${G};
-  font-size: .95rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  cursor: pointer;
+  padding: .9rem 2.4rem; background: transparent;
+  border: 1px solid ${G}55; border-radius: 8px;
+  color: ${G}; font-size: .95rem; font-weight: 600; letter-spacing: .06em; cursor: pointer;
   animation: ${backGlow$1} 2.5s ease infinite;
   transition: background .2s, transform .2s;
   &:hover { background: rgba(232,160,69,.1); transform: translateY(-2px); }
-`;
-ut.button`
-  display: flex; align-items: center; gap: .7rem;
-  padding: .9rem 2.4rem;
-  background: transparent;
-  border: 1px solid ${B}55;
-  border-radius: 8px;
-  color: ${B};
-  font-size: .95rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  cursor: pointer;
-  transition: background .2s, transform .2s;
-  &:hover { background: rgba(74,158,255,.1); transform: translateY(-2px); }
 `;
 const personalWorks = [
   {
@@ -15922,32 +15920,45 @@ const projectWorks = [
   }
 ];
 function ArtistPage({ onBackToDev, onLandingDone }) {
-  const phaseRef = reactExports.useRef("landing");
-  const [phase, setPhaseState] = reactExports.useState("landing");
+  const phaseRef = reactExports.useRef("assembling");
+  const [phase, setPhaseState] = reactExports.useState("assembling");
   const setPhase = (p2) => {
     phaseRef.current = p2;
     setPhaseState(p2);
   };
+  reactExports.useEffect(() => {
+    if (phase !== "assembling") return;
+    const t = setTimeout(
+      () => {
+        if (phaseRef.current === "assembling") setPhase("idle");
+      },
+      (AD + 0.7) * 1e3
+    );
+    return () => clearTimeout(t);
+  }, [phase]);
   const handleLandingClick = () => {
-    if (phaseRef.current !== "landing") return;
+    if (phaseRef.current !== "idle") return;
     setPhase("exiting");
     setTimeout(() => {
       setPhase("portfolio");
       onLandingDone == null ? void 0 : onLandingDone();
-    }, 1e3);
+    }, 1350);
   };
   const handleDevBtn = (e) => {
     e.stopPropagation();
     onBackToDev == null ? void 0 : onBackToDev();
   };
   const handleBackToLanding = () => {
-    setPhase("landing");
+    setPhase("assembling");
     window.scrollTo({ top: 0 });
   };
-  const isLanding = phase === "landing" || phase === "exiting";
+  const han = LETTERS.slice(0, 3);
+  const kyeol = LETTERS.slice(3);
+  const isLanding = phase !== "portfolio";
   const isPortfolio = phase === "portfolio";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     isLanding && /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingSection, { $exiting: phase === "exiting", onClick: handleLandingClick, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ArtScanLine, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(LandingOrb, { style: {
         width: "500px",
         height: "500px",
@@ -15956,8 +15967,8 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
         right: "-100px"
       } }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(LandingOrb, { style: {
-        width: "300px",
-        height: "300px",
+        width: "350px",
+        height: "350px",
         background: `radial-gradient(circle,${P}18 0%,transparent 65%)`,
         bottom: "50px",
         left: "-80px",
@@ -15968,15 +15979,48 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
         /* @__PURE__ */ jsxRuntimeExports.jsx(DevBtnLabel, { children: "Developer" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(DevBtnArrow, { children: "‹" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingContent, { $exiting: phase === "exiting", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingTag, { children: "✦ 3D Artist Portfolio" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(LandingName, { children: [
-          "Han",
-          /* @__PURE__ */ jsxRuntimeExports.jsx(NameSep, { children: "·" }),
-          "Kyeol"
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(ArtRightBlock, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ArtTextBlock, { $phase: phase, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtGreeting, { children: "Hello, I'm" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(ArtNameRow, { children: [
+          han.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ArtLetterSpan,
+            {
+              $phase: phase,
+              $x: l2.x,
+              $y: l2.y,
+              $r: l2.r,
+              $delay: l2.delay,
+              $sx: SCATTER[i].x,
+              $sy: SCATTER[i].y,
+              $sr: SCATTER[i].r,
+              $sdelay: SCATTER[i].delay,
+              children: l2.char
+            },
+            l2.char
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArtNameDivider, {}),
+          kyeol.map((l2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            ArtLetterSpan,
+            {
+              $phase: phase,
+              $x: l2.x,
+              $y: l2.y,
+              $r: l2.r,
+              $delay: l2.delay,
+              $sx: SCATTER[i + 3].x,
+              $sy: SCATTER[i + 3].y,
+              $sr: SCATTER[i + 3].r,
+              $sdelay: SCATTER[i + 3].delay,
+              children: l2.char
+            },
+            l2.char
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArtCursor, { children: "_" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingSub, { children: "3D Artist / Game Graphic Designer" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(LandingDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다." })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(ArtTextBlock, { $phase: phase, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArtRole, { children: "3D Artist / Game Graphic Designer" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArtDesc, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다." })
+        ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ClickHint, { children: "— CLICK ANYWHERE TO ENTER —" })
     ] }),
@@ -16102,6 +16146,7 @@ function App() {
   const [page, setPage] = reactExports.useState("developer");
   const [transitioning, setTransition] = reactExports.useState(false);
   const [toArtist, setToArtist] = reactExports.useState(true);
+  const [waveOriginX, setWaveOriginX] = reactExports.useState(0.92);
   reactExports.useEffect(() => {
     const shouldHide = !landingDone && page === "developer";
     document.body.style.overflow = shouldHide ? "hidden" : "";
@@ -16113,10 +16158,12 @@ function App() {
     setToArtist(true);
     setTransition(true);
     setArtistLanding(false);
+    setWaveOriginX(0.92);
   };
   const handleBackToDev = () => {
     setToArtist(false);
     setTransition(true);
+    setWaveOriginX(0.08);
   };
   const handleWaveDone = () => {
     setPage(toArtist ? "artist" : "developer");
@@ -16142,7 +16189,7 @@ function App() {
       {
         active: transitioning,
         toArtist,
-        originX: 0.88,
+        originX: waveOriginX,
         originY: 0.5,
         onComplete: handleWaveDone
       }
