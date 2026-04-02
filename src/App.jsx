@@ -20,7 +20,8 @@ function App() {
     return () => { document.body.style.overflow = ''; };
   }, [landingDone]);
 
-  const handleGoArtist = () => { setToArtist(true);  setTransition(true); };
+  /* 아티스트로 이동 시 개발자 랜딩도 완료 처리 (body overflow 해제) */
+  const handleGoArtist  = () => { setToArtist(true);  setTransition(true); setLandingDone(true); };
   const handleBackToDev = () => { setToArtist(false); setTransition(true); };
 
   const handleWaveDone = () => {
