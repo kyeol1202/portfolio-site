@@ -14886,13 +14886,6 @@ const ContactLink = ut.a`
   transition: border-color 0.2s, color 0.2s, transform 0.2s;
   &:hover { border-color: #4a9eff; color: #4a9eff; transform: translateY(-2px); }
 `;
-const Footer = ut.footer`
-  margin-top: 5rem;
-  padding-top: 2rem;
-  border-top: 1px solid #1e1e2e;
-  color: #555;
-  font-size: 0.85rem;
-`;
 function Contact() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$1, { id: "contact", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Reveal, { children: [
@@ -14906,8 +14899,7 @@ function Contact() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: 0.1, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(LinkGroup$1, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "mailto:kyeol1202@naver.com", children: "📧 kyeol1202@naver.com" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ContactLink, { href: "https://github.com/kyeol1202", target: "_blank", children: "🐙 github.com/kyeol1202" })
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { children: "© 2026 김한결. Built with React & styled-components." })
+    ] }) })
   ] });
 }
 const spinAnim = ft`
@@ -15929,7 +15921,7 @@ const projectWorks = [
     link: "https://github.com/ArLyehee/MainProjectERP"
   }
 ];
-function ArtistPage({ onBackToDev }) {
+function ArtistPage({ onBackToDev, onLandingDone }) {
   const phaseRef = reactExports.useRef("landing");
   const [phase, setPhaseState] = reactExports.useState("landing");
   const setPhase = (p2) => {
@@ -15939,7 +15931,10 @@ function ArtistPage({ onBackToDev }) {
   const handleLandingClick = () => {
     if (phaseRef.current !== "landing") return;
     setPhase("exiting");
-    setTimeout(() => setPhase("portfolio"), 1e3);
+    setTimeout(() => {
+      setPhase("portfolio");
+      onLandingDone == null ? void 0 : onLandingDone();
+    }, 1e3);
   };
   const handleDevBtn = (e) => {
     e.stopPropagation();
@@ -16103,6 +16098,7 @@ const DevBackBtn = ut.button`
 `;
 function App() {
   const [landingDone, setLandingDone] = reactExports.useState(false);
+  const [artistLandingDone, setArtistLanding] = reactExports.useState(false);
   const [page, setPage] = reactExports.useState("developer");
   const [transitioning, setTransition] = reactExports.useState(false);
   const [toArtist, setToArtist] = reactExports.useState(true);
@@ -16116,6 +16112,7 @@ function App() {
   const handleGoArtist = () => {
     setToArtist(true);
     setTransition(true);
+    setArtistLanding(false);
   };
   const handleBackToDev = () => {
     setToArtist(false);
@@ -16129,10 +16126,17 @@ function App() {
     setLandingDone(false);
     window.scrollTo({ top: 0 });
   };
+  const cursorIsLanding = page === "artist" ? !artistLandingDone : !landingDone;
   const showDev = page === "developer" || transitioning && !toArtist;
   const showArtist = page === "artist" || transitioning && toArtist;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(CustomCursor, { isLanding: !landingDone, color: page === "artist" ? "#e8a045" : "#4a9eff" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CustomCursor,
+      {
+        isLanding: cursorIsLanding,
+        color: page === "artist" ? "#e8a045" : "#4a9eff"
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       WaveTransition,
       {
@@ -16158,7 +16162,13 @@ function App() {
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {}),
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(DevBottomSec, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(DevBackBtn, { onClick: handleBackToLanding, children: "↑ 첫 화면으로 돌아가기" }) })
     ] }),
-    showArtist && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: page === "artist" ? "block" : "none" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistPage, { onBackToDev: handleBackToDev }) })
+    showArtist && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: page === "artist" ? "block" : "none" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ArtistPage,
+      {
+        onBackToDev: handleBackToDev,
+        onLandingDone: () => setArtistLanding(true)
+      }
+    ) })
   ] });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
