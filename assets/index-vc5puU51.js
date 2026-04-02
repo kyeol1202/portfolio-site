@@ -16138,10 +16138,10 @@ function App() {
         }
       ),
       landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Skills, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(About, {}),
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Skills, {}),
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Projects, {}),
+      landingDone && /* @__PURE__ */ jsxRuntimeExports.jsx(Contact, {})
     ] }),
     showArtist && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: page === "artist" ? "block" : "none" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArtistPage, { onBackToDev: handleBackToDev }) })
   ] });
