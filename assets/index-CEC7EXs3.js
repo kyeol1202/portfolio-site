@@ -14321,7 +14321,7 @@ function About() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           ProfilePhoto$1,
           {
-            src: "/profile.jpg",
+            src: `${"/portfolio-site/"}profile.jpg`,
             alt: "HanKyeol",
             onError: (e) => {
               e.currentTarget.style.display = "none";
@@ -15166,7 +15166,7 @@ function ArtistAbout() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           ProfilePhoto,
           {
-            src: "/profile.jpg",
+            src: `${"/portfolio-site/"}profile.jpg`,
             alt: "HanKyeol",
             onError: (e) => {
               e.currentTarget.style.display = "none";
