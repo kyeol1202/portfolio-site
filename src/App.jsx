@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <CustomCursor isLanding={!landingDone} />
+      <CustomCursor isLanding={!landingDone} color={page === 'artist' ? '#e8a045' : '#4a9eff'} />
 
       <WaveTransition
         active={transitioning}

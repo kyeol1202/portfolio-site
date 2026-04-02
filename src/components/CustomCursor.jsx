@@ -6,23 +6,36 @@ const spinAnim = keyframes`
   to   { transform: rotate(360deg); }
 `;
 
-const pulseRing = keyframes`
-  0%, 100% { box-shadow: 0 0 10px rgba(74,158,255,0.2), inset 0 0 10px rgba(74,158,255,0.04); }
-  50%       { box-shadow: 0 0 30px rgba(74,158,255,0.5), inset 0 0 20px rgba(74,158,255,0.08); }
-`;
+/* 색상 기반 동적 keyframe */
+const makePulseRing = (hex) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return keyframes`
+    0%, 100% { box-shadow: 0 0 10px rgba(${r},${g},${b},0.2), inset 0 0 10px rgba(${r},${g},${b},0.04); }
+    50%       { box-shadow: 0 0 30px rgba(${r},${g},${b},0.5), inset 0 0 20px rgba(${r},${g},${b},0.08); }
+  `;
+};
+
+const hexToRgba = (hex, a) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b},${a})`;
+};
 
 const Dot = styled.div`
   position: fixed;
   top: 0; left: 0;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: #4a9eff;
+  background: ${({ $color }) => $color};
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity 0.3s, transform 0.05s;
-  box-shadow: 0 0 6px rgba(74,158,255,0.8);
+  box-shadow: ${({ $color }) => `0 0 6px ${hexToRgba($color, 0.8)}`};
 `;
 
 const Ring = styled.div`
@@ -35,50 +48,50 @@ const Ring = styled.div`
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transition: opacity 0.3s, width 0.3s, height 0.3s;
 
-  ${({ $isLanding }) =>
-    $isLanding
-      ? css`
-          width: 90px;
-          height: 90px;
-          border: 1px solid rgba(74,158,255,0.45);
-          animation: ${pulseRing} 2.2s ease infinite;
-        `
-      : css`
-          width: 36px;
-          height: 36px;
-          border: 1px solid rgba(74,158,255,0.4);
-        `}
+  ${({ $isLanding, $color }) => {
+    const pulse = makePulseRing($color);
+    if ($isLanding)
+      return css`
+        width: 90px;
+        height: 90px;
+        border: 1px solid ${hexToRgba($color, 0.45)};
+        animation: ${pulse} 2.2s ease infinite;
+      `;
+    return css`
+      width: 36px;
+      height: 36px;
+      border: 1px solid ${hexToRgba($color, 0.4)};
+    `;
+  }}
 `;
 
-/* 랜딩 전용: 바깥쪽 회전 테두리 */
 const SpinBorder = styled.div`
   position: absolute;
   inset: -5px;
   border-radius: 50%;
   border: 1.5px solid transparent;
-  border-top-color: #4a9eff;
-  border-right-color: rgba(74,158,255,0.3);
+  border-top-color: ${({ $color }) => $color};
+  border-right-color: ${({ $color }) => hexToRgba($color, 0.3)};
   animation: ${spinAnim} 2.8s linear infinite;
 `;
 
-/* 랜딩 전용: NEXT 라벨 */
 const Label = styled.div`
   position: absolute;
   bottom: -26px;
   left: 50%;
   transform: translateX(-50%);
-  color: #4a9eff;
+  color: ${({ $color }) => $color};
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.28em;
   white-space: nowrap;
-  text-shadow: 0 0 12px rgba(74,158,255,1);
+  text-shadow: ${({ $color }) => `0 0 12px ${$color}`};
   font-family: 'Segoe UI', monospace, sans-serif;
 `;
 
-export default function CustomCursor({ isLanding }) {
-  const dotRef   = useRef(null);
-  const ringRef  = useRef(null);
+export default function CustomCursor({ isLanding, color = '#4a9eff' }) {
+  const dotRef  = useRef(null);
+  const ringRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const mouse = useRef({ x: -300, y: -300 });
   const lag   = useRef({ x: -300, y: -300 });
@@ -115,10 +128,10 @@ export default function CustomCursor({ isLanding }) {
 
   return (
     <>
-      <Dot  ref={dotRef}  $visible={visible} />
-      <Ring ref={ringRef} $visible={visible} $isLanding={isLanding}>
-        {isLanding && <SpinBorder />}
-        {isLanding && <Label>NEXT</Label>}
+      <Dot  ref={dotRef}  $visible={visible} $color={color} />
+      <Ring ref={ringRef} $visible={visible} $isLanding={isLanding} $color={color}>
+        {isLanding && <SpinBorder $color={color} />}
+        {isLanding && <Label $color={color}>NEXT</Label>}
       </Ring>
     </>
   );

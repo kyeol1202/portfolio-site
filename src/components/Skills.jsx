@@ -140,7 +140,6 @@ const categories = [
       { emoji: '🌑', name: 'Eclipse / STS',    level: 4 },
       { emoji: '🤖', name: 'Android Studio',   level: 2 },
       { emoji: '📐', name: 'DBeaver',           level: 3 },
-      { emoji: '🎨', name: 'Figma',            level: 3 },
     ],
   },
   {
@@ -151,15 +150,6 @@ const categories = [
       { emoji: '🤖', name: 'Brity RPA',   level: 3 },
       { emoji: '📝', name: 'Notion',      level: 4 },
       { emoji: '☁️', name: 'ERD Cloud',  level: 3 },
-    ],
-  },
-  {
-    icon: '🎨',
-    label: '디자인 / 그래픽',
-    skills: [
-      { emoji: '🖼️', name: 'Photoshop',    level: 4 },
-      { emoji: '✏️', name: 'Illustrator', level: 3 },
-      { emoji: '💡', name: '3D Modeling',  level: 2 },
     ],
   },
 ];
