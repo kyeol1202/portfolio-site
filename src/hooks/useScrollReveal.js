@@ -23,4 +23,4 @@ function useScrollReveal(options = {}) {
   return [ref, isVisible];
 }
 
-export default useScrollReveal;?
+export default useScrollReveal;
