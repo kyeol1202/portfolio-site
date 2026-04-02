@@ -14194,7 +14194,7 @@ const InfoCard$1 = ut.div`
   transition: border-color 0.2s;
   &:hover { border-color: rgba(74,158,255,0.35); }
 `;
-const InfoIcon$1 = ut.div`
+ut.div`
   width: 34px; height: 34px;
   border-radius: 8px;
   background: rgba(74,158,255,0.08);
@@ -14270,16 +14270,6 @@ const Item$1 = ut.li`
     margin-top: 1px;
   }
 `;
-ut.span`
-  font-size: 0.6rem;
-  color: #4a9eff;
-  border: 1px solid rgba(74,158,255,0.4);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  opacity: 0.8;
-`;
 const ActivityItem$1 = ut.li`
   font-size: 0.85rem;
   color: #aaa;
@@ -14310,12 +14300,12 @@ const ActivitySub$1 = ut.div`
   padding-left: 0.1rem;
 `;
 const infoItems$1 = [
-  { icon: "👤", label: "이름", value: "김한결 (Kim HanKyeol)" },
-  { icon: "📅", label: "생년월일", value: "2000.12.02" },
-  { icon: "✉️", label: "이메일", value: "kyeol1202@naver.com" },
-  { icon: "⌨️", label: "GitHub", value: "github.com/kyeol1202" },
-  { icon: "💼", label: "희망 직무", value: "풀스택 / 백엔드 / 데이터" },
-  { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
+  { label: "이름", value: "김한결 (Kim HanKyeol)" },
+  { label: "생년월일", value: "2000.12.02" },
+  { label: "이메일", value: "kyeol1202@naver.com" },
+  { label: "GitHub", value: "github.com/kyeol1202" },
+  { label: "희망 직무", value: "풀스택 / 백엔드 / 데이터" },
+  { label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
 ];
 function About() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section$4, { id: "about", children: [
@@ -14342,13 +14332,10 @@ function About() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight$1, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BioText$1, { children: "Java · Spring Boot · Python을 주력으로 공부하고 있는 개발자 김한결입니다. 데이터 자동화 파이프라인 구축, ERP 시스템 개발, 향수 쇼핑몰 등 다양한 팀 프로젝트에서 팀장 역할을 맡으며 실무형 경험을 쌓았습니다. 백엔드 중심으로 성장하면서 풀스택, 데이터 분석, RPA 자동화까지 폭넓게 역량을 확장하고 있습니다." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid$1, { children: infoItems$1.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard$1, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon$1, { children: item.icon }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText$1, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel$1, { children: item.label }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue$1, { children: item.value })
-          ] })
-        ] }, item.label)) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid$1, { children: infoItems$1.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(InfoCard$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText$1, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel$1, { children: item.label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue$1, { children: item.value })
+        ] }) }, item.label)) })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid$1, { children: [
@@ -14471,9 +14458,6 @@ const CategoryHeader = ut.div`
   gap: 0.6rem;
   margin-bottom: 1.2rem;
 `;
-const CategoryIcon = ut.span`
-  font-size: 1.1rem;
-`;
 const CategoryLabel = ut.h3`
   font-size: 0.72rem;
   font-weight: 700;
@@ -14491,16 +14475,6 @@ const SkillRow$1 = ut.div`
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-`;
-const SkillLeft$1 = ut.div`
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  min-width: 0;
-`;
-const SkillEmoji$1 = ut.span`
-  font-size: 1rem;
-  flex-shrink: 0;
 `;
 const SkillName$1 = ut.span`
   font-size: 0.88rem;
@@ -14522,50 +14496,48 @@ const Dot$2 = ut.div`
 `;
 const categories = [
   {
-    icon: "⌨️",
     label: "개발 언어",
     skills: [
-      { emoji: "☕", name: "Java", level: 4 },
-      { emoji: "🐍", name: "Python", level: 4 },
-      { emoji: "🟨", name: "JavaScript", level: 3 },
-      { emoji: "📊", name: "R", level: 2 },
-      { emoji: "📱", name: "React Native", level: 2 }
+      { name: "Java", level: 4 },
+      { name: "Python", level: 4 },
+      { name: "JavaScript", level: 3 },
+      { name: "R", level: 2 },
+      { name: "React Native", level: 2 }
     ]
   },
   {
-    icon: "🧩",
     label: "프레임워크 / 라이브러리",
     skills: [
-      { emoji: "🍃", name: "Spring Boot", level: 4 },
-      { emoji: "⚛️", name: "React.js", level: 3 }
+      { name: "Spring Boot", level: 4 },
+      { name: "MyBatis", level: 3 },
+      { name: "Node.js", level: 2 },
+      { name: "React.js", level: 3 }
     ]
   },
   {
-    icon: "🗄️",
     label: "데이터베이스",
     skills: [
-      { emoji: "🐬", name: "MariaDB", level: 4 },
-      { emoji: "🔥", name: "Firebase", level: 2 }
+      { name: "MariaDB", level: 4 },
+      { name: "MySQL", level: 3 },
+      { name: "Firebase", level: 2 }
     ]
   },
   {
-    icon: "🛠️",
     label: "개발 도구",
     skills: [
-      { emoji: "🔵", name: "VSCode", level: 5 },
-      { emoji: "🌑", name: "Eclipse / STS", level: 4 },
-      { emoji: "🤖", name: "Android Studio", level: 2 },
-      { emoji: "📐", name: "DBeaver", level: 3 }
+      { name: "VSCode", level: 5 },
+      { name: "Eclipse / STS", level: 4 },
+      { name: "Android Studio", level: 2 },
+      { name: "DBeaver", level: 3 }
     ]
   },
   {
-    icon: "⚙️",
     label: "기타",
     skills: [
-      { emoji: "🐙", name: "Git / GitHub", level: 4 },
-      { emoji: "🤖", name: "Brity RPA", level: 3 },
-      { emoji: "📝", name: "Notion", level: 4 },
-      { emoji: "☁️", name: "ERD Cloud", level: 3 }
+      { name: "Git / GitHub", level: 4 },
+      { name: "Brity RPA", level: 3 },
+      { name: "Notion", level: 4 },
+      { name: "ERD Cloud", level: 3 }
     ]
   }
 ];
@@ -14579,15 +14551,9 @@ function Skills() {
       /* @__PURE__ */ jsxRuntimeExports.jsx(TitleDivider$2, {})
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Grid$1, { children: categories.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.08, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryCard, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(CategoryHeader, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryIcon, { children: cat.icon }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryLabel, { children: cat.label })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(CategoryLabel, { children: cat.label }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList$1, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow$1, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft$1, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji$1, { children: skill.emoji }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName$1, { children: skill.name })
-        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName$1, { children: skill.name }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Dots$1, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot$2, { $filled: n <= skill.level }, n)) })
       ] }, skill.name)) })
     ] }) }, cat.label)) })
@@ -15190,7 +15156,7 @@ const InfoCard = ut.div`
   transition: border-color 0.2s;
   &:hover { border-color: rgba(232,160,69,0.35); }
 `;
-const InfoIcon = ut.div`
+ut.div`
   width: 34px; height: 34px;
   border-radius: 8px;
   background: rgba(232,160,69,0.08);
@@ -15264,16 +15230,6 @@ const Item = ut.li`
     margin-top: 1px;
   }
 `;
-ut.span`
-  font-size: 0.6rem;
-  color: ${G$1};
-  border: 1px solid rgba(232,160,69,0.4);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 0.4rem;
-  vertical-align: middle;
-  opacity: 0.8;
-`;
 const ActivityItem = ut.li`
   font-size: 0.85rem;
   color: #aa99bb;
@@ -15304,12 +15260,12 @@ const ActivitySub = ut.div`
   padding-left: 0.1rem;
 `;
 const infoItems = [
-  { icon: "👤", label: "이름", value: "김한결 (Kim HanKyeol)" },
-  { icon: "📅", label: "생년월일", value: "2000.12.02" },
-  { icon: "✉️", label: "이메일", value: "kyeol1202@naver.com" },
-  { icon: "⌨️", label: "GitHub", value: "github.com/kyeol1202" },
-  { icon: "🎨", label: "희망 직무", value: "3D 아티스트 / 게임 그래픽" },
-  { icon: "🛡️", label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
+  { label: "이름", value: "김한결 (Kim HanKyeol)" },
+  { label: "생년월일", value: "2000.12.02" },
+  { label: "이메일", value: "kyeol1202@naver.com" },
+  { label: "GitHub", value: "github.com/kyeol1202" },
+  { label: "희망 직무", value: "3D 아티스트 / 게임 그래픽" },
+  { label: "병역", value: "육군 병장 만기전역 (2020~2022)" }
 ];
 function ArtistAbout() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { id: "a-about", children: [
@@ -15336,13 +15292,10 @@ function ArtistAbout() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(ProfileRight, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(BioText, { children: "게임 그래픽과 3D 아트를 전공하며 모델링·텍스처·조명까지 폭넓은 경험을 쌓았습니다. 게임잼 참가, 게임개발 기능경기대회 출전, 디지털 아트 동아리 활동을 통해 창의적인 비주얼을 만들어왔습니다. 현재는 개발 역량과 아트 감각을 함께 활용해 더 넓은 분야에 도전하고 있습니다." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid, { children: infoItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoCard, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoIcon, { children: item.icon }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel, { children: item.label }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue, { children: item.value })
-          ] })
-        ] }, item.label)) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(InfoGrid, { children: infoItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(InfoCard, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(InfoText, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoLabel, { children: item.label }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(InfoValue, { children: item.value })
+        ] }) }, item.label)) })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(DetailGrid, { children: [
@@ -15765,7 +15718,7 @@ const SkillCard = ut.div`
   &:hover { border-color: ${G}55; }
 `;
 const SkillCardHeader = ut.div`display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.2rem;`;
-const SkillCardIcon = ut.span`font-size: 1.1rem;`;
+ut.span`font-size: 1.1rem;`;
 const SkillCardLabel = ut.h3`
   font-size: 0.72rem; font-weight: 700; color: ${G};
   letter-spacing: 0.14em; text-transform: uppercase;
@@ -15773,7 +15726,7 @@ const SkillCardLabel = ut.h3`
 const SkillList = ut.div`display: flex; flex-direction: column; gap: 0.65rem;`;
 const SkillRow = ut.div`display: flex; align-items: center; justify-content: space-between; gap: 1rem;`;
 const SkillLeft = ut.div`display: flex; align-items: center; gap: 0.55rem; min-width: 0;`;
-const SkillEmoji = ut.span`font-size: 1rem; flex-shrink: 0;`;
+ut.span`font-size: 1rem; flex-shrink: 0;`;
 const SkillName = ut.span`font-size: 0.88rem; color: #ccc; font-weight: 500; white-space: nowrap;`;
 const Dots = ut.div`display: flex; gap: 4px; flex-shrink: 0;`;
 const Dot = ut.div`
@@ -15783,36 +15736,32 @@ const Dot = ut.div`
 `;
 const artistSkills = [
   {
-    icon: "🧊",
     label: "3D 모델링",
     skills: [
-      { emoji: "🫐", name: "Blender", level: 4 },
-      { emoji: "🪨", name: "ZBrush", level: 3 },
-      { emoji: "🎬", name: "Maya", level: 3 }
+      { name: "Blender", level: 4 },
+      { name: "ZBrush", level: 3 },
+      { name: "Maya", level: 3 }
     ]
   },
   {
-    icon: "🎨",
     label: "텍스처 / 렌더링",
     skills: [
-      { emoji: "🖌️", name: "Substance Painter", level: 4 },
-      { emoji: "🖼️", name: "Photoshop", level: 4 },
-      { emoji: "✏️", name: "Illustrator", level: 3 }
+      { name: "Substance Painter", level: 4 },
+      { name: "Photoshop", level: 4 },
+      { name: "Illustrator", level: 3 }
     ]
   },
   {
-    icon: "🕹️",
     label: "게임 엔진",
     skills: [
-      { emoji: "🎮", name: "Unity", level: 3 },
-      { emoji: "⚡", name: "Unreal Engine", level: 2 }
+      { name: "Unity", level: 3 },
+      { name: "Unreal Engine", level: 2 }
     ]
   },
   {
-    icon: "🛠️",
     label: "디자인 도구",
     skills: [
-      { emoji: "🎯", name: "Figma", level: 3 }
+      { name: "Figma", level: 3 }
     ]
   }
 ];
@@ -15871,7 +15820,6 @@ const personalWorks = [
   {
     name: "개인 작업 1",
     desc: "개인 3D 포트폴리오 작업물. 업데이트 예정.",
-    icon: "🗿",
     bg: "linear-gradient(135deg,#1a0a30,#2d1200)",
     tags: ["Blender", "Substance Painter"],
     link: null
@@ -15879,7 +15827,6 @@ const personalWorks = [
   {
     name: "개인 작업 2",
     desc: "캐릭터 디자인 및 리깅. 업데이트 예정.",
-    icon: "🧊",
     bg: "linear-gradient(135deg,#001a2a,#0a1a00)",
     tags: ["ZBrush", "Maya"],
     link: null
@@ -15887,7 +15834,6 @@ const personalWorks = [
   {
     name: "개인 작업 3",
     desc: "환경 아트 & 조명 연출. 업데이트 예정.",
-    icon: "🌌",
     bg: "linear-gradient(135deg,#0a001a,#1a0a00)",
     tags: ["Unreal Engine", "Blender"],
     link: null
@@ -15897,7 +15843,6 @@ const projectWorks = [
   {
     name: "AuRA — 향수 웹사이트",
     desc: "국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. 팀 리더 참여.",
-    icon: "🌸",
     bg: "linear-gradient(135deg,#1a0a20,#200a10)",
     tags: ["Figma", "React.js", "MariaDB"],
     link: "https://github.com/kyeol1202/Team4-Project"
@@ -15905,7 +15850,6 @@ const projectWorks = [
   {
     name: "기업 수익성 자동분석 시스템",
     desc: "DART → Python 정제 → 엑셀 출력 전 과정 자동화 파이프라인.",
-    icon: "📊",
     bg: "linear-gradient(135deg,#0a1a10,#1a1000)",
     tags: ["Python", "BrityRPA", "Excel"],
     link: null
@@ -15913,7 +15857,6 @@ const projectWorks = [
   {
     name: "차세대 AI Solution ERP",
     desc: "Spring 기반 인사·급여·매출·재무 통합 ERP. 팀장 참여.",
-    icon: "🏗️",
     bg: "linear-gradient(135deg,#0a0a20,#201000)",
     tags: ["Java", "Spring", "MariaDB"],
     link: "https://github.com/ArLyehee/MainProjectERP"
@@ -16045,15 +15988,9 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(SkillGrid, { children: artistSkills.map((cat, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.08, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillCard, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillCardHeader, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardIcon, { children: cat.icon }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardLabel, { children: cat.label })
-          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(SkillCardLabel, { children: cat.label }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(SkillList, { children: cat.skills.map((skill) => /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillRow, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(SkillLeft, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(SkillEmoji, { children: skill.emoji }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name })
-            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(SkillLeft, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(SkillName, { children: skill.name }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(Dots, { children: [1, 2, 3, 4, 5].map((n) => /* @__PURE__ */ jsxRuntimeExports.jsx(Dot, { $f: n <= skill.level }, n)) })
           ] }, skill.name)) })
         ] }) }, cat.label)) })
@@ -16067,7 +16004,7 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: personalWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
             w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
@@ -16085,7 +16022,7 @@ function ArtistPage({ onBackToDev, onLandingDone }) {
           /* @__PURE__ */ jsxRuntimeExports.jsx(SecDivider, {})
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(CardGrid, { children: projectWorks.map((w2, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Reveal, { delay: i * 0.12, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg, children: w2.icon }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Thumb, { $bg: w2.bg }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(CardBody, { children: [
             w2.link && /* @__PURE__ */ jsxRuntimeExports.jsx(IconLink, { href: w2.link, target: "_blank", children: "GitHub ↗" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(CardName, { children: w2.name }),
