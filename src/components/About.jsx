@@ -253,7 +253,7 @@ function About() {
         <ProfileRow>
           <PhotoWrap>
             <ProfilePhoto
-              src="/profile.jpg"
+              src={`${import.meta.env.BASE_URL}profile.jpg`}
               alt="HanKyeol"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
