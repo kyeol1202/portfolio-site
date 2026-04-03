@@ -375,7 +375,7 @@ function About() {
                     <ActivityMain>
                       <em>2022–2023</em>개발동아리 <strong style={{color:'#ccc'}}>Adiutor</strong>
                     </ActivityMain>
-                    <ActivitySub>서강대 미래교육원 — 웹/앱 개발 · 2023 부회장 역임</ActivitySub>
+                    <ActivitySub>서강대 미래교육원 — 게임 개발 · 2023 부회장 역임</ActivitySub>
                   </ActivityBody>
                 </ActivityItem>
               </ItemList>

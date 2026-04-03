@@ -529,42 +529,43 @@ const GoldBtn = styled.button`
 /* ── 작품 데이터 ── */
 const personalWorks = [
   {
-    name: '개인 작업 1', desc: '개인 3D 포트폴리오 작업물. 업데이트 예정.',
+    name: '개인 작업 1', desc: '중세 3D 오브젝트 작업물.',
     bg: 'linear-gradient(135deg,#1a0a30,#2d1200)',
-    tags: ['Blender', 'Substance Painter'], link: null,
+    tags: ['Unreal Engine', '3DsMax', 'Substance Painter','Zbrush' , 'Photoshop'], link: null,
   },
   {
-    name: '개인 작업 2', desc: '캐릭터 디자인 및 리깅. 업데이트 예정.',
+    name: '개인 작업 2', desc: '포스트아포칼립스 3D 배경 작업물.',
     bg: 'linear-gradient(135deg,#001a2a,#0a1a00)',
-    tags: ['ZBrush', 'Maya'], link: null,
+    tags: ['Unreal Engine', '3DsMax', 'Substance Painter','Photoshop', 'Marmoset Toolbag'], link: null,
   },
   {
-    name: '개인 작업 3', desc: '환경 아트 & 조명 연출. 업데이트 예정.',
+    name: '개인 작업 3', desc: '중세 판타지 3D 오브젝트 작업물.',
     bg: 'linear-gradient(135deg,#0a001a,#1a0a00)',
-    tags: ['Unreal Engine', 'Blender'], link: null,
+    tags: ['Unreal Engine', '3DsMax', 'Substance Painter','Photoshop', 'Zbrush'], link: null,
   },
 ];
 
 const projectWorks = [
   {
-    name: 'AuRA — 향수 웹사이트',
-    desc: '국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. 팀 리더 참여.',
+    name: 'Lighting',
+    desc: '넷마블 게임아카데미 게임 프로젝트 / 공포게임 / 기획 및 아트',
     bg: 'linear-gradient(135deg,#1a0a20,#200a10)',
-    tags: ['Figma', 'React.js', 'MariaDB'],
-    link: 'https://github.com/kyeol1202/Team4-Project',
+    tags: ['Unity', '3DsMax', 'Photoshop'],
+    link: '',
   },
   {
-    name: '기업 수익성 자동분석 시스템',
-    desc: 'DART → Python 정제 → 엑셀 출력 전 과정 자동화 파이프라인.',
+    name: '그 남자 그 여자',
+    desc: '게임잼 게임 프로젝트 / 2D 도트 퍼즐게임 / 배경 및 도트 애니메이션',
     bg: 'linear-gradient(135deg,#0a1a10,#1a1000)',
-    tags: ['Python', 'BrityRPA', 'Excel'], link: null,
+    tags: ['Unity', 'Photoshop'],
+    link: '',
   },
   {
-    name: '차세대 AI Solution ERP',
-    desc: 'Spring 기반 인사·급여·매출·재무 통합 ERP. 팀장 참여.',
+    name: 'Granpa talk wiht top' ,
+    desc: '학교 프로젝트 / 스팀펑크 3D 액션어드벤쳐 / AD , 3D 배경 , 오브젝트',
     bg: 'linear-gradient(135deg,#0a0a20,#201000)',
-    tags: ['Java', 'Spring', 'MariaDB'],
-    link: 'https://github.com/ArLyehee/MainProjectERP',
+    tags: ['Unity', '3DsMax', 'Sunbstance Painter' ,'HDRP' , 'Notion'],
+    link: '',
   },
 ];
 
