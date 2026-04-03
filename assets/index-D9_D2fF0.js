@@ -15966,11 +15966,17 @@ const DevBackBtn = ut.button`
   &:hover { background: rgba(74,158,255,0.1); transform: translateY(-2px); }
 `;
 function App() {
+  const initialPage = (() => {
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get("for");
+    if (role === "designer") return "artist";
+    return "developer";
+  })();
   const [landingDone, setLandingDone] = reactExports.useState(false);
   const [artistLandingDone, setArtistLanding] = reactExports.useState(false);
-  const [page, setPage] = reactExports.useState("developer");
+  const [page, setPage] = reactExports.useState(initialPage);
   const [transitioning, setTransition] = reactExports.useState(false);
-  const [toArtist, setToArtist] = reactExports.useState(true);
+  const [toArtist, setToArtist] = reactExports.useState(initialPage === "artist");
   const [waveOriginX, setWaveOriginX] = reactExports.useState(0.92);
   reactExports.useEffect(() => {
     const shouldHide = !landingDone && page === "developer";
