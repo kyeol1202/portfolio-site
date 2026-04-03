@@ -43,11 +43,18 @@ const DevBackBtn = styled.button`
 `;
 
 function App() {
+  const initialPage = (() => {
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get('for');
+    if (role === 'designer') return 'artist';
+    return 'developer';
+  })();
+
   const [landingDone, setLandingDone]         = useState(false);
   const [artistLandingDone, setArtistLanding] = useState(false);
-  const [page, setPage]                        = useState('developer');
+  const [page, setPage]                        = useState(initialPage);
   const [transitioning, setTransition]         = useState(false);
-  const [toArtist, setToArtist]                = useState(true);
+  const [toArtist, setToArtist]                = useState(initialPage === 'artist');
   /* 웨이브 발원 좌표: 아티스트 버튼(우측) 또는 개발자 버튼(좌측) */
   const [waveOriginX, setWaveOriginX]          = useState(0.92);
 
