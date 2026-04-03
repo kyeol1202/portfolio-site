@@ -14658,7 +14658,7 @@ const projects = [
   {
     name: "AuRA — 향수 쇼핑몰 웹 서비스",
     description: "국내 향수 트렌드 기반 큐레이션 기능을 포함한 향수 쇼핑몰. React.js 기반 SPA로 설계.",
-    tags: ["JavaScript", "React.js", "MariaDB", "Figma"],
+    tags: ["JavaScript", "React.js", "MariaDB", "Figma", "Notion"],
     github: "https://github.com/kyeol1202/Team4-Project"
   },
   {
@@ -14670,7 +14670,7 @@ const projects = [
   {
     name: "수익관리 & AI 예측 ERP 시스템",
     description: "Spring 기반 인사·급여·매출·재무를 통합하는 ERP 웹 시스템. 단방향 연쇄 데이터 구조 설계.",
-    tags: ["Java", "Spring", "MariaDB", "Python"],
+    tags: ["Java", "Spring", "MariaDB", "Python", "BrityRPA", "Excel", "Notion"],
     github: "https://github.com/ArLyehee/MainProjectERP"
   }
 ];
